@@ -1,3 +1,5 @@
+## 📋 TMPL-004_ONBOARD_ADMIN.md (v2.4.1)
+
 # TMPL-004: ONBOARD_<CCC>_<PROJECT>_ADMIN.md
 
 ## Version
@@ -5,8 +7,9 @@
 | Field | Value |
 |-------|-------|
 | ID | TMPL-004 |
-| Version | v2.4.0 |
+| Version | v2.4.1 |
 | Created | 2026-01-17 |
+| Updated | 2026-01-17 |
 | Source | GTM_2026-W03_577 |
 | Status | 🟢 ACTIVE |
 
@@ -16,7 +19,7 @@
 
 ### Usage
 
-1. Copy this template
+1. Copy this template (from TEMPLATE START to TEMPLATE END)
 2. Replace all `<PLACEHOLDER>` values
 3. Save as `ONBOARD_<CCC>_<PROJECT>_ADMIN.md`
 4. Upload to target instance RAG
@@ -25,12 +28,13 @@
 
 | Placeholder | Replace With | Example |
 |-------------|--------------|---------|
-| `<CCC>` | Contributor Code Convention | GTM |
+| `<CCC>` | Contributor Code Convention (UPPERCASE) | GTM |
+| `<ccc>` | Contributor Code Convention (lowercase) | gtm |
 | `<PROJECT>` | Project name | CONNEX |
 | `<CHARACTER>` | AI persona | Vanellope 🍬 |
 | `<DATE>` | Creation date | 2026-01-17 |
-| `<NNN>` | Instance number | 002 |
-| `<URL>` | Instance URL | https://... |
+| `<NNN>` | Instance number | 001 |
+| `<URL>` | Instance URL | [AI.WeOwn.Agency](https://ai.weown.agency/) |
 | `<ROLE>` | Team role | Founder |
 | `<TBD>` | To be determined | — |
 
@@ -38,15 +42,17 @@
 
 ## 📋 TEMPLATE START
 
+---
+
 # ONBOARD_<CCC>_<PROJECT>_ADMIN.md
 
 ## Version
 
 | Field | Value |
 |-------|-------|
-| Version | v2.4.0 |
+| Version | v2.4.1 |
 | Created | <DATE> |
-| Source | GTM_2026-W03_576 |
+| Source | GTM_2026-W03_577 |
 
 ---
 
@@ -112,9 +118,11 @@
 
 | Prefix | Role | Example |
 |--------|------|---------|
-| u- | Default user | u-<CCC> |
-| m- | MAIT:#MetaAgentInTraining | m-<CCC> |
-| a- | Admin | a-<CCC> |
+| u- | Default user | u-<ccc> |
+| m- | MAIT:#MetaAgentInTraining | m-<ccc> |
+| a- | Admin | a-<ccc> |
+
+**RULE: #AnythingLLM usernames MUST be LOWERCASE (R-101)**
 
 ---
 
@@ -122,7 +130,7 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Create user accounts | ⬜ |
+| 1 | Create user accounts (lowercase) | ⬜ |
 | 2 | Create workspaces | ⬜ |
 | 3 | Assign workspace access | ⬜ |
 | 4 | Apply system prompts | ⬜ |
@@ -144,6 +152,7 @@
 | 6 | RAG upload BEFORE agent use |
 | 7 | Test after every configuration change |
 | 8 | Document all changes |
+| 9 | Usernames MUST be lowercase (R-101) |
 
 ---
 
@@ -206,5 +215,7 @@
 #FlowsBros #FedArch #AnythingLLM #ADMIN
 
 ♾️ WeOwnNet 🌐
+
+---
 
 ## 📋 TEMPLATE END
