@@ -1,15 +1,13 @@
-## 📋 #SharedKernel.md (v2.4.0)
-
-# #SharedKernel.md
+# SharedKernel.md v2.4.1
 
 ## Version
 
 | Field | Value |
 |-------|-------|
-| Version | v2.4.0 |
+| Version | v2.4.1 |
 | Created | 2026-01-18 |
-| Updated | 2026-01-18 |
-| Source | GTM_2026-W03_611 |
+| Updated | 2026-01-20 |
+| Source | GTM_2026-W04_043 |
 | Status | ✅ #SharedKernel |
 
 ---
@@ -43,14 +41,16 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 
 ## 📋 NETWORK — CCC REGISTRY
 
-| CCC | Human | AI Agent | Persona | Role |
-|-----|-------|----------|---------|------|
-| GTM | yonks | AI:@GTM | Vanellope 🍬 | Founder / Host |
-| THY | mrsyonks | AI:@THY | TBD | Co-Founder |
-| ILO | IamLotus | AI:@ILO | TBD | Co-Founder |
-| RMN | Roman | AI:@RMN | Surge ⚡ | AI Platform Engineer |
-| LFG | CoachLFG | AI:@LFG | TBD | Co-Host / Coach |
-| LDC | LDC | AI:@LDC | TBD | AI Project Architect |
+| CCC | Human | AI Agent | Persona | Role | Instance |
+|-----|-------|----------|---------|------|----------|
+| GTM | yonks | AI:@GTM | Vanellope 🍬 | Founder / Host | INT-001 |
+| THY | mrsyonks | AI:@THY | TBD | Co-Founder | — |
+| ILO | IamLotus | AI:@ILO | TBD | Co-Founder | — |
+| RMN | Roman | AI:@RMN | Surge ⚡ | MAIT | — |
+| LFG | CoachLFG | AI:@LFG | TBD | Co-Host / Coach | — |
+| LDC | LDC | AI:@LDC | TBD | AI Project Architect | INT-002 |
+| IAL | IAL | AI:@IAL | TBD | USER | INT-001 |
+| SHD | SHD | AI:@SHD | Fix-It Felix 🔧 | ADMIN | INT-002 |
 
 ---
 
@@ -63,12 +63,14 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 
 ---
 
-## 📋 TEMPLATES
+## 📋 DOCUMENTATION
 
-| ID | Name | Version | Type | Path |
-|----|------|---------|------|------|
-| TMPL-004 | ONBOARD_<CCC>_<PROJECT>_ADMIN.md | v2.4.1 | ADMIN | /AnythingLLM/TMPL-004_ONBOARD_ADMIN.md |
-| TMPL-005 | ONBOARD_<CCC>_<PROJECT>_USER.md | v2.4.0 | USER | /AnythingLLM/TMPL-005_ONBOARD_USER.md |
+| File | Version | Type | Path |
+|------|---------|------|------|
+| SharedKernel.md | v2.4.1 | Core | /AnythingLLM/SharedKernel.md |
+| PROTOCOLS.md | v2.4.0 | Protocols | /AnythingLLM/PROTOCOLS.md |
+| TMPL-004_ONBOARD_ADMIN.md | v2.4.1 | Template | /AnythingLLM/TMPL-004_ONBOARD_ADMIN.md |
+| TMPL-005_ONBOARD_USER.md | v2.4.0 | Template | /AnythingLLM/TMPL-005_ONBOARD_USER.md |
 
 **GH Repo:** [github.com/WeOwnNet/templates](https://github.com/WeOwnNet/templates)
 
@@ -85,6 +87,8 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | FULL:SYNC:P2P | Peer-to-Peer Sync | 8-packet sync between peer agents |
 | FULL:SYNC:META | MetaAgent Sync | Session summary to #MetaAgent |
 | SEEK:META | Guidance Request | Request guidance from #MetaAgent |
+
+**Full details:** See [PROTOCOLS.md](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md)
 
 ---
 
@@ -110,6 +114,13 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | R-101 | Usernames = LOWERCASE |
 | R-102 | Multi-user mode = NOT reversible |
 | R-103 | Default users can only access assigned workspaces |
+| R-106 | AI CANNOT APPROVE — only human approves |
+| R-107 | #OnlyHumanApproves — AI proposes, human disposes |
+| R-108 | CCC-ID: Only `<USER>:ai:<USER>` creates their own CCC-IDs |
+| R-109 | #MetaAgent CANNOT create CCC-IDs for other agents |
+| R-110 | #MetaAgent responds WITHIN existing CCC-ID |
+| R-111 | SharedKernel.md: update when roster changes |
+| R-112 | SharedKernel.md: cross-reference all #SharedKernel docs |
 
 ---
 
@@ -122,6 +133,7 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | BP-010 | 1 workspace per agent |
 | BP-011 | Use drag/drop or paste — avoid hotdir |
 | BP-012 | Workspace-specific LLM overrides system LLM |
+| BP-013 | PATCH version for roster/reference updates |
 
 ---
 
@@ -182,10 +194,10 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 |-------|-------------|---------|
 | CCC | Contributor Code | GTM |
 | YYYY | Year | 2026 |
-| WW | ISO Week | W03 |
-| NNN | Sequence | 611 |
+| WW | ISO Week | W04 |
+| NNN | Sequence | 043 |
 
-**Example:** GTM_2026-W03_611
+**Example:** GTM_2026-W04_043
 
 ---
 
