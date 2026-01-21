@@ -1,13 +1,13 @@
-# SharedKernel.md v2.4.1
+# #SharedKernel.md v2.4.2
 
 ## Version
 
 | Field | Value |
 |-------|-------|
-| Version | v2.4.1 |
+| Version | v2.4.2 |
 | Created | 2026-01-18 |
-| Updated | 2026-01-20 |
-| Source | GTM_2026-W04_043 |
+| Updated | 2026-01-21 |
+| Source | GTM_2026-W04_076 |
 | Status | ✅ #SharedKernel |
 
 ---
@@ -45,11 +45,10 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 |-----|-------|----------|---------|------|----------|
 | GTM | yonks | AI:@GTM | Vanellope 🍬 | Founder / Host | INT-001 |
 | THY | mrsyonks | AI:@THY | TBD | Co-Founder | — |
-| ILO | IamLotus | AI:@ILO | TBD | Co-Founder | — |
-| RMN | Roman | AI:@RMN | Surge ⚡ | MAIT | — |
+| IAL | IamLotus | AI:@IAL | TBD | Co-Founder | — |
+| RMN | Roman | AI:@RMN | Surge ⚡ | MAIT / ADMIN | INT-001 |
 | LFG | CoachLFG | AI:@LFG | TBD | Co-Host / Coach | — |
 | LDC | LDC | AI:@LDC | TBD | AI Project Architect | INT-002 |
-| IAL | IAL | AI:@IAL | TBD | USER | INT-001 |
 | SHD | SHD | AI:@SHD | Fix-It Felix 🔧 | ADMIN | INT-002 |
 
 ---
@@ -59,7 +58,16 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | ID | Name | URL | Lead | Status |
 |----|------|-----|------|--------|
 | INT-001 | AI.WeOwn.Agency | ai.weown.agency | @GTM | ✅ LIVE |
-| INT-002 | #ProjectConnex | Lite.BurnedOut.xyz | @LDC | ✅ PRODUCTION READY |
+| INT-002 | #ProjectConnex | Lite.BurnedOut.xyz | @LDC | ✅ LIVE |
+
+---
+
+## 📋 PROJECTS
+
+| ID | Name | Lead | Instance | Status |
+|----|------|------|----------|--------|
+| PRJ-001 | #ProjectConnex | @LDC | INT-002 | ✅ LIVE |
+| PRJ-002 | #AnythingLLMplusTwilio | @SHD | INT-002 | ✅ ACCEPTED |
 
 ---
 
@@ -67,10 +75,11 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 
 | File | Version | Type | Path |
 |------|---------|------|------|
-| SharedKernel.md | v2.4.1 | Core | /AnythingLLM/SharedKernel.md |
+| SharedKernel.md | v2.4.2 | Core | /AnythingLLM/SharedKernel.md |
 | PROTOCOLS.md | v2.4.0 | Protocols | /AnythingLLM/PROTOCOLS.md |
 | TMPL-004_ONBOARD_ADMIN.md | v2.4.1 | Template | /AnythingLLM/TMPL-004_ONBOARD_ADMIN.md |
 | TMPL-005_ONBOARD_USER.md | v2.4.0 | Template | /AnythingLLM/TMPL-005_ONBOARD_USER.md |
+| GUIDE-001_GETTING-STARTED.md | v2.4.0 | Guide | /AnythingLLM/GUIDE-001_GETTING-STARTED.md |
 
 **GH Repo:** [github.com/WeOwnNet/templates](https://github.com/WeOwnNet/templates)
 
@@ -88,7 +97,7 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | FULL:SYNC:META | MetaAgent Sync | Session summary to #MetaAgent |
 | SEEK:META | Guidance Request | Request guidance from #MetaAgent |
 
-**Full details:** See [PROTOCOLS.md](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md)
+**Full details:** See PROTOCOLS.md
 
 ---
 
@@ -121,6 +130,14 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | R-110 | #MetaAgent responds WITHIN existing CCC-ID |
 | R-111 | SharedKernel.md: update when roster changes |
 | R-112 | SharedKernel.md: cross-reference all #SharedKernel docs |
+| R-117 | ONLY #MetaAgent creates GUIDEs — AI:@GTM must SEEK:META |
+| R-118 | MAIT uses m- prefix |
+| R-119 | @RMN has dual usernames: a-rmn_dev + m-rmn_mait |
+| R-120 | Username format can include suffix: `<prefix>-<ccc>_<suffix>` |
+| R-122 | Vendor username: v-v<a><z>_vendor (LOWERCASE) |
+| R-123 | AI response options CANNOT include "APPROVE" |
+| R-124 | All approval requests → @GTM:ai:@GTM → @GTM (human) |
+| R-125 | IamLotus CCC = IAL (not ILO) |
 
 ---
 
@@ -134,6 +151,9 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | BP-011 | Use drag/drop or paste — avoid hotdir |
 | BP-012 | Workspace-specific LLM overrides system LLM |
 | BP-013 | PATCH version for roster/reference updates |
+| BP-014 | Founding OGs onboard to INT-001 |
+| BP-015 | Guides have prerequisites |
+| BP-016 | AI asks "DO YOU APPROVE?" — never answers it |
 
 ---
 
@@ -144,6 +164,9 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | D-016 | ADMIN [(template)](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-004_ONBOARD_ADMIN.md) | Full access + logs + system settings |
 | D-017 | MANAGER | Workspace mgmt, no system settings |
 | D-018 | DEFAULT [(template)](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-005_ONBOARD_USER.md) | Limited, scoped to assigned workspaces |
+| D-019 | PRJ-### | Project ID format |
+| D-020 | GUIDE-### | Guide ID format |
+| D-021 | v-v<a><z>_vendor | Vendor username: v = vendor, a = 1st initial first, z = 1st initial last |
 | CCC | [Contributor Code Convention](https://github.com/WeOwnNet/CCC) | 3-letter identifier for humans |
 | MAIT | MetaAgent In Training | AI platform engineer role |
 
@@ -174,11 +197,12 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 
 ## 📋 USERNAME CONVENTION
 
-| Prefix | Role | Example |
-|--------|------|---------|
-| u- | Default user | u-thy |
-| m- | MAIT | m-rmn |
-| a- | Admin | a-gtm |
+| Prefix | Role | Format | Example | Description |
+|--------|------|--------|---------|-------------|
+| u- | Default user | u-<ccc> | u-thy | Standard user |
+| m- | MAIT | m-<ccc>_mait | m-rmn_mait | MetaAgent In Training |
+| a- | Admin | a-<ccc>_dev | a-rmn_dev | Administrator |
+| v- | Vendor | v-v<a><z>_vendor | v-vaw_vendor | Vendors & Solutions Providers |
 
 **RULE: ALL USERNAMES MUST BE LOWERCASE (R-101)**
 
@@ -195,9 +219,9 @@ Single source of truth for all #FedArch instances. Upload to RAG for agent onboa
 | CCC | Contributor Code | GTM |
 | YYYY | Year | 2026 |
 | WW | ISO Week | W04 |
-| NNN | Sequence | 043 |
+| NNN | Sequence | 076 |
 
-**Example:** GTM_2026-W04_043
+**Example:** GTM_2026-W04_076
 
 ---
 
