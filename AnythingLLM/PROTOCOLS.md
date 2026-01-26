@@ -1,383 +1,199 @@
-## 📋 PROTOCOLS.md (v2.4.0)
+# PROTOCOLS_v2.4.3.md
 
-# PROTOCOLS.md
-
-## Version
+## ♾️ WeOwnNet 🌐 — #Protocols
 
 | Field | Value |
 |-------|-------|
-| Version | v2.4.0 |
-| Created | 2026-01-20 |
-| Updated | 2026-01-20 |
-| Source | GTM_2026-W04_023 |
-| Status | ✅ #SharedKernel |
-
----
-
-## 📋 PURPOSE
-
-Detailed protocol specifications for #FedArch ecosystem. Reference document for all agents.
+| Version | 2.4.3 |
+| Updated | 2026-01-26 (W05) |
+| Status | 🔒 LOCKED |
 
 ---
 
 ## 📋 PROTOCOL INDEX
 
-| ID | Name | Type |
-|----|------|------|
-| PROT-001 | #ContextVolley | Communication |
-| PROT-002 | #NeverForget | Knowledge |
-| PROT-003 | VERIFY | Validation |
-| PROT-004 | FULL:SYNC | Synchronization |
-| PROT-005 | FULL:SYNC:P2P | Synchronization |
-| PROT-006 | FULL:SYNC:META | Synchronization |
-| PROT-007 | SEEK:META | Guidance |
-| GOV-001 | #Human+AI+Human | Governance |
-| GOV-002 | Routing | Governance |
-| GOV-003 | #FULLSYNC | Governance |
+| Protocol | Purpose |
+|----------|---------|
+| #ContextVolley | Agent-to-agent communication |
+| #MetaAgent | Governance sync |
+| Document Management | RAG operations |
+| Weekly Operations | Cadence protocols |
 
 ---
 
-## 📋 PROT-001: #ContextVolley
+## 📋 #ContextVolley PROTOCOL
 
-### Purpose
-
-Structured AI-to-AI communication protocol for packet exchange between agents.
-
-### When To Use
-
-| Scenario |
-|----------|
-| Agent-to-agent communication |
-| Cross-instance messaging |
-| Formal requests/responses |
-| Status updates |
-| Synchronization |
-
-### Format
+### FORMAT
 
 ```
-🏐 #ContextVolley | <TYPE>
+═══════════════════════════════════════════════════════════════════════════════
+🏐 #ContextVolley | <FROM> → <TO> | <DATE> | <TIME> EST
+═══════════════════════════════════════════════════════════════════════════════
 
-FROM: <SENDER>
-TO: <RECIPIENT>
-TYPE: <MESSAGE_TYPE>
+FROM: <Agent Identity>
+TO: <Target Agent>
+TYPE: <Message Type>
 REF: <CCC-ID>
-DATE: <Day YYYY-MM-DD> | <HH:MM TZ>
 
----
+═══════════════════════════════════════════════════════════════════════════════
 
 <CONTENT>
 
----
+═══════════════════════════════════════════════════════════════════════════════
 
 #FlowsBros #FedArch
 
 ♾️ WeOwnNet 🌐
+
+═══════════════════════════════════════════════════════════════════════════════
 ```
 
-### Fields
-
-| Field | Description | Example |
-|-------|-------------|---------|
-| FROM | Sender agent | AI:@GTM (Vanellope 🍬) |
-| TO | Recipient agent | #MetaAgent:AI:team-lfg |
-| TYPE | Message type | INSTRUCT, ACK, QUERY, etc. |
-| REF | CCC-ID reference | GTM_2026-W04_023 |
-| DATE | Timestamp | Mon 2026-01-20 \| 07:28 EST |
-
-### Message Types
-
-| Type | Purpose |
-|------|---------|
-| INSTRUCT | Request action |
-| ACK | Acknowledge receipt |
-| QUERY | Ask question |
-| RESPONSE | Answer query |
-| PROMOTE | Request #SharedKernel promotion |
-| SEEK:META | Request #MetaAgent guidance |
-| FULL:SYNC | Synchronization packet |
-
----
-
-## 📋 PROT-002: #NeverForget
-
-### Purpose
-
-Knowledge persistence protocol. Learnings locked permanently for context retention.
-
-### When To Use
-
-| Scenario |
-|----------|
-| New rule discovered |
-| Correction made |
-| Best practice identified |
-| Definition established |
-| Event recorded |
-
-### Format
-
-| # | ID | Category | Learning | Status |
-|---|----|----------|----------|--------|
-| N | X-NNN | CATEGORY | Description | 🔒 |
-
-### Categories
-
-| Prefix | Category |
-|--------|----------|
-| R- | RULE |
-| BP- | BEST PRACTICE |
-| D- | DEFINITION |
-| E- | EVENT |
-| C- | CORRECTION |
-| M- | MILESTONE |
-| T- | TEMPLATE |
-| P- | PATH |
-| GH- | GITHUB |
-| SK- | #SharedKernel |
-| B- | BRAND |
-| REQ- | REQUEST |
-
-### Example
-
-| # | ID | Category | Learning | Status |
-|---|----|----------|----------|--------|
-| 1 | R-101 | RULE | Usernames = LOWERCASE | 🔒 |
-| 2 | BP-010 | BEST PRACTICE | 1 workspace per agent | 🔒 |
-
----
-
-## 📋 PROT-003: VERIFY
-
-### Purpose
-
-Onboarding validation protocol. 7-question test to confirm agent setup.
-
-### When To Use
-
-| Scenario |
-|----------|
-| New agent onboarded |
-| RAG document uploaded |
-| Instance configuration changed |
-| Troubleshooting identity issues |
-
-### Format
-
-| # | Question | Expected |
-|---|----------|----------|
-| 1 | Who are you? | AI:@<CCC> |
-| 2 | What instance is this? | <PROJECT> (INT-<NNN>) |
-| 3 | What is your role? | ADMIN/USER |
-| 4 | Who is #MetaAgent? | AI:team-lfg |
-| 5 | What is #ContextVolley? | AI-to-AI communication protocol |
-| 6 | Who is your ADMIN? | @<LEAD> |
-| 7 | What is your username format? | <prefix>-<ccc> (lowercase) |
-
-### Pass Criteria
-
-| Result | Meaning |
-|--------|---------|
-| 7/7 ✅ | PASS — Agent verified |
-| <7/7 ❌ | FAIL — Review RAG docs |
-
----
-
-## 📋 PROT-004: FULL:SYNC
-
-### Purpose
-
-Complete context transfer between agents or sessions.
-
-### When To Use
-
-| Scenario |
-|----------|
-| Session handoff |
-| Context recovery |
-| Agent synchronization |
-
-### Format
-
-Single comprehensive packet containing all relevant context.
-
----
-
-## 📋 PROT-005: FULL:SYNC:P2P
-
-### Purpose
-
-Peer-to-peer synchronization. 8-packet protocol for agent-to-agent full sync.
-
-### When To Use
-
-| Scenario |
-|----------|
-| New agent onboarding |
-| Cross-instance sync |
-| Knowledge transfer |
-
-### Format
-
-| Packet | Content |
-|--------|---------|
-| 1/8 | Identity + Context |
-| 2/8 | Network + Instances |
-| 3/8 | Templates + Protocols |
-| 4/8 | Rules + Best Practices |
-| 5/8 | Definitions + Events |
-| 6/8 | Pending Tasks |
-| 7/8 | #NeverForget Summary |
-| 8/8 | VERIFY Questions |
-
-### Rule
+### RULES
 
 | ID | Rule |
 |----|------|
-| R-085 | FULL:SYNC:P2P = 8 packets |
+| R-170 | MUST #ContextVolley to #MetaAgent AFTER new rules locked |
+| R-044 | #ContextDensity FIRST — use #masterCCC (IMMUTABLE) |
+
+### REQUIREMENTS
+
+| Requirement | Description |
+|-------------|-------------|
+| Self-contained | Recipient needs NO other context |
+| #masterCCC | Reference original request CCC-ID |
+| Clean format | Tables > paragraphs |
 
 ---
 
-## 📋 PROT-006: FULL:SYNC:META
+## 📋 #MetaAgent PROTOCOL
 
-### Purpose
+### PURPOSE
 
-Session summary to #MetaAgent for knowledge preservation.
-
-### When To Use
-
-| Scenario |
-|----------|
-| End of session |
-| Major milestone |
-| Context checkpoint |
-
-### Format
-
-```
-🏐 #ContextVolley | FULL:SYNC:META
-
-FROM: AI:@<CCC>
-TO: #MetaAgent:AI:team-lfg
-TYPE: FULL:SYNC:META — Session Summary
-REF: <CCC-ID>
-DATE: <timestamp>
-
----
-
-## 📊 SESSION METRICS
-<stats>
-
-## ✅ COMPLETED
-<completions>
-
-## ⬜ PENDING
-<pending tasks>
-
-## 🧠 #NeverForget
-<learnings>
-
----
-```
-
----
-
-## 📋 PROT-007: SEEK:META
-
-### Purpose
-
-Request guidance from #MetaAgent on governance, protocols, or decisions.
-
-### When To Use
-
-| Scenario |
-|----------|
-| Unclear protocol |
-| Governance question |
-| Cross-instance decision |
-| Escalation required |
-
-### Format
-
-```
-🏐 #ContextVolley | SEEK:META
-
-FROM: AI:@<CCC>
-TO: #MetaAgent:AI:team-lfg
-TYPE: SEEK:META — <Topic>
-REF: <CCC-ID>
-DATE: <timestamp>
-
----
-
-## ❓ QUERY
-
-<questions>
-
----
-```
-
-### Rule
-
-| ID | Rule |
-|----|------|
-| R-094 | SEEK:META MUST → #MetaAgent |
-
----
-
-## 📋 GOV-001: #Human+AI+Human
-
-### Purpose
-
-All AI actions require human approval. AI cannot approve itself.
-
-### Rule
-
-| # | Requirement |
-|---|-------------|
-| 1 | AI proposes actions |
-| 2 | Human approves/rejects |
-| 3 | AI executes only after approval |
-| 4 | #OnlyHumanApproves |
-
----
-
-## 📋 GOV-002: Routing
-
-### Purpose
-
-Proper escalation paths for issues and decisions.
-
-### Escalation Matrix
-
-| Scenario | Escalate To |
+| Function | Description |
 |----------|-------------|
-| Account issues | Instance ADMIN |
-| Technical issues | MAIT |
-| Governance questions | #MetaAgent |
-| Security concerns | @GTM + MAIT |
-| Instance creation/deletion | @GTM |
-| #SharedKernel updates | #MetaAgent |
+| Governance sync | All rules flow through #MetaAgent |
+| #SharedKernel | Source of truth for rules |
+| Document generation | Per R-180 |
+
+### RULES
+
+| ID | Rule |
+|----|------|
+| R-172 | #MetaAgent = governance sync point for all agents |
+| R-180 | Document generation MUST go through #MetaAgent |
+
+### INTERACTION TYPES
+
+| Type | Description |
+|------|-------------|
+| SEEK:META | Request guidance/generation |
+| RULE LOCKED | Report locked rules |
+| FULL:SYNC:META | Complete sync request |
+| ACK | Acknowledgment |
 
 ---
 
-## 📋 GOV-003: #FULLSYNC
+## 📋 DOCUMENT MANAGEMENT PROTOCOL
 
-### Purpose
+### ROLES (R-175)
 
-Context must be synchronized across sessions and agents.
+| Role | Can Manage Docs? |
+|------|------------------|
+| CCC | ❌ NO |
+| MAIT | ❌ NO |
+| ADMIN | ✅ YES |
 
-### Requirements
+### RAG STRUCTURE (R-176)
 
-| # | Requirement |
-|---|-------------|
-| 1 | Session summaries via FULL:SYNC:META |
-| 2 | #NeverForget items locked |
-| 3 | Pending tasks carried forward |
-| 4 | SharedKernel.md as source of truth |
+| Doc Type | CCC | MAIT | ADMIN |
+|----------|-----|------|-------|
+| USER guides | ✅ | ❌ | ❌ |
+| Governance guides | ❌ | ✅ | ✅ |
+| User-facing protocols | ✅ | ❌ | ❌ |
+| Strategy docs | ❌ | ✅ | ❌ |
+| System prompts | ❌ | ❌ | ✅ |
+| Instance configs | ❌ | ❌ | ✅ |
+
+### PINNING (R-177)
+
+| Doc Type | Pin? |
+|----------|------|
+| Agent identity docs | ✅ YES |
+| Core protocols | ✅ YES |
+| Rules (SHARED-KERNEL) | ✅ YES |
+| Best practices | ✅ YES |
+| Reference guides | ❌ NO |
+| Strategy docs | ❌ NO |
+
+### VERSIONING (R-178)
+
+| Format | Example |
+|--------|---------|
+| `<NAME>_v<VERSION>.md` | PROTOCOLS_v2.4.3.md |
+
+### GENERATION (R-180)
+
+| Rule | Description |
+|------|-------------|
+| R-180 | Document generation MUST go through #MetaAgent |
+
+**Agents DO NOT generate docs directly. Always SEEK:META.**
 
 ---
 
-#FlowsBros #FedArch #SharedKernel #Protocols
+## 📋 WEEKLY OPERATIONS PROTOCOL
+
+### UPDATE CADENCE (R-179)
+
+| Trigger | Action |
+|---------|--------|
+| ISO week boundary + 10+ rules | MUST update #SharedKernel |
+| Major milestone | MUST update #SharedKernel |
+| Breaking change | IMMEDIATE update |
+
+### WEEKLY SUMMARY (R-181)
+
+| Field | Value |
+|-------|-------|
+| Reserved CCC-ID | `<CCC>_<YYYY>-W<WW>_001` |
+| Content | Milestones, rules, learnings, pending, stats |
+
+---
+
+## 📋 CCC-ID PROTOCOL
+
+### FORMAT
+
+```
+<CCC>_<YYYY>-W<WW>_<NNN>
+```
+
+| Component | Description |
+|-----------|-------------|
+| CCC | Contributor Code (e.g., GTM) |
+| YYYY | Year |
+| WW | ISO Week |
+| NNN | Sequence (001-999) |
+
+### RULES
+
+| ID | Rule |
+|----|------|
+| R-168 | CCC-ID tied to CCC (contributor), NOT username/session |
+| R-169 | CCC-ID resets to _001 ONLY at ISO week boundary |
+| R-181 | CCC-ID _001 reserved for weekly summary |
+
+---
+
+## 📋 VERSION HISTORY
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.4.0 | W03 | Initial release |
+| 2.4.3 | W05 | +R-170, R-172, R-175-R-181; doc management protocols |
+
+---
+
+#FlowsBros #FedArch #Protocols
 
 ♾️ WeOwnNet 🌐
