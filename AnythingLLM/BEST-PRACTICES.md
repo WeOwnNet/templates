@@ -1,13 +1,13 @@
 # BEST-PRACTICES
 
-## 📋 BEST-PRACTICES_v2.4.4.md
+## 📋 BEST-PRACTICES_v2.4.5.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.4 |
-| CCC-ID | GTM_2026-W05_182 |
+| Version | 2.4.5 |
+| CCC-ID | GTM_2026-W05_245 |
 | Updated | 2026-01-27 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
@@ -55,8 +55,8 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-015 → BP-016 | Agent | 2 |
 | BP-017 → BP-018 | Workspace Configuration | 2 |
 | BP-019 | Core (Immutable) | 1 |
-| BP-020 → BP-023 | Documentation (NEW) | 4 |
-| **TOTAL** | | **23** |
+| BP-020 → BP-024 | Documentation (NEW) | 5 |
+| **TOTAL** | | **24** |
 
 ---
 
@@ -90,7 +90,7 @@ This document contains best practices for all contributors and agents in the ♾
 | Workspace | Prompt Focus |
 |-----------|--------------|
 | CCC | User interaction, CCC-ID generation |
-| tools | Strategy, SME, meta-cognition |
+| tools | Strategy, SME, meta-cognition, META + MAIT threads |
 | ADMIN | Administration functions, doc management |
 
 **Best Practice:** Each workspace MUST have dedicated workspace prompt aligned with its metaphor.
@@ -104,6 +104,15 @@ This document contains best practices for all contributors and agents in the ♾
 | INT-xxx | Instance-specific identity |
 
 **Best Practice:** Each #AnythingLLM instance MUST have unique system prompt defining its identity.
+
+### Initial Deployment
+
+| # | Workspace | Purpose |
+|---|-----------|---------|
+| 1 | tools | 🧠 THE BRAIN — META + MAIT threads |
+| 2 | CCC | 🤝 THE HANDS — Production (users) |
+
+**Best Practice:** Initial #FedArch deployment = 2 workspaces (tools + CCC).
 
 ---
 
@@ -126,7 +135,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Format | Example |
 |--------|---------|
-| `<NAME>_v<VERSION>.md` | SharedKernel_v2.4.5.md |
+| `<NAME>_v<VERSION>.md` | SharedKernel_v2.4.7.md |
 
 **Best Practice:** ALL RAG docs MUST include version in filename for visibility.
 
@@ -149,6 +158,7 @@ This document contains best practices for all contributors and agents in the ♾
 | Rule | Description |
 |------|-------------|
 | R-180 | Document generation MUST go through #MetaAgent |
+| R-197 | Document generation RESERVED ONLY for #MetaAgent — User Agents MUST NEVER #COOK docs |
 
 **Best Practice:** Agents DO NOT generate docs directly. Always SEEK:META.
 
@@ -169,6 +179,11 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 RAG STRUCTURE (R-176)
 
+- - -
+> - **#MAITlivesInAthread** — MAIT = thread within workspace:tools, NOT a separate workspace (GTM_2026-W05_237)
+- - -
+> - ⚠️ **FLAGGED FOR REVIEW** — @GTM + @RMN (GTM_2026-W05_225)
+
 | Doc Type | CCC | tools | ADMIN |
 |----------|-----|-------|-------|
 | USER guides | ✅ | ❌ | ❌ |
@@ -178,7 +193,7 @@ This document contains best practices for all contributors and agents in the ♾
 | System prompts | ❌ | ❌ | ✅ |
 | Instance configs | ❌ | ❌ | ✅ |
 
-**Best Practice:** Docs go in workspace matching their purpose.
+**Best Practice:** Docs go in workspace matching their purpose. workspace:tools = standard for #FedArch.
 
 ---
 
@@ -231,6 +246,20 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-020 | When regenerating docs, EXPLICITLY preserve ALL existing sections | GTM_2026-W05_150 |
 | BP-021 | Document updates should be ADDITIVE unless removal is explicitly requested | GTM_2026-W05_150 |
 | BP-022 | Version History MUST include Creation CCC-ID + Approval CCC-ID | GTM_2026-W05_156 |
+| BP-024 | MAIT Thread Configuration (see below) | GTM_2026-W05_242 |
+
+### BP-024: MAIT Thread Configuration
+
+| # | Requirement | Example |
+|---|-------------|---------|
+| 1 | Thread name = MAIT_<SME> | MAIT_Deepnote.com |
+| 2 | workspace:tools prompt MUST include: | |
+| 2a | — MAIT name | "You are MAIT_Deepnote.com..." |
+| 2b | — Steward(s) assigned | Steward: @GTM |
+| 2c | — MAIT ShortCode (D-038) | @GTM:MAIT:@GTM |
+| 2d | — Relevant details | SME focus, protocols, etc. |
+
+**Best Practice:** MAIT threads MUST be fully configured with identity, steward, and ShortCode.
 
 ---
 
@@ -245,12 +274,13 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 VERSION HISTORY
 
-| Version | Date | Created | Approved | Changes |
-|---------|------|---------|----------|---------|
-| 2.4.4 | 2026-W05 | GTM_2026-W05_182 | (pending) | +BP-023 (CCC-ID only in CCC), MAIT → tools |
-| 2.4.3 | 2026-W05 | GTM_2026-W05_153 | GTM_2026-W05_162 | +BP-006 to BP-009 (recovered), +BP-020 to BP-022, Version History format, Overview section |
-| 2.4.2 | 2026-W05 | — | — | +BP-017, BP-018, BP-019; pinning/versioning/cadence guidance |
-| 2.4.0 | 2026-W03 | — | — | Initial release |
+| Version | Date | Ref | Changes |
+|---------|------|-----|---------|
+| 2.4.5 | 2026-W05 | GTM_2026-W05_245 | +BP-024 (enhanced — MAIT Thread Config), SharedKernel → v2.4.7, +REF column, +#MAITlivesInAthread |
+| 2.4.4 | 2026-W05 | GTM_2026-W05_182 | +BP-023 (CCC-ID only in CCC), MAIT → tools |
+| 2.4.3 | 2026-W05 | GTM_2026-W05_162 | +BP-006 to BP-009 (recovered), +BP-020 to BP-022, Version History format, Overview section |
+| 2.4.2 | 2026-W05 | — | +BP-017, BP-018, BP-019; pinning/versioning/cadence guidance |
+| 2.4.0 | 2026-W03 | — | Initial release |
 
 ---
 
@@ -258,7 +288,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Document | Version | URL |
 |----------|---------|-----|
-| SharedKernel | v2.4.6 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| SharedKernel | v2.4.7 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
 | PROTOCOLS | v2.4.3 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
 
 ---
