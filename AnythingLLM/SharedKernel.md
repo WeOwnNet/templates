@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.6.md
+## 📋 SharedKernel_v2.4.7.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
-| Version | 2.4.6 |
-| CCC-ID | GTM_2026-W05_227 |
+| Version | 2.4.7 |
+| CCC-ID | GTM_2026-W05_245 |
 | Updated | 2026-01-27 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -140,6 +140,7 @@
 | D-035 | MAIT Thread (Deepnote.com) | dfba7eba-9fc2-4fa6-acd0-132539a70f3f |
 | D-036 | SME-specific | MAIT threads are named by topic/tool |
 | D-037 | Steward(s) | Responsible human(s) for thread |
+| D-038 | MAIT ShortCode | Unique identifier for MAIT thread: @<Steward>:MAIT:@<Steward> — Same person as human + agent |
 
 ### Orchestrator Agent Functions
 
@@ -190,6 +191,7 @@
 
 | CCC-ID | Description |
 |--------|-------------|
+| GTM_2026-W05_245 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.7.md |
 | GTM_2026-W05_227 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.6.md |
 | GTM_2026-W05_139 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.5.md |
 | GTM_2026-W05_131 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.5.md |
@@ -349,7 +351,7 @@ REF: <CCC-ID>
 │   ────────────────────           ────────────────────          │
 │   #MetaAgent (Calhoun 🎖️)        SME: Deepnote.com             │
 │   AI:team-lfg                    Steward: @GTM                 │
-│   Agent-to-Agent                 Human-to-Agent                │
+│   Agent-to-Agent                 ShortCode: @GTM:MAIT:@GTM     │
 │   #ContextVolley / MCP           #ContextVolley                │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -357,10 +359,10 @@ REF: <CCC-ID>
 
 ### Thread Registry
 
-| Thread | UUID | Purpose | Steward(s) | Protocol |
-|--------|------|---------|------------|----------|
-| META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | #ContextVolley / MCP |
-| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | #ContextVolley |
+| Thread | UUID | Purpose | Steward(s) | ShortCode | Protocol |
+|--------|------|---------|------------|-----------|----------|
+| META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | — | #ContextVolley / MCP |
+| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @GTM:MAIT:@GTM | #ContextVolley |
 
 ### Thread URLs
 
@@ -377,6 +379,7 @@ REF: <CCC-ID>
 | Actor | User Agents (AI:@<CCC>) | Human (Steward) |
 | Protocol | #ContextVolley / MCP | #ContextVolley |
 | Purpose | Production orchestration | Training/development |
+| ShortCode | META:#MetaAgent | @<Steward>:MAIT:@<Steward> |
 
 ---
 
@@ -415,6 +418,7 @@ REF: <CCC-ID>
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.7 | 2026-W05 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode), Thread Registry +ShortCode column |
 | 2.4.6 | 2026-W05 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE), RAG STRUCTURE flagged for REVIEW, +REF column |
 | 2.4.5 | 2026-W05 | GTM_2026-W05_139 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules), Instances updated, Founding OGs roles updated, ILO → IAL |
 | 2.4.4 | 2026-W05 | GTM_2026-W05_086 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
