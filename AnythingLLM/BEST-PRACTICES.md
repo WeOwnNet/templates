@@ -1,13 +1,13 @@
-# BEST-PRACTICES.md
+# BEST-PRACTICES
 
-## 📋 BEST-PRACTICES_v2.4.3.md
+## 📋 BEST-PRACTICES_v2.4.4.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.3 |
-| CCC-ID | GTM_2026-W05_153 |
+| Version | 2.4.4 |
+| CCC-ID | GTM_2026-W05_182 |
 | Updated | 2026-01-27 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
@@ -55,8 +55,8 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-015 → BP-016 | Agent | 2 |
 | BP-017 → BP-018 | Workspace Configuration | 2 |
 | BP-019 | Core (Immutable) | 1 |
-| BP-020 → BP-022 | Documentation (NEW) | 3 |
-| **TOTAL** | | **22** |
+| BP-020 → BP-023 | Documentation (NEW) | 4 |
+| **TOTAL** | | **23** |
 
 ---
 
@@ -65,6 +65,7 @@ This document contains best practices for all contributors and agents in the ♾
 | ID | Best Practice | Status |
 |----|---------------|--------|
 | BP-019 | ALWAYS SEEK:META for ALL documents | 🔒 IMMUTABLE |
+| BP-023 | CCC-ID generation ONLY in CCC workspace — tools + ADMIN = NEVER | 🔒 IMMUTABLE |
 
 ---
 
@@ -89,7 +90,7 @@ This document contains best practices for all contributors and agents in the ♾
 | Workspace | Prompt Focus |
 |-----------|--------------|
 | CCC | User interaction, CCC-ID generation |
-| MAIT | Strategy, SME, meta-cognition |
+| tools | Strategy, SME, meta-cognition |
 | ADMIN | Administration functions, doc management |
 
 **Best Practice:** Each workspace MUST have dedicated workspace prompt aligned with its metaphor.
@@ -168,8 +169,8 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 RAG STRUCTURE (R-176)
 
-| Doc Type | CCC | MAIT | ADMIN |
-|----------|-----|------|-------|
+| Doc Type | CCC | tools | ADMIN |
+|----------|-----|-------|-------|
 | USER guides | ✅ | ❌ | ❌ |
 | Governance guides | ❌ | ✅ | ✅ |
 | User-facing protocols | ✅ | ❌ | ❌ |
@@ -246,6 +247,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Version | Date | Created | Approved | Changes |
 |---------|------|---------|----------|---------|
+| 2.4.4 | 2026-W05 | GTM_2026-W05_182 | (pending) | +BP-023 (CCC-ID only in CCC), MAIT → tools |
 | 2.4.3 | 2026-W05 | GTM_2026-W05_153 | GTM_2026-W05_162 | +BP-006 to BP-009 (recovered), +BP-020 to BP-022, Version History format, Overview section |
 | 2.4.2 | 2026-W05 | — | — | +BP-017, BP-018, BP-019; pinning/versioning/cadence guidance |
 | 2.4.0 | 2026-W03 | — | — | Initial release |
@@ -256,7 +258,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Document | Version | URL |
 |----------|---------|-----|
-| SharedKernel | v2.4.5 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| SharedKernel | v2.4.6 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
 | PROTOCOLS | v2.4.3 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
 
 ---
