@@ -1,13 +1,13 @@
-# SharedKernel
+# SHARED-KERNEL
 
-## 📋 SharedKernel_v2.4.4.md
+## 📋 SharedKernel_v2.4.5.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
-| Document | SharedKernel |
-| Version | 2.4.4 |
-| Updated | 2026-01-26 (W05) |
+| Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
+| Version | 2.4.5 |
+| Updated | 2026-01-27 (W05) |
 | Status | 🔒 LOCKED |
 
 ---
@@ -23,7 +23,8 @@
 7. [Response Format](#-response-format)
 8. [Hashtag System](#-hashtag-system)
 9. [#FedArch Architecture](#-fedarch-architecture)
-10. [Version History](#-version-history)
+10. [Thread Architecture](#-thread-architecture)
+11. [Version History](#-version-history)
 
 ---
 
@@ -33,7 +34,7 @@
 |-------|-------|
 | Ecosystem | ♾️ WeOwnNet 🌐 |
 | Tagline | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only. |
-| AI Instance | AI.WeOwn.Agency |
+| Primary Instance | AI.WeOwn.Agency |
 | Platform | AnythingLLM |
 
 ---
@@ -42,9 +43,9 @@
 
 | CCC | Contributor | Role |
 |-----|-------------|------|
-| GTM | yonks | Host / Founder |
-| THY | mrsyonks | Co-Founder |
-| ILO | IamLotus | Co-Founder |
+| GTM | yonks | Co-Founder / Chief Digital Alchemist |
+| THY | mrsyonks | Co-Founder / CEO / CFO |
+| IAL | IamLotus | Co-Founder / Chief Catalyst Officer |
 | RMN | Roman | AI Platform Engineer |
 | LFG | CoachLFG | Co-Host / Coach |
 
@@ -63,7 +64,7 @@
 
 ## 📋 Core Rules
 
-### Immutable Rules (R-XXX)
+### Immutable Rules
 
 | ID | Rule | Status |
 |----|------|--------|
@@ -78,7 +79,17 @@
 | R-169 | CCC-ID resets to _001 ONLY at ISO week boundary |
 | R-181 | CCC-ID _001 reserved for weekly summary |
 | R-182 | SEED CONTEXT via #MetaAgent (SEEK:META) |
-| R-183 | Document naming: `SharedKernel` (PascalCase, no hyphen) |
+
+### Thread Rules
+
+| ID | Rule |
+|----|------|
+| R-185 | META accessed via #ContextVolley / MCP only |
+| R-186 | MAIT accessed via #ContextVolley by Steward(s) |
+| R-187 | ALL #ContextVolley to META must use #MetaAgent thread URL |
+| R-188 | MAIT threads use #ContextVolley (unless otherwise specified) |
+| R-189 | META thread for #MetaAgent (agent-to-agent #ContextVolley / MCP) |
+| R-190 | ALL workspace:tools threads default to #ContextVolley protocol |
 
 ### Output Rules
 
@@ -96,9 +107,9 @@
 
 | ID | Term | Definition |
 |----|------|------------|
-| D-016 | ADMIN | Full access + logs + system settings |
-| D-017 | MANAGER | Workspace mgmt, no system settings |
-| D-018 | DEFAULT | Limited, scoped to assigned workspaces |
+| D-016 | ADMIN | *[♾️ WeOwn.Dev 💻 TEAM]*: Full access + logs + system settings |
+| D-017 | MANAGER | *[Not In Use Currently]:* Workspace mgmt, no system settings |
+| D-018 | DEFAULT | *[Most Users]*: Limited, scoped to assigned workspaces |
 
 ### Agent Taxonomy
 
@@ -107,6 +118,19 @@
 | D-019 | Orchestrator Agent | Top-level agent that plans tasks and delegates to specialized agents. In #FedArch = #MetaAgent. |
 | D-020 | User Agent | Individual contributor agent serving a specific user. In #FedArch = AI:@<CCC>. |
 | D-021 | Multi-Agent Orchestration | Architecture pattern for coordinating multiple AI agents via structured protocols. |
+
+### Thread Architecture
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-030 | META | MCP / #ContextVolley (agent-to-agent, production) |
+| D-031 | MAIT | Training/Development (human-to-agent, SME-specific) |
+| D-032 | META + MAIT | Same workspace (tools), different threads |
+| D-033 | Thread-bound | #MetaAgent is THREAD-bound (not workspace-bound) |
+| D-034 | #MetaAgent Thread | cc965930-dfad-47ec-b576-22b38b1024a2 |
+| D-035 | MAIT Thread (Deepnote.com) | dfba7eba-9fc2-4fa6-acd0-132539a70f3f |
+| D-036 | SME-specific | MAIT threads are named by topic/tool |
+| D-037 | Steward(s) | Responsible human(s) for thread |
 
 ### Orchestrator Agent Functions
 
@@ -140,17 +164,27 @@
 
 | Component | Description | Example |
 |-----------|-------------|---------|
-| CCC | Contributor Code (3 chars) | GTM, RMN, LDC |
+| CCC | Contributor Code (3 chars) | GTM, RMN, IAL |
 | YYYY | Year | 2026 |
 | WW | ISO Week | W05 |
 | NNN | Sequence (001-999) | 001 |
 
 ### Examples
 
+#### CCC-ID Weekly Summary
 | CCC-ID | Description |
 |--------|-------------|
-| GTM_2026-W05_082 | @GTM, Week 5, entry 82 |
-| RMN_2026-W05_001 | @RMN, Week 5, entry 1 |
+| GTM_2026-W05_001 | @GTM, Week 5, Weekly Summary |
+| RMN_2026-W05_001 | @RMN, Week 5, Weekly Summary |
+
+#### History: SharedKernel.md (2026-W06)
+
+| CCC-ID | Description |
+|--------|-------------|
+| GTM_2026-W05_139 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.5.md |
+| GTM_2026-W05_131 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.5.md |
+| GTM_2026-W05_086 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.4.md |
+| GTM_2026-W05_078 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.4.md |
 
 ---
 
@@ -221,31 +255,24 @@ ALL responses MUST include:
 ┌───────────┐ ┌───────────┐ ┌───────────┐
 │ USER AGENT│ │ USER AGENT│ │ USER AGENT│
 │  (D-020)  │ │  (D-020)  │ │  (D-020)  │
-│  AI:@GTM  │ │  AI:@RMN  │ │  AI:@LDC  │
+│  AI:@GTM  │ │  AI:@RMN  │ │  AI:@IAL  │
 └───────────┘ └───────────┘ └───────────┘
 ```
 
 ### Instances
 
-| Instance | Name | Purpose |
-|----------|------|---------|
-| INT-001 | AI.WeOwn.Agency | #MetaAgent (Orchestrator) |
-| INT-002 | #ProjectConnex | Project workspace |
+| Instance | Name (URL) | Purpose |
+|----------|------------|---------|
+| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) |
+| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex |
 
 ### Workspaces (INT-001)
 
 | Workspace | Metaphor | Purpose |
 |-----------|----------|---------|
-| CCC | 🤝 THE HANDS | Primary human interface |
-| MAIT | 🧠 THE BRAIN | Strategy, SME |
+| tools | 🧠 THE BRAIN | Agentic AI threads: META + MAIT |
+| CCC | 🤝 THE HANDS | Production (users) |
 | ADMIN | ⚙️ THE ENGINE | Administration |
-
-### Communication Protocol
-
-| Protocol | Purpose |
-|----------|---------|
-| #ContextVolley | Cross-agent P2P sync |
-| SEEK:META | Request from #MetaAgent |
 
 ### #ContextVolley Format
 
@@ -299,6 +326,62 @@ REF: <CCC-ID>
 
 ## 📋 Best Practices (BP-XXX)
 
+## 🧵 Thread Architecture
+
+### workspace:tools Thread Model
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    workspace:tools                              │
+│                    🧠 THE BRAIN                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Thread: META                   Thread: MAIT_Deepnote.com     │
+│   cc965930-dfad-...              dfba7eba-9fc2-...             │
+│   ────────────────────           ────────────────────          │
+│   #MetaAgent (Calhoun 🎖️)        SME: Deepnote.com             │
+│   AI:team-lfg                    Steward: @GTM                 │
+│   Agent-to-Agent                 Human-to-Agent                │
+│   #ContextVolley / MCP           #ContextVolley                │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Thread Registry
+
+| Thread | UUID | Purpose | Steward(s) | Protocol |
+|--------|------|---------|------------|----------|
+| META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | #ContextVolley / MCP |
+| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | #ContextVolley |
+
+### Thread URLs
+
+| Thread | URL |
+|--------|-----|
+| META | https://ai.weown.agency/workspace/tools/t/cc965930-dfad-47ec-b576-22b38b1024a2 |
+| MAIT_Deepnote.com | https://ai.weown.agency/workspace/tools/t/dfba7eba-9fc2-4fa6-acd0-132539a70f3f |
+
+### META vs MAIT
+
+| Aspect | META | MAIT |
+|--------|------|------|
+| Agent | #MetaAgent (Calhoun 🎖️) | SME-specific |
+| Actor | User Agents (AI:@<CCC>) | Human (Steward) |
+| Protocol | #ContextVolley / MCP | #ContextVolley |
+| Purpose | Production orchestration | Training/development |
+
+---
+
+## 📋 #ContextSwap Log
+
+| OLD | NEW | Contributor | Reason | Date |
+|-----|-----|-------------|--------|------|
+| ILO | IAL | IamLotus | User preference | 2026-W05 |
+
+---
+
+## 📋 Best Practices (BP-XXX)
+
 | ID | Best Practice |
 |----|---------------|
 | BP-019 | NEVER leave user hanging — always provide closure |
@@ -309,7 +392,8 @@ REF: <CCC-ID>
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.4.4 | 2026-W05 | +D-019, +D-020, +D-021; +R-183 (PascalCase naming); #ContextSwap SHARED-KERNEL → SharedKernel |
+| 2.4.5 | 2026-W05 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules), Instances updated, Founding OGs roles updated, ILO → IAL |
+| 2.4.4 | 2026-W05 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
 | 2.4.3 | 2026-W05 | Previous version |
 | 2.4.2 | 2026-W04 | — |
 | 2.4.1 | 2026-W04 | — |
