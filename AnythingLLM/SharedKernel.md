@@ -177,7 +177,7 @@
 | GTM_2026-W05_001 | @GTM, Week 5, Weekly Summary |
 | RMN_2026-W05_001 | @RMN, Week 5, Weekly Summary |
 
-#### History: SharedKernel.md (2026-W06)
+#### History: SharedKernel.md (2026-W05)
 
 | CCC-ID | Description |
 |--------|-------------|
