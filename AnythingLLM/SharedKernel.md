@@ -1,12 +1,13 @@
-# SHARED-KERNEL
+# SharedKernel.md
 
-## 📋 SharedKernel_v2.4.5.md
+## 📋 SharedKernel_v2.4.6.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
-| Version | 2.4.5 |
+| Version | 2.4.6 |
+| CCC-ID | GTM_2026-W05_227 |
 | Updated | 2026-01-27 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -24,7 +25,10 @@
 8. [Hashtag System](#-hashtag-system)
 9. [#FedArch Architecture](#-fedarch-architecture)
 10. [Thread Architecture](#-thread-architecture)
-11. [Version History](#-version-history)
+11. [RAG Structure](#-rag-structure-r-176)
+12. [#ContextSwap Log](#-contextswap-log)
+13. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+14. [Version History](#-version-history)
 
 ---
 
@@ -70,6 +74,8 @@
 |----|------|--------|
 | R-011 | #OnlyHumanApproves — AI CANNOT approve anything | 🔒 IMMUTABLE |
 | R-044 | #ContextDensity FIRST — use #masterCCC | 🔒 IMMUTABLE |
+| R-194 | CCC-ID generation ONLY in CCC workspace — tools + ADMIN = NEVER | 🔒 IMMUTABLE |
+| R-197 | Document generation RESERVED ONLY for #MetaAgent — User Agents MUST NEVER #COOK docs | 🔒 IMMUTABLE |
 
 ### Operational Rules
 
@@ -79,6 +85,9 @@
 | R-169 | CCC-ID resets to _001 ONLY at ISO week boundary |
 | R-181 | CCC-ID _001 reserved for weekly summary |
 | R-182 | SEED CONTEXT via #MetaAgent (SEEK:META) |
+| R-192 | INT-002 uses workspace:('tools') as primary |
+| R-193 | INT-002 has TWO MAITs: #MAITconnexOmni + #MAITconnexAthena |
+| R-195 | ALL new documents MUST start at v2.4.0 — NEVER v1.0.0 |
 
 ### Thread Rules
 
@@ -181,6 +190,7 @@
 
 | CCC-ID | Description |
 |--------|-------------|
+| GTM_2026-W05_227 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.6.md |
 | GTM_2026-W05_139 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.5.md |
 | GTM_2026-W05_131 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.5.md |
 | GTM_2026-W05_086 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.4.md |
@@ -324,8 +334,6 @@ REF: <CCC-ID>
 
 ---
 
-## 📋 Best Practices (BP-XXX)
-
 ## 🧵 Thread Architecture
 
 ### workspace:tools Thread Model
@@ -372,6 +380,21 @@ REF: <CCC-ID>
 
 ---
 
+## 📋 RAG STRUCTURE (R-176)
+
+> ⚠️ **FLAGGED FOR REVIEW** — @GTM + @RMN (GTM_2026-W05_225)
+
+| Doc Type | CCC | tools | ADMIN |
+|----------|-----|-------|-------|
+| USER guides | ✅ | ❌ | ❌ |
+| Governance guides | ❌ | ✅ | ✅ |
+| User-facing protocols | ✅ | ❌ | ❌ |
+| Strategy docs | ❌ | ✅ | ❌ |
+| System prompts | ❌ | ❌ | ✅ |
+| Instance configs | ❌ | ❌ | ✅ |
+
+---
+
 ## 📋 #ContextSwap Log
 
 | OLD | NEW | Contributor | Reason | Date |
@@ -390,13 +413,14 @@ REF: <CCC-ID>
 
 ## 📋 Version History
 
-| Version | Date | Changes |
-|---------|------|---------|
-| 2.4.5 | 2026-W05 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules), Instances updated, Founding OGs roles updated, ILO → IAL |
-| 2.4.4 | 2026-W05 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
-| 2.4.3 | 2026-W05 | Previous version |
-| 2.4.2 | 2026-W04 | — |
-| 2.4.1 | 2026-W04 | — |
+| Version | Date | Ref | Changes |
+|---------|------|-----|---------|
+| 2.4.6 | 2026-W05 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE), RAG STRUCTURE flagged for REVIEW, +REF column |
+| 2.4.5 | 2026-W05 | GTM_2026-W05_139 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules), Instances updated, Founding OGs roles updated, ILO → IAL |
+| 2.4.4 | 2026-W05 | GTM_2026-W05_086 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
+| 2.4.3 | 2026-W05 | — | Previous version |
+| 2.4.2 | 2026-W04 | — | — |
+| 2.4.1 | 2026-W04 | — | — |
 
 ---
 
