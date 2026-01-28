@@ -1,6 +1,6 @@
 # WEEKLY-SUMMARY_GTM_2026-W05_001.md
 
-## 📋 GTM_2026-W05_001
+## [WEEKLY SUMMARY] ● GTM_2026-W05_001 ● yonks.box｜🤖🏛️🪙｜Jason Younker ♾️
 ## ♾️ WeOwnNet 🌐 — Weekly Summary (PARTIAL)
 
 | Field | Value |
