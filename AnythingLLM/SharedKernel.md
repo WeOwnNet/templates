@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.8.md
+## 📋 SharedKernel_v2.4.9.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
-| Version | 2.4.8 |
-| CCC-ID | GTM_2026-W05_329 |
+| Version | 2.4.9 |
+| CCC-ID | GTM_2026-W05_410 |
 | Updated | 2026-01-28 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -25,10 +25,12 @@
 8. [Hashtag System](#-hashtag-system)
 9. [#FedArch Architecture](#-fedarch-architecture)
 10. [Thread Architecture](#-thread-architecture)
-11. [RAG Structure](#-rag-structure-r-176)
-12. [#ContextSwap Log](#-contextswap-log)
-13. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
-14. [Version History](#-version-history)
+11. [Protocol Registry](#-protocol-registry)
+12. [Tool Agent Registry](#-tool-agent-registry)
+13. [RAG Structure](#-rag-structure-r-176)
+14. [#ContextSwap Log](#-contextswap-log)
+15. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+16. [Version History](#-version-history)
 
 ---
 
@@ -89,6 +91,8 @@
 | R-193 | INT-002 has TWO MAITs: #MAITconnexOmni + #MAITconnexAthena |
 | R-195 | ALL new documents MUST start at v2.4.0 — NEVER v1.0.0 |
 | R-198 | Tool Agent username format: `t-<TOOL>_tool` |
+| R-199 | Session notes (calls, webinars, meetings) = RAG ONLY — NEVER push to GH |
+| R-200 | MAIT:SYNC:META protocol — MAIT threads MAY send READ-ONLY context to #MetaAgent for Case Study / Documentation purposes — NO governance authority |
 
 ### Thread Rules
 
@@ -187,14 +191,6 @@
 |--------|-------------|
 | GTM_2026-W05_001 | @GTM, Week 5, Weekly Summary |
 | RMN_2026-W05_001 | @RMN, Week 5, Weekly Summary |
-
-#### History: SharedKernel.md (2026-W05)
-
-| CCC-ID | Description |
-|--------|-------------|
-| GTM_2026-W05_329 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.8.md |
-| GTM_2026-W05_245 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.7.md |
-| GTM_2026-W05_227 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.6.md |
 
 ---
 
@@ -359,8 +355,9 @@ REF: <CCC-ID>
 
 | Thread | UUID | Purpose | Steward(s) | ShortCode | Protocol |
 |--------|------|---------|------------|-----------|----------|
-| META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | — | #ContextVolley / MCP |
-| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @GTM:MAIT:@GTM | #ContextVolley |
+| META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | @META:#MetaAgent | #ContextVolley / MCP |
+| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @MAIT:#Deepnote | #ContextVolley / MCP |
+| MAIT_AnythingLLM.com | 76e9b360-5926-4157-a61c-ba9f878b37c0 | SME: AnythingLLM | @GTM + @RMN | @MAIT:#AnythingLLM | #ContextVolley / MCP |
 
 ### Thread URLs
 
@@ -368,6 +365,7 @@ REF: <CCC-ID>
 |--------|-----|
 | META | https://ai.weown.agency/workspace/tools/t/cc965930-dfad-47ec-b576-22b38b1024a2 |
 | MAIT_Deepnote.com | https://ai.weown.agency/workspace/tools/t/dfba7eba-9fc2-4fa6-acd0-132539a70f3f |
+| MAIT_AnythingLLM.com | https://ai.weown.agency/workspace/tools/t/76e9b360-5926-4157-a61c-ba9f878b37c0 |
 
 ### META vs MAIT
 
@@ -378,6 +376,43 @@ REF: <CCC-ID>
 | Protocol | #ContextVolley / MCP | #ContextVolley |
 | Purpose | Production orchestration | Training/development |
 | ShortCode | — | @<Steward>:MAIT:@<Steward> |
+
+---
+
+## 📋 Protocol Registry
+
+| Protocol | Direction | Authority | Use Case |
+|----------|-----------|-----------|----------|
+| SEEK:META | Agent → META | Request guidance | Normal operations |
+| FULL:SYNC:META | Agent → META | Session summary | End of session |
+| MAIT:SYNC:META | MAIT → META | READ-ONLY (none) | Case Study / Docs (R-200) |
+| #ContextVolley | Any → Any | Communication | Cross-agent messaging |
+
+### Protocol Descriptions
+
+| Protocol | Description |
+|----------|-------------|
+| SEEK:META | User Agent requests guidance from #MetaAgent |
+| FULL:SYNC:META | Complete session sync to #MetaAgent for governance |
+| MAIT:SYNC:META | MAIT thread sends READ-ONLY context for documentation (NO governance authority) |
+
+---
+
+## 📋 Tool Agent Registry
+
+| Username | Thread | SME | Steward | Status |
+|----------|--------|-----|---------|--------|
+| t-anythingllm_tool | MAIT_AnythingLLM.com | AnythingLLM | @GTM | ✅ CREATED |
+| t-pinata_tool | MAIT_Pinata.cloud | Pinata.cloud | @GTM | ⬜ PENDING |
+
+### Tool Agent Username Format (R-198)
+
+| Component | Value | Example |
+|-----------|-------|---------|
+| Prefix | `t-` | t- |
+| Tool Name | `<TOOL>` (lowercase) | anythingllm |
+| Suffix | `_tool` | _tool |
+| Full Format | `t-<TOOL>_tool` | `t-anythingllm_tool` |
 
 ---
 
@@ -393,6 +428,7 @@ REF: <CCC-ID>
 | Strategy docs | ❌ | ✅ | ❌ |
 | System prompts | ❌ | ❌ | ✅ |
 | Instance configs | ❌ | ❌ | ✅ |
+| Session notes (R-199) | ✅ | ✅ | ❌ |
 
 ---
 
@@ -409,6 +445,17 @@ REF: <CCC-ID>
 | ID | Best Practice |
 |----|---------------|
 | BP-019 | NEVER leave user hanging — always provide closure |
+| BP-025 | Instance Setup Order: RAG FIRST → System Prompt → Workspaces → Prompts → Threads → Verify |
+| BP-026 | Tool Agent Setup Workflow: Create user → Assign workspace:tools → Create MAIT thread → Upload RAG docs → Configure per BP-024 → Verify |
+| BP-027 | Set #masterCCC at session start |
+| BP-028 | Capture notes in real-time (speaker + timestamp) |
+| BP-029 | Sanitize tokens/sensitive data before RAG upload |
+| BP-030 | Cross-agent verification for RAG uploads |
+| BP-031 | Fresh session required after RAG upload |
+| BP-032 | Run `list:docs` before AND after RAG upload |
+| BP-033 | Sync session notes to CCC + tools workspaces |
+| BP-034 | Fresh session REQUIRED for RAG verification |
+| BP-035 | Include `status:RAG` in verification workflow |
 
 ---
 
@@ -416,9 +463,10 @@ REF: <CCC-ID>
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.9 | 2026-W05 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry; +Tool Agent Registry; +MAIT_AnythingLLM.com thread |
 | 2.4.8 | 2026-W05 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
 | 2.4.7 | 2026-W05 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode), Thread Registry +ShortCode column |
-| 2.4.6 | 2026-W05 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE), RAG STRUCTURE flagged for REVIEW, +REF column |
+| 2.4.6 | 2026-W05 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE), RAG STRUCTURE flagged for REVIEW |
 | 2.4.5 | 2026-W05 | GTM_2026-W05_139 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules) |
 | 2.4.4 | 2026-W05 | GTM_2026-W05_086 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
 
@@ -426,4 +474,4 @@ REF: <CCC-ID>
 
 #FlowsBros #FedArch #SharedKernel
 
-♾️ WeOwnNet 🌐
+♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
