@@ -1,14 +1,14 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.7.md
+## 📋 SharedKernel_v2.4.8.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
-| Version | 2.4.7 |
-| CCC-ID | GTM_2026-W05_245 |
-| Updated | 2026-01-27 (W05) |
+| Version | 2.4.8 |
+| CCC-ID | GTM_2026-W05_329 |
+| Updated | 2026-01-28 (W05) |
 | Status | 🔒 LOCKED |
 
 ---
@@ -88,6 +88,7 @@
 | R-192 | INT-002 uses workspace:('tools') as primary |
 | R-193 | INT-002 has TWO MAITs: #MAITconnexOmni + #MAITconnexAthena |
 | R-195 | ALL new documents MUST start at v2.4.0 — NEVER v1.0.0 |
+| R-198 | Tool Agent username format: `t-<TOOL>_tool` |
 
 ### Thread Rules
 
@@ -191,12 +192,9 @@
 
 | CCC-ID | Description |
 |--------|-------------|
+| GTM_2026-W05_329 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.8.md |
 | GTM_2026-W05_245 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.7.md |
 | GTM_2026-W05_227 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.6.md |
-| GTM_2026-W05_139 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.5.md |
-| GTM_2026-W05_131 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.5.md |
-| GTM_2026-W05_086 | @GTM, Week 5, CCC-ID Approval for SharedKernel_v2.4.4.md |
-| GTM_2026-W05_078 | @GTM, Week 5, CCC-ID Creation for SharedKernel_v2.4.4.md |
 
 ---
 
@@ -379,7 +377,7 @@ REF: <CCC-ID>
 | Actor | User Agents (AI:@<CCC>) | Human (Steward) |
 | Protocol | #ContextVolley / MCP | #ContextVolley |
 | Purpose | Production orchestration | Training/development |
-| ShortCode | META:#MetaAgent | @<Steward>:MAIT:@<Steward> |
+| ShortCode | — | @<Steward>:MAIT:@<Steward> |
 
 ---
 
@@ -418,13 +416,11 @@ REF: <CCC-ID>
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.8 | 2026-W05 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
 | 2.4.7 | 2026-W05 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode), Thread Registry +ShortCode column |
 | 2.4.6 | 2026-W05 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE), RAG STRUCTURE flagged for REVIEW, +REF column |
-| 2.4.5 | 2026-W05 | GTM_2026-W05_139 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules), Instances updated, Founding OGs roles updated, ILO → IAL |
+| 2.4.5 | 2026-W05 | GTM_2026-W05_139 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules) |
 | 2.4.4 | 2026-W05 | GTM_2026-W05_086 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
-| 2.4.3 | 2026-W05 | — | Previous version |
-| 2.4.2 | 2026-W04 | — | — |
-| 2.4.1 | 2026-W04 | — | — |
 
 ---
 
