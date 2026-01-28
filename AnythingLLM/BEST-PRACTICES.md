@@ -1,14 +1,14 @@
 # BEST-PRACTICES
 
-## 📋 BEST-PRACTICES_v2.4.5.md
+## 📋 BEST-PRACTICES_v2.4.6.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.5 |
-| CCC-ID | GTM_2026-W05_245 |
-| Updated | 2026-01-27 (W05) |
+| Version | 2.4.6 |
+| CCC-ID | GTM_2026-W05_329 |
+| Updated | 2026-01-28 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 
@@ -29,8 +29,9 @@
 11. [Platform Best Practices (#AnythingLLM)](#-platform-best-practices-anythingllm)
 12. [Documentation Best Practices](#-documentation-best-practices)
 13. [Agent Best Practices](#-agent-best-practices)
-14. [Version History](#-version-history)
-15. [Related Documents](#-related-documents)
+14. [Tool Agent Best Practices](#-tool-agent-best-practices)
+15. [Version History](#-version-history)
+16. [Related Documents](#-related-documents)
 
 ---
 
@@ -56,7 +57,8 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-017 → BP-018 | Workspace Configuration | 2 |
 | BP-019 | Core (Immutable) | 1 |
 | BP-020 → BP-024 | Documentation (NEW) | 5 |
-| **TOTAL** | | **24** |
+| BP-025 → BP-026 | Instance & Tool Setup | 2 |
+| **TOTAL** | | **26** |
 
 ---
 
@@ -135,7 +137,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Format | Example |
 |--------|---------|
-| `<NAME>_v<VERSION>.md` | SharedKernel_v2.4.7.md |
+| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v2.4.3.md |
 
 **Best Practice:** ALL RAG docs MUST include version in filename for visibility.
 
@@ -179,10 +181,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 RAG STRUCTURE (R-176)
 
-- - -
-> - **#MAITlivesInAthread** — MAIT = thread within workspace:tools, NOT a separate workspace (GTM_2026-W05_237)
-- - -
-> - ⚠️ **FLAGGED FOR REVIEW** — @GTM + @RMN (GTM_2026-W05_225)
+> **#MAITlivesInAthread** — MAIT = thread within workspace:tools, NOT a separate workspace (GTM_2026-W05_237)
 
 | Doc Type | CCC | tools | ADMIN |
 |----------|-----|-------|-------|
@@ -272,10 +271,40 @@ This document contains best practices for all contributors and agents in the ♾
 
 ---
 
+## 📋 TOOL AGENT BEST PRACTICES
+
+### BP-025: Instance Setup Order
+
+| ID | Best Practice | Source |
+|----|---------------|--------|
+| BP-025 | #AnythingLLM new instance setup: RAG FIRST → System Prompt → Workspaces → Workspace Prompts → Threads → Verify | GTM_2026-W05_306 |
+
+### BP-026: Tool Agent Setup Workflow
+
+| ID | Best Practice | Source |
+|----|---------------|--------|
+| BP-026 | Tool Agent Setup Workflow (see below) | GTM_2026-W05_327 |
+
+### BP-026 Steps
+
+| # | Step | Description |
+|---|------|-------------|
+| 1 | Create user | Format: `t-<TOOL>_tool` (R-198) |
+| 2 | Assign to workspace | workspace:tools only |
+| 3 | Create MAIT thread | Format: `MAIT_<Tool>` |
+| 4 | Upload RAG docs | Official tool documentation |
+| 5 | Configure per BP-024 | MAIT name, Steward, ShortCode, details |
+| 6 | Verify | Test retrieval + agent behavior |
+
+**Best Practice:** Tool Agents follow standardized setup workflow for consistency.
+
+---
+
 ## 📋 VERSION HISTORY
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.6 | 2026-W05 | GTM_2026-W05_329 | +BP-025, +BP-026 (Tool Agent Setup), +Tool Agent section, SharedKernel → v2.4.8 |
 | 2.4.5 | 2026-W05 | GTM_2026-W05_245 | +BP-024 (enhanced — MAIT Thread Config), SharedKernel → v2.4.7, +REF column, +#MAITlivesInAthread |
 | 2.4.4 | 2026-W05 | GTM_2026-W05_182 | +BP-023 (CCC-ID only in CCC), MAIT → tools |
 | 2.4.3 | 2026-W05 | GTM_2026-W05_162 | +BP-006 to BP-009 (recovered), +BP-020 to BP-022, Version History format, Overview section |
@@ -288,7 +317,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Document | Version | URL |
 |----------|---------|-----|
-| SharedKernel | v2.4.7 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| SharedKernel | v2.4.8 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
 | PROTOCOLS | v2.4.3 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
 
 ---
