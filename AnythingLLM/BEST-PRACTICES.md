@@ -1,14 +1,14 @@
-# BEST-PRACTICES
+# BEST-PRACTICES.md
 
-## 📋 BEST-PRACTICES_v2.4.7.md
+## 📋 BEST-PRACTICES_v2.4.8.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.7 |
-| CCC-ID | GTM_2026-W05_415 |
-| Updated | 2026-01-28 (W05) |
+| Version | 2.4.8 |
+| CCC-ID | GTM_2026-W05_512 |
+| Updated | 2026-01-29 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 
@@ -51,7 +51,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Range | Category | Count |
 |-------|----------|-------|
-| BP-001 → BP-007 | Communication | 7 |
+| BP-001 → BP-007 | Communication | 8 |
 | BP-008 → BP-009 | Platform (#AnythingLLM) | 2 |
 | BP-010 → BP-014 | Documentation | 5 |
 | BP-015 → BP-016 | Agent | 2 |
@@ -60,7 +60,8 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-020 → BP-024 | Documentation (Enhanced) | 5 |
 | BP-025 → BP-026 | Instance & Tool Setup | 2 |
 | BP-027 → BP-035 | Notes-to-RAG | 9 |
-| **TOTAL** | | **35** |
+| BP-038 → BP-041 | Additional | 4 |
+| **TOTAL** | | **40** |
 
 ---
 
@@ -77,13 +78,14 @@ This document contains best practices for all contributors and agents in the ♾
 
 | ID | Best Practice | Source |
 |----|---------------|--------|
-| BP-001 | Use #ContextVolley for cross-agent communication | — |
+| BP-001 | Use #ContextVolley for cross-agent communication (one-to-one) | — |
 | BP-002 | Include CCC-ID in all communications | — |
 | BP-003 | Use tables over paragraphs (#LessIsMore) | — |
 | BP-004 | Always provide Quick Commands (2-3 options) | — |
 | BP-005 | End responses with #feedback section when appropriate | — |
 | BP-006 | Narrate actions during DEMO | GTM_2026-W03_539 |
 | BP-007 | Clean slate = fresh context for unbiased view | GTM_2026-W03_545 |
+| BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS | GTM_2026-W05_500 |
 
 ---
 
@@ -179,6 +181,12 @@ This document contains best practices for all contributors and agents in the ♾
 
 **Best Practice:** First CCC-ID of each ISO week reserved for weekly summary.
 
+### BP-039: Weekly Summary Update Process
+
+| ID | Best Practice | Source |
+|----|---------------|--------|
+| BP-039 | Weekly Summary Update Process — rolling updates at threshold (+50 CCC-IDs OR +3 Learnings OR +2 BPs) | GTM_2026-W05_485 |
+
 ---
 
 ## 📋 RAG STRUCTURE (R-176)
@@ -201,13 +209,21 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 AGENT INTERACTION
 
-### #ContextVolley
+### #ContextVolley (One-to-One)
 
 | Best Practice | Description |
 |---------------|-------------|
 | Self-contained | Recipient needs NO other context |
 | Include #masterCCC | Reference original request |
 | Clean format | No decorative borders in packets |
+
+### #ContextBroadcast (One-to-Many)
+
+| Best Practice | Description |
+|---------------|-------------|
+| Use 📢 emoji | Distinct from 🏐 #ContextVolley |
+| TO: ALL AGENTS | Explicit broadcast target |
+| Types | STATUS, ANNOUNCEMENT, ALERT, ACK-REQUEST |
 
 ### #LessIsMore
 
@@ -224,6 +240,7 @@ This document contains best practices for all contributors and agents in the ♾
 | AI proposes | Human approves |
 | NEVER auto-approve | Even if human says "2" |
 | Explicit approval | Required for all rules/docs |
+| STOP after Quick Commands | Await human response (L-050) |
 
 ---
 
@@ -249,6 +266,7 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-021 | Document updates should be ADDITIVE unless removal is explicitly requested | GTM_2026-W05_150 |
 | BP-022 | Version History MUST include Creation CCC-ID + Approval CCC-ID | GTM_2026-W05_156 |
 | BP-024 | MAIT Thread Configuration (see below) | GTM_2026-W05_242 |
+| BP-040 | GH Commit Message Standard — ALL GH commits MUST use TMPL-007 format | GTM_2026-W05_490 |
 
 ### BP-024: MAIT Thread Configuration
 
@@ -260,6 +278,7 @@ This document contains best practices for all contributors and agents in the ♾
 | 2b | — Steward(s) assigned | Steward: @GTM |
 | 2c | — MAIT ShortCode (D-038) | @MAIT:#Deepnote |
 | 2d | — Relevant details | SME focus, protocols, etc. |
+| 3 | Thread inheritance (L-046) | Threads inherit workspace config — no thread-level prompts |
 
 **Best Practice:** MAIT threads MUST be fully configured with identity, steward, and ShortCode.
 
@@ -300,6 +319,12 @@ This document contains best practices for all contributors and agents in the ♾
 | 6 | Verify | Test retrieval + agent behavior |
 
 **Best Practice:** Tool Agents follow standardized setup workflow for consistency.
+
+### BP-038: Tool Agent RAG Setup
+
+| ID | Best Practice | Source |
+|----|---------------|--------|
+| BP-038 | Tool Agent RAG Setup: Identify docs URL → Scrape depth 2 → workspace:tools → Verify retrieval → Update Thread Registry | GTM_2026-W05_466 |
 
 ---
 
@@ -359,6 +384,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.8 | 2026-W05 | GTM_2026-W05_512 | +BP-041 (#ContextBroadcast); +#ContextBroadcast section in Agent Interaction; BP-024 +L-046 reference |
 | 2.4.7 | 2026-W05 | GTM_2026-W05_415 | +BP-027→BP-035 (Notes-to-RAG); +Notes-to-RAG section; SharedKernel → v2.4.10 |
 | 2.4.6 | 2026-W05 | GTM_2026-W05_329 | +BP-025, +BP-026 (Tool Agent Setup), +Tool Agent section, SharedKernel → v2.4.8 |
 | 2.4.5 | 2026-W05 | GTM_2026-W05_245 | +BP-024 (enhanced — MAIT Thread Config), SharedKernel → v2.4.7, +REF column, +#MAITlivesInAthread |
@@ -373,11 +399,12 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Document | Version | URL |
 |----------|---------|-----|
-| SharedKernel | v2.4.10 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
-| PROTOCOLS | v2.4.3 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
+| SharedKernel | v2.4.11 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| PROTOCOLS | v2.4.4 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
 | GUIDE-005_Notes-to-RAG | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-005_Notes-to-RAG_v2.4.0.md) |
 | TEMPLATE_NOTES | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TEMPLATE_NOTES_v2.4.0.md) |
 | CASE-STUDY-001_Notes-to-RAG-Workflow | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-001_Notes-to-RAG-Workflow_v2.4.0.md) |
+| TMPL-007_GH-COMMIT-MESSAGE | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-007_GH-COMMIT-MESSAGE_v2.4.0.md) |
 
 ---
 
