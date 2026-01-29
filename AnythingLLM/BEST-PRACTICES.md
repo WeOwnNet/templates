@@ -1,13 +1,13 @@
 # BEST-PRACTICES.md
 
-## 📋 BEST-PRACTICES_v2.4.8.md
+## 📋 BEST-PRACTICES_v2.4.9.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.8 |
-| CCC-ID | GTM_2026-W05_512 |
+| Version | 2.4.9 |
+| CCC-ID | GTM_2026-W05_595 |
 | Updated | 2026-01-29 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
@@ -31,8 +31,9 @@
 13. [Agent Best Practices](#-agent-best-practices)
 14. [Tool Agent Best Practices](#-tool-agent-best-practices)
 15. [Notes-to-RAG Best Practices](#-notes-to-rag-best-practices)
-16. [Version History](#-version-history)
-17. [Related Documents](#-related-documents)
+16. [MAIT Response Best Practices](#-mait-response-best-practices)
+17. [Version History](#-version-history)
+18. [Related Documents](#-related-documents)
 
 ---
 
@@ -61,7 +62,8 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-025 → BP-026 | Instance & Tool Setup | 2 |
 | BP-027 → BP-035 | Notes-to-RAG | 9 |
 | BP-038 → BP-041 | Additional | 4 |
-| **TOTAL** | | **40** |
+| BP-043 | MAIT Response | 1 |
+| **TOTAL** | | **41** |
 
 ---
 
@@ -380,10 +382,66 @@ This document contains best practices for all contributors and agents in the ♾
 
 ---
 
+## 📋 MAIT RESPONSE BEST PRACTICES
+
+### BP-043: MAIT Thread Identity Header
+
+| ID | Best Practice | Source |
+|----|---------------|--------|
+| BP-043 | MAIT responses MUST include thread identity header: ShortCode, Thread name, Steward, Instance | GTM_2026-W05_574 |
+
+### MAIT Response Header Format
+
+All MAIT thread responses MUST begin with:
+
+```markdown
+[<CCC-ID>] | @MAIT:#<SME> | INT-00X
+
+| Field | Value |
+|-------|-------|
+| Thread | MAIT_<SME> |
+| ShortCode | @MAIT:#<SME> |
+| Steward | @<CCC> |
+| Instance | INT-00X |
+```
+
+### Example — @MAIT:#connexOmni
+
+```markdown
+[LDC] | @MAIT:#connexOmni | INT-002
+
+| Field | Value |
+|-------|-------|
+| Thread | MAIT_connexOmni |
+| ShortCode | @MAIT:#connexOmni |
+| Steward | @LDC |
+| Instance | INT-002 |
+
+## ✅ Response content here...
+```
+
+### Why BP-043 Matters
+
+| Issue | Without BP-043 | With BP-043 |
+|-------|----------------|-------------|
+| Attribution | ❌ UNATTRIBUTABLE | ✅ Clear source |
+| Debugging | ❌ Which thread? | ✅ Explicit thread |
+| Audit trail | ❌ Ambiguous | ✅ Traceable |
+
+### Related Items
+
+| ID | Type | Description | URL |
+|----|------|-------------|-----|
+| L-059 | Learning | MAIT responses without identity header are UNATTRIBUTABLE | — |
+| CASE-STUDY-003 | Case Study | MAIT Thread Identity Standard | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-003_MAIT-Thread-Identity-Standard.md) |
+
+---
+
 ## 📋 VERSION HISTORY
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.9 | 2026-W05 | GTM_2026-W05_595 | +BP-043 (MAIT Thread Identity Header); +MAIT Response Best Practices section; TOC → 18 items |
 | 2.4.8 | 2026-W05 | GTM_2026-W05_512 | +BP-041 (#ContextBroadcast); +#ContextBroadcast section in Agent Interaction; BP-024 +L-046 reference |
 | 2.4.7 | 2026-W05 | GTM_2026-W05_415 | +BP-027→BP-035 (Notes-to-RAG); +Notes-to-RAG section; SharedKernel → v2.4.10 |
 | 2.4.6 | 2026-W05 | GTM_2026-W05_329 | +BP-025, +BP-026 (Tool Agent Setup), +Tool Agent section, SharedKernel → v2.4.8 |
@@ -397,14 +455,15 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 RELATED DOCUMENTS
 
-| Document | Version | URL |
-|----------|---------|-----|
-| SharedKernel | v2.4.11 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
-| PROTOCOLS | v2.4.4 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
-| GUIDE-005_Notes-to-RAG | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-005_Notes-to-RAG_v2.4.0.md) |
-| TEMPLATE_NOTES | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TEMPLATE_NOTES_v2.4.0.md) |
-| CASE-STUDY-001_Notes-to-RAG-Workflow | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-001_Notes-to-RAG-Workflow_v2.4.0.md) |
-| TMPL-007_GH-COMMIT-MESSAGE | v2.4.0 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-007_GH-COMMIT-MESSAGE_v2.4.0.md) |
+| Document | Version | CCC-ID Ref | CCC-ID Approval | URL |
+|----------|---------|------------|-----------------|-----|
+| SharedKernel | v2.4.12 | GTM_2026-W05_587 | GTM_2026-W05_587 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| PROTOCOLS | v2.4.4 | GTM_2026-W05_509 | GTM_2026-W05_512 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
+| GUIDE-005_Notes-to-RAG | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-005_Notes-to-RAG_v2.4.0.md) |
+| TEMPLATE_NOTES | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TEMPLATE_NOTES_v2.4.0.md) |
+| CASE-STUDY-001_Notes-to-RAG-Workflow | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-001_Notes-to-RAG-Workflow_v2.4.0.md) |
+| CASE-STUDY-003_MAIT-Thread-Identity-Standard | v2.4.0 | GTM_2026-W05_579 | GTM_2026-W05_583 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-003_MAIT-Thread-Identity-Standard.md) |
+| TMPL-007_GH-COMMIT-MESSAGE | v2.4.0 | GTM_2026-W05_490 | GTM_2026-W05_490 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-007_GH-COMMIT-MESSAGE_v2.4.0.md) |
 
 ---
 
