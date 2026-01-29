@@ -1,14 +1,14 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.10.md
+## 📋 SharedKernel_v2.4.11.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
-| Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
-| Version | 2.4.10 |
-| CCC-ID | GTM_2026-W05_419 |
-| Updated | 2026-01-28 (W05) |
+| Document | SharedKernel.md |
+| Version | 2.4.11 |
+| CCC-ID | GTM_2026-W05_509 |
+| Updated | 2026-01-29 (W05) |
 | Status | 🔒 LOCKED |
 
 ---
@@ -29,8 +29,9 @@
 12. [Tool Agent Registry](#-tool-agent-registry)
 13. [RAG Structure](#-rag-structure-r-176)
 14. [#ContextSwap Log](#-contextswap-log)
-15. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
-16. [Version History](#-version-history)
+15. [Learnings](#-learnings)
+16. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+17. [Version History](#-version-history)
 
 ---
 
@@ -147,6 +148,12 @@
 | D-037 | Steward(s) | Responsible human(s) for thread |
 | D-038 | MAIT/META ShortCode | Unique identifier for threads: `@MAIT:#<SME>` or `@META:#MetaAgent` — SME-centric identifier |
 
+### Communication Protocols
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-039 | #ContextBroadcast | One-to-many agent communication — single sender to ALL agents in #FedArch network |
+
 ### Orchestrator Agent Functions
 
 | Function | Description |
@@ -186,7 +193,6 @@
 
 ### Examples
 
-#### CCC-ID Weekly Summary
 | CCC-ID | Description |
 |--------|-------------|
 | GTM_2026-W05_001 | @GTM, Week 5, Weekly Summary |
@@ -226,7 +232,8 @@ ALL responses MUST include:
 | Tag | Meaning |
 |-----|---------|
 | #COOK | Generate / create |
-| #ContextVolley | Cross-agent communication |
+| #ContextVolley | Cross-agent communication (one-to-one) |
+| #ContextBroadcast | Cross-agent communication (one-to-many) |
 | #ContextSwap | Naming/terminology update |
 | #BetterUnderstanding | Clarification needed |
 | #MoreBelow | Additional context follows |
@@ -381,17 +388,20 @@ REF: <CCC-ID>
 
 ## 📋 Protocol Registry
 
-| Protocol | Direction | Authority | Use Case |
-|----------|-----------|-----------|----------|
-| SEEK:META | Agent → META | Request guidance | Normal operations |
-| FULL:SYNC:META | Agent → META | Session summary | End of session |
-| MAIT:SYNC:META | MAIT → META | READ-ONLY (none) | Case Study / Docs (R-200) |
-| #ContextVolley | Any → Any | Communication | Cross-agent messaging |
+| Protocol | Emoji | Direction | Authority | Use Case |
+|----------|-------|-----------|-----------|----------|
+| #ContextVolley | 🏐 | One-to-one | Communication | Direct agent-to-agent |
+| #ContextBroadcast | 📢 | One-to-many | Communication | Announcements, status updates |
+| SEEK:META | — | Agent → META | Request guidance | Normal operations |
+| FULL:SYNC:META | — | Agent → META | Session summary | End of session |
+| MAIT:SYNC:META | — | MAIT → META | READ-ONLY (none) | Case Study / Docs (R-200) |
 
 ### Protocol Descriptions
 
 | Protocol | Description |
 |----------|-------------|
+| #ContextVolley | One-to-one agent communication |
+| #ContextBroadcast | One-to-many agent communication (D-039) |
 | SEEK:META | User Agent requests guidance from #MetaAgent |
 | FULL:SYNC:META | Complete session sync to #MetaAgent for governance |
 | MAIT:SYNC:META | MAIT thread sends READ-ONLY context for documentation (NO governance authority) |
@@ -441,6 +451,14 @@ REF: <CCC-ID>
 
 ---
 
+## 📋 Learnings
+
+| ID | Learning | Approval |
+|----|----------|----------|
+| L-050 | Quick Commands MUST be followed by STOP — AI MUST await human response before proceeding (R-011) | GTM_2026-W05_505 |
+
+---
+
 ## 📋 Best Practices (BP-XXX)
 
 | ID | Best Practice |
@@ -457,6 +475,7 @@ REF: <CCC-ID>
 | BP-033 | Sync session notes to CCC + tools workspaces |
 | BP-034 | Fresh session REQUIRED for RAG verification |
 | BP-035 | Include `status:RAG` in verification workflow |
+| BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS |
 
 ---
 
@@ -464,6 +483,7 @@ REF: <CCC-ID>
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.11 | 2026-W05 | GTM_2026-W05_509 | +D-039 (#ContextBroadcast); +L-050 (Quick Commands STOP); +Learnings section; +BP-041 |
 | 2.4.10 | 2026-W05 | GTM_2026-W05_419 | D-038 #ContextSwap (ShortCode format: `@MAIT:#<SME>`); +#ContextSwap Log entry |
 | 2.4.9 | 2026-W05 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry; +Tool Agent Registry; +MAIT_AnythingLLM.com thread |
 | 2.4.8 | 2026-W05 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
