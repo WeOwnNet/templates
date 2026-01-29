@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.11.md
+## 📋 SharedKernel_v2.4.12.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.11 |
-| CCC-ID | GTM_2026-W05_509 |
+| Version | 2.4.12 |
+| CCC-ID | GTM_2026-W05_587 |
 | Updated | 2026-01-29 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -24,14 +24,15 @@
 7. [Response Format](#-response-format)
 8. [Hashtag System](#-hashtag-system)
 9. [#FedArch Architecture](#-fedarch-architecture)
-10. [Thread Architecture](#-thread-architecture)
-11. [Protocol Registry](#-protocol-registry)
-12. [Tool Agent Registry](#-tool-agent-registry)
-13. [RAG Structure](#-rag-structure-r-176)
-14. [#ContextSwap Log](#-contextswap-log)
-15. [Learnings](#-learnings)
-16. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
-17. [Version History](#-version-history)
+10. [Thread Architecture — INT-001](#-thread-architecture--int-001)
+11. [Thread Architecture — INT-002](#-thread-architecture--int-002)
+12. [Protocol Registry](#-protocol-registry)
+13. [Tool Agent Registry](#-tool-agent-registry)
+14. [RAG Structure](#-rag-structure-r-176)
+15. [#ContextSwap Log](#-contextswap-log)
+16. [Learnings](#-learnings)
+17. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+18. [Version History](#-version-history)
 
 ---
 
@@ -279,7 +280,7 @@ ALL responses MUST include:
 | INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) |
 | INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex |
 
-### Workspaces (INT-001)
+### Workspaces
 
 | Workspace | Metaphor | Purpose |
 |-----------|----------|---------|
@@ -337,7 +338,7 @@ REF: <CCC-ID>
 
 ---
 
-## 🧵 Thread Architecture
+## 🧵 Thread Architecture — INT-001
 
 ### workspace:tools Thread Model
 
@@ -358,15 +359,15 @@ REF: <CCC-ID>
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### Thread Registry
+### Thread Registry — INT-001
 
-| Thread | UUID | Purpose | Steward(s) | ShortCode | Protocol |
-|--------|------|---------|------------|-----------|----------|
+| Thread | UUID | Purpose | Steward | ShortCode | Protocol |
+|--------|------|---------|---------|-----------|----------|
 | META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | @META:#MetaAgent | #ContextVolley / MCP |
 | MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @MAIT:#Deepnote | #ContextVolley |
 | MAIT_AnythingLLM.com | 76e9b360-5926-4157-a61c-ba9f878b37c0 | SME: AnythingLLM | @GTM | @MAIT:#AnythingLLM | #ContextVolley |
 
-### Thread URLs
+### Thread URLs — INT-001
 
 | Thread | URL |
 |--------|-----|
@@ -383,6 +384,31 @@ REF: <CCC-ID>
 | Protocol | #ContextVolley / MCP | #ContextVolley |
 | Purpose | Production orchestration | Training/development |
 | ShortCode | @META:#MetaAgent | @MAIT:#<SME> |
+
+---
+
+## 🧵 Thread Architecture — INT-002
+
+### Thread Registry — INT-002
+
+| Thread | UUID | Purpose | Steward | ShortCode | Protocol |
+|--------|------|---------|---------|-----------|----------|
+| MAIT_connexOmni | 5d72d14d-6466-4f39-af3c-ea071c09e44f | SME: connexOmni | @LDC | @MAIT:#connexOmni | #ContextVolley |
+| MAIT_connexAthena | — | SME: connexAthena | @LDC | @MAIT:#connexAthena | ⬜ PENDING |
+
+### Thread URLs — INT-002
+
+| Thread | URL |
+|--------|-----|
+| MAIT_connexOmni | https://lite.burnedout.xyz/workspace/tools/t/5d72d14d-6466-4f39-af3c-ea071c09e44f |
+
+### @GTM:ADMIN:@GTM Threads — INT-002
+
+| Workspace | Thread UUID |
+|-----------|-------------|
+| CCC | b623de53-9b96-4815-a53d-27f63e34042d |
+| tools | 63d13ced-450a-4913-ac7c-debfbcfe72e1 |
+| ADMIN | c4c9602d-880b-463b-806e-6bec48833fe9 |
 
 ---
 
@@ -410,10 +436,19 @@ REF: <CCC-ID>
 
 ## 📋 Tool Agent Registry
 
+### INT-001
+
 | Username | Thread | SME | Steward | Status |
 |----------|--------|-----|---------|--------|
 | t-anythingllm_tool | MAIT_AnythingLLM.com | AnythingLLM | @GTM | ✅ CREATED |
 | t-pinata_tool | MAIT_Pinata.cloud | Pinata.cloud | @GTM | ⬜ PENDING |
+
+### INT-002
+
+| Username | Thread | SME | Steward | Status |
+|----------|--------|-----|---------|--------|
+| t-connexomni_tool | MAIT_connexOmni | connexOmni | @LDC | ✅ CREATED |
+| t-connexathena_tool | MAIT_connexAthena | connexAthena | @LDC | ⬜ PENDING |
 
 ### Tool Agent Username Format (R-198)
 
@@ -456,6 +491,8 @@ REF: <CCC-ID>
 | ID | Learning | Approval |
 |----|----------|----------|
 | L-050 | Quick Commands MUST be followed by STOP — AI MUST await human response before proceeding (R-011) | GTM_2026-W05_505 |
+| L-058 | MAIT deployment MUST create Tool Agent username (R-198) BEFORE thread creation — Step 0 in checklist | GTM_2026-W05_570 |
+| L-059 | MAIT thread responses without explicit identity header are UNATTRIBUTABLE — always include @MAIT:#<SME> | GTM_2026-W05_574 |
 
 ---
 
@@ -476,6 +513,7 @@ REF: <CCC-ID>
 | BP-034 | Fresh session REQUIRED for RAG verification |
 | BP-035 | Include `status:RAG` in verification workflow |
 | BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS |
+| BP-043 | MAIT responses MUST include thread identity header: ShortCode, Thread name, Steward, Instance |
 
 ---
 
@@ -483,6 +521,7 @@ REF: <CCC-ID>
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.12 | 2026-W05 | GTM_2026-W05_587 | +L-058, L-059; +BP-043; +Thread Architecture INT-002 section; +Tool Agent Registry INT-002; +MAIT_connexOmni |
 | 2.4.11 | 2026-W05 | GTM_2026-W05_509 | +D-039 (#ContextBroadcast); +L-050 (Quick Commands STOP); +Learnings section; +BP-041 |
 | 2.4.10 | 2026-W05 | GTM_2026-W05_419 | D-038 #ContextSwap (ShortCode format: `@MAIT:#<SME>`); +#ContextSwap Log entry |
 | 2.4.9 | 2026-W05 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry; +Tool Agent Registry; +MAIT_AnythingLLM.com thread |
@@ -496,4 +535,4 @@ REF: <CCC-ID>
 
 #FlowsBros #FedArch #SharedKernel
 
-♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
+♾️ WeOwnNet 🌐 ● 🏡 Real Estate and 🤝 cooperative ownership for everyone ● An 🤗 inclusive community, by 👥 invitation only.
