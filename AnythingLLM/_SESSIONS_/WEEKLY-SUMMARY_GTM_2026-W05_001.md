@@ -1,6 +1,6 @@
 # WEEKLY-SUMMARY_GTM_2026-W05_001.md
 
-## 📋 @GTM Weekly Summary — 2026-W05 (updated: 29Jan2026 03:15 EST)
+## 📋 @GTM Weekly Summary — 2026-W05
 ## ♾️ WeOwnNet 🌐 — Week 5 Progress Report
 
 | Field | Value |
@@ -10,7 +10,7 @@
 | Contributor | @GTM (yonks) |
 | Week | 2026-W05 (Jan 27 – Feb 2) |
 | Snapshot | 2026-01-29 (Late-week) |
-| Version | 2.4.1 |
+| Version | 2.4.2 |
 | Status | 🔄 IN PROGRESS |
 
 ---
@@ -51,10 +51,11 @@ Week 5 focused on:
 - **Tool Agent Setup** — t-anythingllm_tool created, BP-026 workflow
 - **Governance** — SharedKernel v2.4.10, BEST-PRACTICES v2.4.7
 - **Cross-Agent Verification** — @THY verified RAG uploads
+- **Weekly Summary Process** — BP-039 established for rolling updates
 
 ---
 
-## 📋 Documents Published (13)
+## 📋 Documents Published (14)
 
 | # | Document | Version | CCC-ID | Destination |
 |---|----------|---------|--------|-------------|
@@ -71,6 +72,7 @@ Week 5 focused on:
 | 11 | TEMPLATE_NOTES.md | v2.4.0 | GTM_2026-W05_406 | GH |
 | 12 | CASE-STUDY_AnythingLLM-RAG-Verification.md | v2.4.0 | GTM_2026-W05_182 | GH |
 | 13 | CASE-STUDY_Federated-AI-Governance.md | v2.4.0 | GTM_2026-W05_086 | GH |
+| 14 | WEEKLY-SUMMARY_GTM_2026-W05_001.md | v2.4.2 | GTM_2026-W05_485 | GH + RAG |
 
 ---
 
@@ -96,7 +98,7 @@ Week 5 focused on:
 
 ---
 
-## 📋 Best Practices Locked (14)
+## 📋 Best Practices Locked (17)
 
 ### Immutable
 
@@ -108,9 +110,10 @@ Week 5 focused on:
 
 | ID | Best Practice | Approval |
 |----|---------------|----------|
-| BP-024 | MAIT Thread Configuration | GTM_2026-W05_242 |
+| BP-024 | MAIT Thread Configuration (updated — thread inheritance) | GTM_2026-W05_462 |
 | BP-025 | Instance Setup Order | GTM_2026-W05_306 |
 | BP-026 | Tool Agent Setup Workflow | GTM_2026-W05_327 |
+| BP-038 | Tool Agent RAG Setup | GTM_2026-W05_466 |
 
 ### Notes-to-RAG (BP-027 → BP-035)
 
@@ -125,6 +128,12 @@ Week 5 focused on:
 | BP-033 | Sync session notes to CCC + tools workspaces | GTM_2026-W05_406 |
 | BP-034 | Fresh session REQUIRED for RAG verification | THY_2026-W05_018 |
 | BP-035 | Include `status:RAG` in verification workflow | GTM_2026-W05_406 |
+
+### Weekly Operations
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-039 | Weekly Summary Update Process | GTM_2026-W05_485 |
 
 ---
 
@@ -154,7 +163,7 @@ Week 5 focused on:
 
 ---
 
-## 📋 Milestones (19)
+## 📋 Milestones (20)
 
 | # | Milestone | CCC-ID |
 |---|-----------|--------|
@@ -177,6 +186,7 @@ Week 5 focused on:
 | 17 | SharedKernel v2.4.10 PUBLISHED | GTM_2026-W05_419 |
 | 18 | BEST-PRACTICES v2.4.7 PUBLISHED | GTM_2026-W05_415 |
 | 19 | FIRST Notes-to-RAG CASE STUDY PUBLISHED | GTM_2026-W05_406 |
+| 20 | BP-039 Weekly Summary Update Process LOCKED | GTM_2026-W05_485 |
 
 ---
 
@@ -191,7 +201,7 @@ Week 5 focused on:
 
 ---
 
-## 📋 Learnings (14)
+## 📋 Learnings (17)
 
 | # | Learning | CCC-ID |
 |---|----------|--------|
@@ -209,6 +219,9 @@ Week 5 focused on:
 | 12 | #devTESTtrick pattern = @GTM testing agent integrity | GTM_2026-W05_441 |
 | 13 | R-199 applies to SESSION NOTES only — Weekly Summaries go to GH + RAG | GTM_2026-W05_451 |
 | 14 | Weekly Summary follows #WeOwnVer (v2.4.X) — NOT 1.X | GTM_2026-W05_451 |
+| 15 | Version History is IMMUTABLE — NEVER overwrite, only ADD new entries | GTM_2026-W05_455 |
+| 16 | MAIT threads CANNOT have workspace prompts — threads inherit from parent workspace | GTM_2026-W05_462 |
+| 17 | Weekly Summary rolling updates at threshold (+50 CCC-IDs OR +3 Learnings OR +2 BPs) | GTM_2026-W05_485 |
 
 ---
 
@@ -228,16 +241,18 @@ Week 5 focused on:
 
 ---
 
-## 📋 Pending Items
+## 📋 Pending Items (#YonksShelf)
 
 | # | Task | Priority | Status |
 |---|------|----------|--------|
-| 1 | Upload CASE-STUDY-001 to RAG | 🟡 P2 | ⬜ PENDING |
-| 2 | Upload GUIDE-005 to RAG | 🟡 P2 | ⬜ PENDING |
-| 3 | Upload TEMPLATE_NOTES to RAG | 🟡 P2 | ⬜ PENDING |
-| 4 | Configure MAIT_AnythingLLM.com prompt | 🟠 P1 | ⬜ PENDING |
-| 5 | Upload docs.anythingllm.com to RAG | 🟠 P1 | ⬜ PENDING |
-| 6 | Create t-pinata_tool | 🟡 P2 | ⬜ PENDING |
+| 1 | Scrape docs.anythingllm.com to RAG | 🟠 P1 | ⬜ PENDING |
+| 2 | Create @MAIT:#ToolsToExplore | 🟡 P2 | ⬜ PENDING |
+| 3 | Evaluate PageIndex.ai (deeper) | 🟡 P2 | ⬜ PENDING |
+| 4 | Upload CASE-STUDY-001 to RAG | 🟡 P2 | ⬜ PENDING |
+| 5 | Upload GUIDE-005 to RAG | 🟡 P2 | ⬜ PENDING |
+| 6 | Upload TEMPLATE_NOTES to RAG | 🟡 P2 | ⬜ PENDING |
+| 7 | Create t-pinata_tool | 🟡 P2 | ⬜ PENDING |
+| 8 | @LDC session (INT-002 setup) | 📋 PENDING | ⬜ AWAITING RESPONSE |
 
 ---
 
@@ -245,17 +260,18 @@ Week 5 focused on:
 
 | Metric | Value |
 |--------|-------|
-| CCC-IDs Generated | 452+ |
-| Data Coverage | ~375 of ~452 |
-| Documents Published | 13 |
+| CCC-IDs Generated | 485+ |
+| Data Coverage | ~400 of ~485 |
+| Documents Published | 14 |
 | Case Studies | 3 |
 | Rules Locked | 8 (2 IMMUTABLE) |
-| BPs Locked | 14 (1 IMMUTABLE) |
+| BPs Locked | 17 (1 IMMUTABLE) |
 | Definitions Added | 10 |
 | Calls Completed | 3 (194 min) |
 | RAG Docs | 9 |
-| #BadAgent Incidents | 3 |
-| Learnings | 14 |
+| #BadAgent Incidents | 4 |
+| Learnings | 17 |
+| Sessions | 4 |
 
 ---
 
@@ -263,6 +279,7 @@ Week 5 focused on:
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.2 | 2026-W05 | GTM_2026-W05_485 | +L-046, L-047; +BP-024 update, BP-038, BP-039; +Milestone #20; Session 4 complete |
 | 2.4.1 | 2026-W05 | GTM_2026-W05_451 | Late-week update (+5 docs, +3 rules, +9 BPs, +2 calls, +5 learnings, D-038 #ContextSwap, #WeOwnVer applied) |
 | 1.0 | 2026-W05 | GTM_2026-W05_298 | Mid-week snapshot (PARTIAL — gap 001→077) |
 
