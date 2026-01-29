@@ -464,6 +464,7 @@ REF: <CCC-ID>
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.10 | 2026-W05 | GTM_2026-W05_419 | D-038 #ContextSwap (ShortCode format: `@MAIT:#<SME>`); +#ContextSwap Log entry |
 | 2.4.9 | 2026-W05 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry; +Tool Agent Registry; +MAIT_AnythingLLM.com thread |
 | 2.4.8 | 2026-W05 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
 | 2.4.7 | 2026-W05 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode), Thread Registry +ShortCode column |
