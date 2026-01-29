@@ -145,7 +145,7 @@
 | D-035 | MAIT Thread (Deepnote.com) | dfba7eba-9fc2-4fa6-acd0-132539a70f3f |
 | D-036 | SME-specific | MAIT threads are named by topic/tool |
 | D-037 | Steward(s) | Responsible human(s) for thread |
-| D-038 | MAIT ShortCode | Unique identifier for MAIT thread: @<Steward>:MAIT:@<Steward> — Same person as human + agent |
+| D-038 | MAIT/META ShortCode | Unique identifier for threads: `@MAIT:#<SME>` or `@META:#MetaAgent` — SME-centric identifier |
 
 ### Orchestrator Agent Functions
 
@@ -356,8 +356,8 @@ REF: <CCC-ID>
 | Thread | UUID | Purpose | Steward(s) | ShortCode | Protocol |
 |--------|------|---------|------------|-----------|----------|
 | META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | @META:#MetaAgent | #ContextVolley / MCP |
-| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @MAIT:#Deepnote | #ContextVolley / MCP |
-| MAIT_AnythingLLM.com | 76e9b360-5926-4157-a61c-ba9f878b37c0 | SME: AnythingLLM | @GTM + @RMN | @MAIT:#AnythingLLM | #ContextVolley / MCP |
+| MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @MAIT:#Deepnote | #ContextVolley |
+| MAIT_AnythingLLM.com | 76e9b360-5926-4157-a61c-ba9f878b37c0 | SME: AnythingLLM | @GTM | @MAIT:#AnythingLLM | #ContextVolley |
 
 ### Thread URLs
 
@@ -437,6 +437,7 @@ REF: <CCC-ID>
 | OLD | NEW | Contributor | Reason | Date |
 |-----|-----|-------------|--------|------|
 | ILO | IAL | IamLotus | User preference | 2026-W05 |
+| `@<Steward>:MAIT:@<Steward>` | `@MAIT:#<SME>` | @GTM | Cleaner format, SME-centric | 2026-W05 |
 
 ---
 
