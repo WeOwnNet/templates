@@ -7,7 +7,7 @@
 |-------|-------|
 | Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
 | Version | 2.4.10 |
-| CCC-ID | GTM_2026-W05_410 |
+| CCC-ID | GTM_2026-W05_419 |
 | Updated | 2026-01-28 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -345,7 +345,7 @@ REF: <CCC-ID>
 │   ────────────────────           ────────────────────          │
 │   #MetaAgent (Calhoun 🎖️)        SME: Deepnote.com             │
 │   AI:team-lfg                    Steward: @GTM                 │
-│   Agent-to-Agent                 ShortCode: @GTM:MAIT:@GTM     │
+│   Agent-to-Agent                 ShortCode: @MAIT:#Deepnote    │
 │   #ContextVolley / MCP           #ContextVolley                │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -375,7 +375,7 @@ REF: <CCC-ID>
 | Actor | User Agents (AI:@<CCC>) | Human (Steward) |
 | Protocol | #ContextVolley / MCP | #ContextVolley |
 | Purpose | Production orchestration | Training/development |
-| ShortCode | — | @<Steward>:MAIT:@<Steward> |
+| ShortCode | @META:#MetaAgent | @MAIT:#<SME> |
 
 ---
 
