@@ -6,7 +6,7 @@
 | Field | Value |
 |-------|-------|
 | Document | [SharedKernel.md](https://github.com/WeOwnNet/templates/edit/main/AnythingLLM/SharedKernel.md) |
-| Version | 2.4.9 |
+| Version | 2.4.10 |
 | CCC-ID | GTM_2026-W05_410 |
 | Updated | 2026-01-28 (W05) |
 | Status | 🔒 LOCKED |
