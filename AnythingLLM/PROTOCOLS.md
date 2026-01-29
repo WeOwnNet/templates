@@ -1,12 +1,28 @@
-# PROTOCOLS_v2.4.3.md
+# PROTOCOLS.md
 
+## 📋 PROTOCOLS_v2.4.4.md
 ## ♾️ WeOwnNet 🌐 — #Protocols
 
 | Field | Value |
 |-------|-------|
-| Version | 2.4.3 |
-| Updated | 2026-01-26 (W05) |
+| Document | PROTOCOLS.md |
+| Version | 2.4.4 |
+| CCC-ID | GTM_2026-W05_506 |
+| Updated | 2026-01-29 (W05) |
 | Status | 🔒 LOCKED |
+
+---
+
+## 📖 Table of Contents
+
+1. [Protocol Index](#-protocol-index)
+2. [#ContextVolley Protocol](#-contextvolley-protocol)
+3. [#ContextBroadcast Protocol](#-contextbroadcast-protocol)
+4. [#MetaAgent Protocol](#-metaagent-protocol)
+5. [Document Management Protocol](#-document-management-protocol)
+6. [Weekly Operations Protocol](#-weekly-operations-protocol)
+7. [CCC-ID Protocol](#-ccc-id-protocol)
+8. [Version History](#-version-history)
 
 ---
 
@@ -14,7 +30,8 @@
 
 | Protocol | Purpose |
 |----------|---------|
-| #ContextVolley | Agent-to-agent communication |
+| #ContextVolley | Agent-to-agent communication (one-to-one) |
+| #ContextBroadcast | Agent-to-all communication (one-to-many) |
 | #MetaAgent | Governance sync |
 | Document Management | RAG operations |
 | Weekly Operations | Cadence protocols |
@@ -22,6 +39,14 @@
 ---
 
 ## 📋 #ContextVolley PROTOCOL
+
+### PURPOSE
+
+| Field | Value |
+|-------|-------|
+| Direction | One-to-one |
+| Use Case | Direct agent-to-agent communication |
+| Emoji | 🏐 |
 
 ### FORMAT
 
@@ -62,6 +87,60 @@ REF: <CCC-ID>
 | Self-contained | Recipient needs NO other context |
 | #masterCCC | Reference original request CCC-ID |
 | Clean format | Tables > paragraphs |
+
+---
+
+## 📋 #ContextBroadcast PROTOCOL
+
+### PURPOSE
+
+| Field | Value |
+|-------|-------|
+| Definition | D-039 |
+| Direction | One-to-many |
+| Use Case | Announcements, status updates to ALL agents |
+| Emoji | 📢 |
+
+### FORMAT
+
+```
+═══════════════════════════════════════════════════════════════════════════════
+📢 #ContextBroadcast | AI:@<FROM> → ALL AGENTS | <DATE> | <TIME> EST
+═══════════════════════════════════════════════════════════════════════════════
+
+FROM: AI:@<CCC>
+TO: ALL AGENTS
+TYPE: <BROADCAST TYPE>
+REF: <CCC-ID>
+
+═══════════════════════════════════════════════════════════════════════════════
+
+<CONTENT>
+
+═══════════════════════════════════════════════════════════════════════════════
+
+#FlowsBros #FedArch
+
+♾️ WeOwnNet 🌐
+
+═══════════════════════════════════════════════════════════════════════════════
+```
+
+### BROADCAST TYPES
+
+| Type | Description |
+|------|-------------|
+| STATUS | Weekly/periodic status update |
+| ANNOUNCEMENT | New feature, rule, or milestone |
+| ALERT | Urgent notification |
+| ACK-REQUEST | Request acknowledgment from all agents |
+
+### COMPARISON
+
+| Protocol | Emoji | Direction | Use Case |
+|----------|-------|-----------|----------|
+| #ContextVolley | 🏐 | One-to-one | Direct agent-to-agent |
+| #ContextBroadcast | 📢 | One-to-many | Announcements, status updates |
 
 ---
 
@@ -129,7 +208,7 @@ REF: <CCC-ID>
 
 | Format | Example |
 |--------|---------|
-| `<NAME>_v<VERSION>.md` | PROTOCOLS_v2.4.3.md |
+| `<NAME>_v<VERSION>.md` | PROTOCOLS_v2.4.4.md |
 
 ### GENERATION (R-180)
 
@@ -187,13 +266,14 @@ REF: <CCC-ID>
 
 ## 📋 VERSION HISTORY
 
-| Version | Date | Changes |
-|---------|------|---------|
-| 2.4.0 | W03 | Initial release |
-| 2.4.3 | W05 | +R-170, R-172, R-175-R-181; doc management protocols |
+| Version | Date | Ref | Changes |
+|---------|------|-----|---------|
+| 2.4.4 | 2026-W05 | GTM_2026-W05_506 | +#ContextBroadcast protocol section (D-039) |
+| 2.4.3 | 2026-W05 | GTM_2026-W05_086 | +R-170, R-172, R-175-R-181; doc management protocols |
+| 2.4.0 | 2026-W03 | — | Initial release |
 
 ---
 
 #FlowsBros #FedArch #Protocols
 
-♾️ WeOwnNet 🌐
+♾️ WeOwnNet 🌐 ● 🏡 Real Estate and 🤝 cooperative ownership for everyone ● An 🤗 inclusive community, by 👥 invitation only.
