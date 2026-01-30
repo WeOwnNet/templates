@@ -1,14 +1,14 @@
 # BEST-PRACTICES.md
 
-## 📋 BEST-PRACTICES_v2.4.9.md
+## 📋 BEST-PRACTICES_v2.4.10.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.9 |
-| CCC-ID | GTM_2026-W05_595 |
-| Updated | 2026-01-29 (W05) |
+| Version | 2.4.10 |
+| CCC-ID | GTM_2026-W05_694 |
+| Updated | 2026-01-30 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 
@@ -23,17 +23,19 @@
 5. [Workspace Configuration](#-workspace-configuration)
 6. [Document Management](#-document-management)
 7. [Document Generation](#-document-generation)
-8. [Weekly Operations](#-weekly-operations)
-9. [RAG Structure](#-rag-structure-r-176)
-10. [Agent Interaction](#-agent-interaction)
-11. [Platform Best Practices (#AnythingLLM)](#-platform-best-practices-anythingllm)
-12. [Documentation Best Practices](#-documentation-best-practices)
-13. [Agent Best Practices](#-agent-best-practices)
-14. [Tool Agent Best Practices](#-tool-agent-best-practices)
-15. [Notes-to-RAG Best Practices](#-notes-to-rag-best-practices)
-16. [MAIT Response Best Practices](#-mait-response-best-practices)
-17. [Version History](#-version-history)
-18. [Related Documents](#-related-documents)
+8. [Document Reference Standard](#-document-reference-standard)
+9. [Weekly Operations](#-weekly-operations)
+10. [RAG Structure](#-rag-structure-r-176)
+11. [Agent Interaction](#-agent-interaction)
+12. [Platform Best Practices (#AnythingLLM)](#-platform-best-practices-anythingllm)
+13. [Documentation Best Practices](#-documentation-best-practices)
+14. [Agent Best Practices](#-agent-best-practices)
+15. [Tool Agent Best Practices](#-tool-agent-best-practices)
+16. [Notes-to-RAG Best Practices](#-notes-to-rag-best-practices)
+17. [MAIT Response Best Practices](#-mait-response-best-practices)
+18. [Case Study Best Practices](#-case-study-best-practices)
+19. [Version History](#-version-history)
+20. [Related Documents](#-related-documents)
 
 ---
 
@@ -62,8 +64,16 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-025 → BP-026 | Instance & Tool Setup | 2 |
 | BP-027 → BP-035 | Notes-to-RAG | 9 |
 | BP-038 → BP-041 | Additional | 4 |
-| BP-043 | MAIT Response | 1 |
-| **TOTAL** | | **41** |
+| BP-043 → BP-044 | MAIT + #PinnedDocs | 2 |
+| BP-045 | Document Reference Standard | 1 |
+| BP-047 | Case Study Attribution | 1 |
+| **TOTAL** | | **44** |
+
+### Retired Best Practices
+
+| ID | Description | Reason | Date |
+|----|-------------|--------|------|
+| BP-046 | Related Documents format | Merged into BP-045 | 2026-W05 |
 
 ---
 
@@ -143,7 +153,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Format | Example |
 |--------|---------|
-| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v2.4.3.md |
+| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v2.4.14.md |
 
 **Best Practice:** ALL RAG docs MUST include version in filename for visibility.
 
@@ -172,6 +182,47 @@ This document contains best practices for all contributors and agents in the ♾
 
 ---
 
+## 📋 DOCUMENT REFERENCE STANDARD
+
+### BP-045: Document Reference Standard (Consolidated)
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-045 | Version History + Related Documents MUST include: #masterCCC + Approval CCC-ID | GTM_2026-W05_661 |
+
+### Applies To
+
+| Section | Required Columns |
+|---------|------------------|
+| Version History | Version, Date, #masterCCC, Approval, Changes |
+| Related Documents | Document, Version, #masterCCC, Approval, URL |
+
+### Format — Version History
+
+```markdown
+| Version | Date | #masterCCC | Approval | Changes |
+|---------|------|------------|----------|---------|
+| 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202 |
+```
+
+### Format — Related Documents
+
+```markdown
+| Document | Version | #masterCCC | Approval | URL |
+|----------|---------|------------|----------|-----|
+| SharedKernel | v2.4.14 | GTM_2026-W05_680 | GTM_2026-W05_684 | [GitHub](...) |
+```
+
+### Consolidation
+
+| Action | Status |
+|--------|--------|
+| BP-045 (old — Version History only) | ❌ RETIRED |
+| BP-046 (old — Related Documents only) | ❌ RETIRED |
+| BP-045 (new — Consolidated) | ✅ 🔒 LOCKED |
+
+---
+
 ## 📋 WEEKLY OPERATIONS
 
 ### R-181: Weekly Summary
@@ -182,6 +233,14 @@ This document contains best practices for all contributors and agents in the ♾
 | Content | Milestones, rules, learnings, pending, stats |
 
 **Best Practice:** First CCC-ID of each ISO week reserved for weekly summary.
+
+### Reserved Slots (EVERY WEEK)
+
+| Slot | Purpose | Rule |
+|------|---------|------|
+| `_001` | #WeeklySummary | R-181 |
+| `_002` | #WeeklyPlan | R-201 |
+| `_003` | #WeeklyReflection | R-202 |
 
 ### BP-039: Weekly Summary Update Process
 
@@ -372,7 +431,7 @@ This document contains best practices for all contributors and agents in the ♾
 | Upload | BP-032, BP-033 | Pre/post check, multi-workspace sync |
 | Verify | BP-030, BP-031, BP-034, BP-035 | Cross-agent, fresh session, status check |
 
-### Related Documents
+### Related Documents (Notes-to-RAG)
 
 | Document | Purpose |
 |----------|---------|
@@ -428,45 +487,115 @@ All MAIT thread responses MUST begin with:
 | Debugging | ❌ Which thread? | ✅ Explicit thread |
 | Audit trail | ❌ Ambiguous | ✅ Traceable |
 
-### Related Items
+### Related Items (BP-043)
 
 | ID | Type | Description | URL |
 |----|------|-------------|-----|
 | L-059 | Learning | MAIT responses without identity header are UNATTRIBUTABLE | — |
 | CASE-STUDY-003 | Case Study | MAIT Thread Identity Standard | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-003_MAIT-Thread-Identity-Standard.md) |
 
+### BP-044: #PinnedDocs GH Push Workflow
+
+| ID | Best Practice | Source |
+|----|---------------|--------|
+| BP-044 | #PinnedDocs GH Push Workflow: GH push → ADMIN updates RAG (ALL instances) → Fresh session → Verify | GTM_2026-W05_609 |
+
+---
+
+## 📋 CASE STUDY BEST PRACTICES
+
+### BP-047: Case Study Attribution
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-047 | "Discovered By" section MUST use table format: CCC, Contributor, Role, Context | GTM_2026-W05_670 |
+
+### Format — Discovered By
+
+```markdown
+### Discovered By (BP-047)
+
+| CCC | Contributor | Role | Context |
+|-----|-------------|------|---------|
+| GTM | [yonks](https://GitHub.com/YonksTEAM) | Co-Founder / Chief Digital Alchemist | /dev #deployment call |
+| RMN | Roman Di Domizio | AI Platform Engineer | /dev #deployment call |
+```
+
 ---
 
 ## 📋 VERSION HISTORY
 
-| Version | Date | Ref | Changes |
-|---------|------|-----|---------|
-| 2.4.9 | 2026-W05 | GTM_2026-W05_595 | +BP-043 (MAIT Thread Identity Header); +MAIT Response Best Practices section; TOC → 18 items |
-| 2.4.8 | 2026-W05 | GTM_2026-W05_512 | +BP-041 (#ContextBroadcast); +#ContextBroadcast section in Agent Interaction; BP-024 +L-046 reference |
-| 2.4.7 | 2026-W05 | GTM_2026-W05_415 | +BP-027→BP-035 (Notes-to-RAG); +Notes-to-RAG section; SharedKernel → v2.4.10 |
-| 2.4.6 | 2026-W05 | GTM_2026-W05_329 | +BP-025, +BP-026 (Tool Agent Setup), +Tool Agent section, SharedKernel → v2.4.8 |
-| 2.4.5 | 2026-W05 | GTM_2026-W05_245 | +BP-024 (enhanced — MAIT Thread Config), SharedKernel → v2.4.7, +REF column, +#MAITlivesInAthread |
-| 2.4.4 | 2026-W05 | GTM_2026-W05_182 | +BP-023 (CCC-ID only in CCC), MAIT → tools |
-| 2.4.3 | 2026-W05 | GTM_2026-W05_162 | +BP-006 to BP-009 (recovered), +BP-020 to BP-022, Version History format, Overview section |
-| 2.4.2 | 2026-W05 | — | +BP-017, BP-018, BP-019; pinning/versioning/cadence guidance |
-| 2.4.0 | 2026-W03 | — | Initial release |
+| Version | Date | #masterCCC | Approval | Changes |
+|---------|------|------------|----------|---------|
+| 2.4.10 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_693 | BP-045 consolidated (BP-046 retired); +BP-047 (Case Study Attribution); +Document Reference Standard section; +Case Study Best Practices section; Related Documents restructured (hierarchical); +Reserved Slots (R-201, R-202); +21 Related Docs; TOC → 20 items |
+| 2.4.9 | 2026-W05 | GTM_2026-W05_595 | GTM_2026-W05_595 | +BP-043 (MAIT Thread Identity Header); +MAIT Response Best Practices section; TOC → 18 items |
+| 2.4.8 | 2026-W05 | GTM_2026-W05_512 | GTM_2026-W05_512 | +BP-041 (#ContextBroadcast); +#ContextBroadcast section in Agent Interaction; BP-024 +L-046 reference |
+| 2.4.7 | 2026-W05 | GTM_2026-W05_415 | GTM_2026-W05_415 | +BP-027→BP-035 (Notes-to-RAG); +Notes-to-RAG section; SharedKernel → v2.4.10 |
+| 2.4.6 | 2026-W05 | GTM_2026-W05_329 | GTM_2026-W05_329 | +BP-025, +BP-026 (Tool Agent Setup), +Tool Agent section, SharedKernel → v2.4.8 |
+| 2.4.5 | 2026-W05 | GTM_2026-W05_245 | GTM_2026-W05_245 | +BP-024 (enhanced — MAIT Thread Config), SharedKernel → v2.4.7, +REF column, +#MAITlivesInAthread |
+| 2.4.4 | 2026-W05 | GTM_2026-W05_182 | GTM_2026-W05_182 | +BP-023 (CCC-ID only in CCC), MAIT → tools |
+| 2.4.3 | 2026-W05 | GTM_2026-W05_162 | GTM_2026-W05_162 | +BP-006 to BP-009 (recovered), +BP-020 to BP-022, Version History format, Overview section |
+| 2.4.2 | 2026-W05 | — | — | +BP-017, BP-018, BP-019; pinning/versioning/cadence guidance |
+| 2.4.0 | 2026-W03 | — | — | Initial release |
 
 ---
 
 ## 📋 RELATED DOCUMENTS
 
-| Document | Version | CCC-ID Ref | CCC-ID Approval | URL |
-|----------|---------|------------|-----------------|-----|
-| SharedKernel | v2.4.12 | GTM_2026-W05_587 | GTM_2026-W05_587 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+### #PinnedDocs
+
+#### _SYS_
+
+| Document | Version | #masterCCC | Approval | URL |
+|----------|---------|------------|----------|-----|
+| SharedKernel | v2.4.14 | GTM_2026-W05_680 | GTM_2026-W05_684 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| BEST-PRACTICES | v2.4.10 | GTM_2026-W05_680 | GTM_2026-W05_693 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 | PROTOCOLS | v2.4.4 | GTM_2026-W05_509 | GTM_2026-W05_512 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
-| GUIDE-005_Notes-to-RAG | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-005_Notes-to-RAG_v2.4.0.md) |
-| TEMPLATE_NOTES | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TEMPLATE_NOTES_v2.4.0.md) |
-| CASE-STUDY-001_Notes-to-RAG-Workflow | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-001_Notes-to-RAG-Workflow_v2.4.0.md) |
-| CASE-STUDY-003_MAIT-Thread-Identity-Standard | v2.4.0 | GTM_2026-W05_579 | GTM_2026-W05_583 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-003_MAIT-Thread-Identity-Standard.md) |
-| TMPL-007_GH-COMMIT-MESSAGE | v2.4.0 | GTM_2026-W05_490 | GTM_2026-W05_490 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-007_GH-COMMIT-MESSAGE_v2.4.0.md) |
+| CCC | v2.4.2 | GTM_2026-W05_270 | GTM_2026-W05_270 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/CCC.md) |
 
 ---
 
-#FlowsBros #FedArch #BestPractices
+### Workspace Embedded RAG Documents
+
+#### _LEARNINGS_
+
+| Document | Version | #masterCCC | Approval | URL |
+|----------|---------|------------|----------|-----|
+| CASE-STUDY-001_Notes-to-RAG-Workflow | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-001_Notes-to-RAG-Workflow_v2.4.0.md) |
+| CASE-STUDY-002_ContextBroadcast-BadAgent-Recovery | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-002_ContextBroadcast-BadAgent-Recovery.md) |
+| CASE-STUDY-003_MAIT-Thread-Identity-Standard | v2.4.0 | GTM_2026-W05_579 | GTM_2026-W05_583 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-003_MAIT-Thread-Identity-Standard.md) |
+| CASE-STUDY-004_VSA-Framework-Launch | v2.4.0 | GTM_2026-W05_659 | GTM_2026-W05_670 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY-004_VSA-Framework-Launch_v2.4.0.md) |
+| CASE-STUDY_AnythingLLM-RAG-Verification | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY_AnythingLLM-RAG-Verification.md) |
+| CASE-STUDY_GapAnalysis-BP-Recovery | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/case-studies/CASE-STUDY_GapAnalysis-BP-Recovery.md) |
+
+#### GUIDES
+
+| Document | Version | #masterCCC | Approval | URL |
+|----------|---------|------------|----------|-----|
+| GUIDE-001_GETTING-STARTED | v2.4.1 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-001_GETTING-STARTED.md) |
+| GUIDE-002_FEDARCH-GOVERNANCE | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-002_FEDARCH-GOVERNANCE.md) |
+| GUIDE-003_USER-ONBOARDING | v2.4.1 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-003_USER-ONBOARDING.md) |
+| GUIDE-005_Notes-to-RAG | v2.4.0 | GTM_2026-W05_415 | GTM_2026-W05_415 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/GUIDE-005_Notes-to-RAG.md) |
+
+#### _SYS_
+
+| Document | Version | #masterCCC | Approval | URL |
+|----------|---------|------------|----------|-----|
+| FEDARCH-MEMORY-MODEL | v2.4.0 | GTM_2026-W05_262 | GTM_2026-W05_262 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/FEDARCH-MEMORY-MODEL.md) |
+| ECOSYSTEM-IDENTITY_SYSTEM-PROMPT | v2.4.0 | GTM_2026-W05_262 | GTM_2026-W05_262 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/ECOSYSTEM-IDENTITY_SYSTEM-PROMPT.md) |
+
+#### _TEMPLATES_
+
+| Document | Version | #masterCCC | Approval | URL |
+|----------|---------|------------|----------|-----|
+| TMPL-004_ONBOARD_ADMIN | v2.4.1 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-004_ONBOARD_ADMIN.md) |
+| TMPL-005_ONBOARD_USER | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-005_ONBOARD_USER.md) |
+| TMPL-006_SYSTEM-PROMPT-TEMPLATE | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-006_SYSTEM-PROMPT-TEMPLATE.md) |
+| TMPL-007_GH-COMMIT-MESSAGE | v2.4.0 | GTM_2026-W05_490 | GTM_2026-W05_490 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-007_GH-COMMIT-MESSAGE_v2.4.0.md) |
+| TMPL-008_VSA | v2.4.0 | GTM_2026-W05_623 | GTM_2026-W05_625 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-008_VSA_v2.4.0.md) |
+
+---
+
+#FlowsBros #FedArch #BestPractices #WeOwnSeason003
 
 ♾️ WeOwnNet 🌐 ● 🏡 Real Estate and 🤝 cooperative ownership for everyone ● An 🤗 inclusive community, by 👥 invitation only.
