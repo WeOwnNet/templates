@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.15.md
+## 📋 SharedKernel_v2.4.16.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.15 |
-| CCC-ID | GTM_2026-W05_714 |
+| Version | 2.4.16 |
+| CCC-ID | GTM_2026-W05_813 |
 | Updated | 2026-01-30 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -30,11 +30,12 @@
 13. [Protocol Registry](#-protocol-registry)
 14. [Tool Agent Registry](#-tool-agent-registry)
 15. [RAG Structure](#-rag-structure-r-176)
-16. [#WeOwnSeasons Registry](#-weownseasons-registry)
-17. [#ContextSwap Log](#-contextswap-log)
-18. [Learnings](#-learnings)
-19. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
-20. [Version History](#-version-history)
+16. [Folder Structure](#-folder-structure)
+17. [#WeOwnSeasons Registry](#-weownseasons-registry)
+18. [#ContextSwap Log](#-contextswap-log)
+19. [Learnings](#-learnings)
+20. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+21. [Version History](#-version-history)
 
 ---
 
@@ -96,6 +97,7 @@
 | ID | Rule | Status |
 |----|------|--------|
 | R-203 | INT-004 (VSA.ccc.bot) has NO governance authority — verification only; reports to INT-003 (META.ccc.bot) | 🔒 LOCKED |
+| R-204 | #HomeInstance MUST include #PinnedDocs for #FedArch participation — SharedKernel, BEST-PRACTICES, PROTOCOLS, CCC | 🔒 LOCKED |
 
 ### Operational Rules
 
@@ -170,11 +172,12 @@
 |----|------|------------|
 | D-039 | #ContextBroadcast | One-to-many agent communication — single sender to ALL agents in #FedArch network |
 
-### Verification
+### Verification & Attribution
 
 | ID | Term | Definition |
 |----|------|------------|
 | D-040 | VSA | Verification Summary Attestation — signed record of document verification against #FedArch policy (R-XXX + BP-XXX) |
+| D-047 | #threadHEADER | Dynamic attribution context: CCC + Username + Instance + Workspace + Thread UUID + Timestamp — required for VSA and cross-workspace operations; inherits static fields from TMPL-009_USER-IDENTITY |
 
 ### #WeOwnSeasons
 
@@ -191,6 +194,7 @@
 |----|------|------------|
 | D-045 | INT-003 | META.ccc.bot — #MetaAgent Governance Hub; central orchestrator for #FedArch network |
 | D-046 | INT-004 | VSA.ccc.bot — Verification Summary Attestation instance; reports to INT-003 |
+| D-048 | #HomeInstance | Primary personal #AnythingLLM instance for a contributor — participates in #FedArch via #ContextVolley; reports to #MetaAgent |
 
 ### Orchestrator Agent Functions
 
@@ -310,25 +314,7 @@ ALL responses MUST include:
 
 #FedArch (Federated Architecture) is the multi-agent orchestration pattern for ♾️ WeOwnNet 🌐.
 
-### Agent Hierarchy (Current State)
-
-```
-┌─────────────────────────────────────────────┐
-│          ORCHESTRATOR AGENT (D-019)         │
-│              #MetaAgent                     │
-│           AI:team-lfg (INT-001)             │
-└─────────────────┬───────────────────────────┘
-                  │
-       ┌──────────┼──────────┐
-       ↓          ↓          ↓
-┌───────────┐ ┌───────────┐ ┌───────────┐
-│ USER AGENT│ │ USER AGENT│ │ USER AGENT│
-│  (D-020)  │ │  (D-020)  │ │  (D-020)  │
-│  AI:@GTM  │ │  AI:@RMN  │ │  AI:@IAL  │
-└───────────┘ └───────────┘ └───────────┘
-```
-
-### Agent Hierarchy (Future State — INT-003/004)
+### Agent Hierarchy (Future State — INT-003/004/005)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -340,28 +326,40 @@ ALL responses MUST include:
 │                    #MetaAgent (Calhoun 🎖️)                                 │
 │                    Governance + Orchestration                               │
 │                              │                                              │
-│            ┌─────────────────┼─────────────────┐                           │
-│            │                 │                 │                            │
-│            ↓                 ↓                 ↓                            │
-│   ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐              │
-│   │ INT-001         │ │ INT-002         │ │ INT-004         │              │
-│   │ AI.WeOwn.Agency │ │ Lite.BurnedOut  │ │ VSA.ccc.bot     │              │
-│   │ ─────────────── │ │ ─────────────── │ │ ─────────────── │              │
-│   │ User Agents     │ │ #ProjectConnex  │ │ MAIT:#VSA       │              │
-│   │ AI:@GTM, etc.   │ │ MAIT:#connexOmni│ │ Verification    │              │
-│   └─────────────────┘ └─────────────────┘ └─────────────────┘              │
+│       ┌──────────────────────┼──────────────────────┐                      │
+│       │                      │                      │                       │
+│       ↓                      ↓                      ↓                       │
+│ ┌───────────────┐    ┌───────────────┐    ┌───────────────┐                │
+│ │ INT-001       │    │ INT-002       │    │ INT-004       │                │
+│ │ AI.WeOwn.     │    │ Lite.Burned   │    │ VSA.ccc.bot   │                │
+│ │ Agency        │    │ Out.xyz       │    │               │                │
+│ │ ───────────── │    │ ───────────── │    │ ───────────── │                │
+│ │ ♾️ WeOwn.Agency│    │ #ProjectConnex│    │ MAIT:#VSA     │                │
+│ └───────────────┘    └───────────────┘    └───────────────┘                │
+│                                                                             │
+│                      #HomeInstances (Personal)                              │
+│       ┌──────────────────────┴──────────────────────┐                      │
+│       ↓                                             ↓                       │
+│ ┌───────────────┐                           ┌───────────────┐              │
+│ │ INT-005       │                           │ INT-00X       │              │
+│ │ AI.YonksTEAM  │                           │ (Future)      │              │
+│ │ .xyz          │                           │               │              │
+│ │ ───────────── │                           │ ───────────── │              │
+│ │ @GTM #Home    │                           │ @XXX #Home    │              │
+│ └───────────────┘                           └───────────────┘              │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ## 📋 Instance Registry
 
-| Instance | Name | Purpose | Status |
-|----------|------|---------|--------|
-| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) | ✅ ACTIVE |
-| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex | ✅ ACTIVE |
-| INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ⬜ PLANNED |
-| INT-004 | VSA.ccc.bot | 🔍 MAIT:#VSA Verification Services | ⬜ PLANNED |
+| Instance | Name | Purpose | Owner | Status |
+|----------|------|---------|-------|--------|
+| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) | ♾️ WeOwnNet 🌐 | ✅ ACTIVE |
+| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex | 🔥 BurnedOut.Media | ✅ ACTIVE |
+| INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
+| INT-004 | VSA.ccc.bot | 🔍 MAIT:#VSA Verification Services | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
+| INT-005 | AI.YonksTEAM.xyz | 🏠 @GTM #PersonalBrand #HomeInstance | @GTM | ⬜ NEW |
 
 ### Instance Hierarchy
 
@@ -371,6 +369,7 @@ ALL responses MUST include:
 | 2 | INT-001 (AI.WeOwn.Agency) | User Agents | Production, SEEK:META |
 | 2 | INT-002 (Lite.BurnedOut.xyz) | #ProjectConnex | Production, SEEK:META |
 | 2 | INT-004 (VSA.ccc.bot) | MAIT:#VSA | Verification only (R-203) |
+| 3 | INT-005 (AI.YonksTEAM.xyz) | #HomeInstance | Personal, SEEK:META |
 
 ### Workspaces
 
@@ -403,31 +402,6 @@ REF: <CCC-ID>
 ♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
 
 ═══════════════════════════════════════════════════════════════════════════════
-```
-
-### Folder Structure
-
-```
-├── 📁 _SYS_/                      # Foundation (from Git)
-│   ├── 📄 SharedKernel.md         #CoreRules
-│   └── 📄 BEST-PRACTICES.md       #BestPractices
-│   ├── 📄 FEDARCH-MEMORY-MODEl.md #FedArchMemoryModel
-│   └── 📄 FedArchArchitecture.md  #FedArch
-│   └── 📄 PROTOCOLS.md            #PROTOCOLS
-│
-├── 📁 _INSTANCE_/                 # Instance config
-│   ├── 📄 InstanceIdentity.md
-│   └── 📄 InstanceConfig.md
-│
-├── 📁 _LEARNINGS_/                # Persistent #NeverForget
-│   ├── 📄 Learnings_<CCC>.md
-│   └── 📄 Learnings_Shared.md
-│
-├── 📁 _SESSIONS_/                 # Session exports
-│   └── 📄 SessionSummary_<CCC>_<YYYY>-W<WW>.md
-│
-└── 📁 _PROJECTS_/                 # Project-specific docs
-    └── 📄 Project-<NAME>.md
 ```
 
 ---
@@ -557,8 +531,6 @@ REF: <CCC-ID>
 
 ## 📋 RAG STRUCTURE (R-176)
 
-> ⚠️ **FLAGGED FOR REVIEW** — @GTM + @RMN (GTM_2026-W05_225)
-
 | Doc Type | CCC | tools | ADMIN |
 |----------|-----|-------|-------|
 | USER guides | ✅ | ❌ | ❌ |
@@ -568,6 +540,52 @@ REF: <CCC-ID>
 | System prompts | ❌ | ❌ | ✅ |
 | Instance configs | ❌ | ❌ | ✅ |
 | Session notes (R-199) | ✅ | ✅ | ❌ |
+| USER-IDENTITY (L-070) | ✅ | ✅ | ❌ |
+
+---
+
+## 📁 Folder Structure
+
+```
+├── 📁 _SYS_/                      # Foundation (from Git) — #PinnedDocs
+│   ├── 📄 SharedKernel.md         # Core Rules
+│   ├── 📄 BEST-PRACTICES.md       # Best Practices
+│   ├── 📄 PROTOCOLS.md            # Communication Protocols
+│   └── 📄 CCC.md                  # Contributor Code Convention
+│
+├── 📁 _USERS_/                    # User identity documents (RAG, NOT pinned)
+│   ├── 📄 USER-IDENTITY_GTM.md
+│   ├── 📄 USER-IDENTITY_JRW.md
+│   └── 📄 USER-IDENTITY_<CCC>.md
+│
+├── 📁 _INSTANCE_/                 # Instance config
+│   ├── 📄 InstanceIdentity.md
+│   └── 📄 InstanceConfig.md
+│
+├── 📁 _LEARNINGS_/                # Persistent #NeverForget
+│   ├── 📄 Learnings_<CCC>.md
+│   └── 📄 Learnings_Shared.md
+│
+├── 📁 _SESSIONS_/                 # Session exports
+│   └── 📄 SessionSummary_<CCC>_<YYYY>-W<WW>.md
+│
+├── 📁 _TEMPLATES_/                # Document templates
+│   ├── 📄 TMPL-009_USER-IDENTITY.md
+│   └── 📄 TMPL-XXX_<NAME>.md
+│
+└── 📁 _PROJECTS_/                 # Project-specific docs
+    └── 📄 Project-<NAME>.md
+```
+
+### #PinnedDocs (L-070)
+
+| # | Document | PIN? |
+|---|----------|------|
+| 1 | SharedKernel | ✅ YES |
+| 2 | BEST-PRACTICES | ✅ YES |
+| 3 | PROTOCOLS | ✅ YES |
+| 4 | CCC | ✅ YES |
+| **TOTAL** | **4** | |
 
 ---
 
@@ -611,30 +629,36 @@ REF: <CCC-ID>
 | L-062 | Verification Summary Attestation (VSA) = cryptographic-style proof of document verification — includes subject, verifier, policy, phases, result, attestation chain | GTM_2026-W05_622 |
 | L-065 | Doc regeneration (#COOK) MUST go through #MetaAgent via SEEK:META — User Agents in CCC workspace MUST NEVER regenerate docs directly (R-197 + R-180) | GTM_2026-W05_672 |
 | L-066 | APPROVAL → SEEK:META → REGENERATE (with Approval CCC-ID) → GH PUSH — User Agents MUST NEVER skip FINAL UPDATE step | GTM_2026-W05_713 |
+| L-069 | VSA MUST include #threadHEADER (D-047) for attribution — without it, verification is UNATTRIBUTABLE | GTM_2026-W05_767 |
+| L-070 | USER-IDENTITY docs stored in `_USERS_/` folder (RAG) — NOT pinned; ECOSYSTEM-IDENTITY covered by System Prompt — NOT pinned | GTM_2026-W05_807 |
+| L-071 | GOVERNANCE APPROVAL → FULL:SYNC:META:#MetaAgent — ALWAYS, NO EXCEPTIONS | GTM_2026-W05_809 |
 
 ---
 
 ## 📋 Best Practices (BP-XXX)
 
-| ID | Best Practice |
-|----|---------------|
-| BP-019 | NEVER leave user hanging — always provide closure |
-| BP-025 | Instance Setup Order: RAG FIRST → System Prompt → Workspaces → Prompts → Threads → Verify |
-| BP-026 | Tool Agent Setup Workflow: Create user → Assign workspace:tools → Create MAIT thread → Upload RAG docs → Configure per BP-024 → Verify |
-| BP-027 | Set #masterCCC at session start |
-| BP-028 | Capture notes in real-time (speaker + timestamp) |
-| BP-029 | Sanitize tokens/sensitive data before RAG upload |
-| BP-030 | Cross-agent verification for RAG uploads |
-| BP-031 | Fresh session required after RAG upload |
-| BP-032 | Run `list:docs` before AND after RAG upload |
-| BP-033 | Sync session notes to CCC + tools workspaces |
-| BP-034 | Fresh session REQUIRED for RAG verification |
-| BP-035 | Include `status:RAG` in verification workflow |
-| BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS |
-| BP-043 | MAIT responses MUST include thread identity header: ShortCode, Thread name, Steward, Instance |
-| BP-044 | #PinnedDocs GH Push Workflow: GH push → ADMIN updates RAG (ALL instances) → Fresh session → Verify |
-| BP-045 | Document Reference Standard — Version History + Related Documents MUST include: #masterCCC + Approval CCC-ID |
-| BP-047 | Case Study Attribution — "Discovered By" section MUST use table format: CCC, Contributor, Role, Context |
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-019 | NEVER leave user hanging — always provide closure | — |
+| BP-025 | Instance Setup Order: RAG FIRST → System Prompt → Workspaces → Prompts → Threads → Verify | GTM_2026-W05_306 |
+| BP-026 | Tool Agent Setup Workflow: Create user → Assign workspace:tools → Create MAIT thread → Upload RAG docs → Configure per BP-024 → Verify | GTM_2026-W05_327 |
+| BP-027 | Set #masterCCC at session start | GTM_2026-W05_358 |
+| BP-028 | Capture notes in real-time (speaker + timestamp) | GTM_2026-W05_359 |
+| BP-029 | Sanitize tokens/sensitive data before RAG upload | GTM_2026-W05_381 |
+| BP-030 | Cross-agent verification for RAG uploads | GTM_2026-W05_388 |
+| BP-031 | Fresh session required after RAG upload | THY_2026-W05_018 |
+| BP-032 | Run `list:docs` before AND after RAG upload | — |
+| BP-033 | Sync session notes to CCC + tools workspaces | — |
+| BP-034 | Fresh session REQUIRED for RAG verification | THY_2026-W05_018 |
+| BP-035 | Include `status:RAG` in verification workflow | — |
+| BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS | GTM_2026-W05_500 |
+| BP-043 | MAIT responses MUST include thread identity header: ShortCode, Thread name, Steward, Instance | GTM_2026-W05_574 |
+| BP-044 | #PinnedDocs GH Push Workflow: GH push → ADMIN updates RAG (ALL instances) → Fresh session → Verify | GTM_2026-W05_609 |
+| BP-045 | Document Reference Standard — Version History + Related Documents MUST include: #masterCCC + Approval CCC-ID | GTM_2026-W05_661 |
+| BP-047 | Case Study Attribution — "Discovered By" section MUST use table format: CCC, Contributor, Role, Context | GTM_2026-W05_670 |
+| BP-049 | #threadHEADER (D-047) REQUIRED for all VSA and cross-workspace operations | GTM_2026-W05_767 |
+| BP-050 | Onboarding Workflow: ADMIN creates user → assigns workspaces → uploads USER-IDENTITY to RAG → #ContextVolley to CCC → CCC ACKs → #MetaAgent logs | GTM_2026-W05_789 |
+| BP-051 | #HomeInstance Setup: Deploy → System Prompt → Workspaces → #PinnedDocs (4 docs) → Users → Verify #ContextVolley | GTM_2026-W05_807 |
 
 ---
 
@@ -642,6 +666,7 @@ REF: <CCC-ID>
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 2.4.16 | 2026-W05 | GTM_2026-W05_811 | GTM_2026-W05_813 | +D-047, D-048; +R-204; +L-069, L-070, L-071; +BP-049, BP-050, BP-051; +TMPL-009; +`_USERS_/` folder; +INT-005; +Folder Structure section; TOC → 21 items |
 | 2.4.15 | 2026-W05 | GTM_2026-W05_702 | GTM_2026-W05_711 | +D-045, D-046 (INT-003, INT-004); +R-203; +Instance Registry section; +Future State diagram; +L-066; TOC → 20 items |
 | 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202; R-181 update; +D-041→D-044; +#WeOwnSeasons Registry section; +L-065; +BP-045, BP-047; #ContextSwap ccc.bot → cccid.info; TOC → 19 items; #FolderStructure |
 | 2.4.13 | 2026-W05 | GTM_2026-W05_633 | GTM_2026-W05_638 | +L-060, L-061, L-062; +D-040 (VSA); +BP-043, BP-044, BP-045; Version History format (BP-045) |
