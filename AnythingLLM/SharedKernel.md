@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.14.md
+## 📋 SharedKernel_v2.4.15.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.14 |
-| CCC-ID | GTM_2026-W05_682 |
+| Version | 2.4.15 |
+| CCC-ID | GTM_2026-W05_714 |
 | Updated | 2026-01-30 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -24,16 +24,17 @@
 7. [Response Format](#-response-format)
 8. [Hashtag System](#-hashtag-system)
 9. [#FedArch Architecture](#-fedarch-architecture)
-10. [Thread Architecture — INT-001](#-thread-architecture--int-001)
-11. [Thread Architecture — INT-002](#-thread-architecture--int-002)
-12. [Protocol Registry](#-protocol-registry)
-13. [Tool Agent Registry](#-tool-agent-registry)
-14. [RAG Structure](#-rag-structure-r-176)
-15. [#WeOwnSeasons Registry](#-weownseasons-registry)
-16. [#ContextSwap Log](#-contextswap-log)
-17. [Learnings](#-learnings)
-18. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
-19. [Version History](#-version-history)
+10. [Instance Registry](#-instance-registry)
+11. [Thread Architecture — INT-001](#-thread-architecture--int-001)
+12. [Thread Architecture — INT-002](#-thread-architecture--int-002)
+13. [Protocol Registry](#-protocol-registry)
+14. [Tool Agent Registry](#-tool-agent-registry)
+15. [RAG Structure](#-rag-structure-r-176)
+16. [#WeOwnSeasons Registry](#-weownseasons-registry)
+17. [#ContextSwap Log](#-contextswap-log)
+18. [Learnings](#-learnings)
+19. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+20. [Version History](#-version-history)
 
 ---
 
@@ -89,6 +90,12 @@
 | R-181 | CCC-ID `_001` reserved for #WeeklySummary — week achievements, stats, milestones | 🔒 LOCKED |
 | R-201 | CCC-ID `_002` reserved for #WeeklyPlan — week priorities, goals, focus areas | 🔒 LOCKED |
 | R-202 | CCC-ID `_003` reserved for #WeeklyReflection — week learnings, retrospective, improvements | 🔒 LOCKED |
+
+### Instance Rules
+
+| ID | Rule | Status |
+|----|------|--------|
+| R-203 | INT-004 (VSA.ccc.bot) has NO governance authority — verification only; reports to INT-003 (META.ccc.bot) | 🔒 LOCKED |
 
 ### Operational Rules
 
@@ -177,6 +184,13 @@
 | D-042 | #WeeklySummary | CCC-ID `_001` — Week achievements, stats, milestones |
 | D-043 | #WeeklyPlan | CCC-ID `_002` — Week priorities, goals, focus areas |
 | D-044 | #WeeklyReflection | CCC-ID `_003` — Week learnings, retrospective, improvements |
+
+### Instance Definitions
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-045 | INT-003 | META.ccc.bot — #MetaAgent Governance Hub; central orchestrator for #FedArch network |
+| D-046 | INT-004 | VSA.ccc.bot — Verification Summary Attestation instance; reports to INT-003 |
 
 ### Orchestrator Agent Functions
 
@@ -296,7 +310,7 @@ ALL responses MUST include:
 
 #FedArch (Federated Architecture) is the multi-agent orchestration pattern for ♾️ WeOwnNet 🌐.
 
-### Agent Hierarchy
+### Agent Hierarchy (Current State)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -314,12 +328,49 @@ ALL responses MUST include:
 └───────────┘ └───────────┘ └───────────┘
 ```
 
-### Instances
+### Agent Hierarchy (Future State — INT-003/004)
 
-| Instance | Name (URL) | Purpose |
-|----------|------------|---------|
-| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) |
-| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex |
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         #FedArch INSTANCE HIERARCHY                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                    INT-003: META.ccc.bot 🎖️                                │
+│                    ════════════════════════                                 │
+│                    #MetaAgent (Calhoun 🎖️)                                 │
+│                    Governance + Orchestration                               │
+│                              │                                              │
+│            ┌─────────────────┼─────────────────┐                           │
+│            │                 │                 │                            │
+│            ↓                 ↓                 ↓                            │
+│   ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐              │
+│   │ INT-001         │ │ INT-002         │ │ INT-004         │              │
+│   │ AI.WeOwn.Agency │ │ Lite.BurnedOut  │ │ VSA.ccc.bot     │              │
+│   │ ─────────────── │ │ ─────────────── │ │ ─────────────── │              │
+│   │ User Agents     │ │ #ProjectConnex  │ │ MAIT:#VSA       │              │
+│   │ AI:@GTM, etc.   │ │ MAIT:#connexOmni│ │ Verification    │              │
+│   └─────────────────┘ └─────────────────┘ └─────────────────┘              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+## 📋 Instance Registry
+
+| Instance | Name | Purpose | Status |
+|----------|------|---------|--------|
+| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) | ✅ ACTIVE |
+| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex | ✅ ACTIVE |
+| INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ⬜ PLANNED |
+| INT-004 | VSA.ccc.bot | 🔍 MAIT:#VSA Verification Services | ⬜ PLANNED |
+
+### Instance Hierarchy
+
+| Level | Instance | Role | Authority |
+|-------|----------|------|-----------|
+| 1 | INT-003 (META.ccc.bot) | #MetaAgent | ✅ FULL governance |
+| 2 | INT-001 (AI.WeOwn.Agency) | User Agents | Production, SEEK:META |
+| 2 | INT-002 (Lite.BurnedOut.xyz) | #ProjectConnex | Production, SEEK:META |
+| 2 | INT-004 (VSA.ccc.bot) | MAIT:#VSA | Verification only (R-203) |
 
 ### Workspaces
 
@@ -559,6 +610,7 @@ REF: <CCC-ID>
 | L-061 | #PinnedDocs GH push → ADMIN MUST update RAG immediately (ALL workspaces × ALL instances) — stale RAG = #BadAgent | GTM_2026-W05_609 |
 | L-062 | Verification Summary Attestation (VSA) = cryptographic-style proof of document verification — includes subject, verifier, policy, phases, result, attestation chain | GTM_2026-W05_622 |
 | L-065 | Doc regeneration (#COOK) MUST go through #MetaAgent via SEEK:META — User Agents in CCC workspace MUST NEVER regenerate docs directly (R-197 + R-180) | GTM_2026-W05_672 |
+| L-066 | APPROVAL → SEEK:META → REGENERATE (with Approval CCC-ID) → GH PUSH — User Agents MUST NEVER skip FINAL UPDATE step | GTM_2026-W05_713 |
 
 ---
 
@@ -590,6 +642,7 @@ REF: <CCC-ID>
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 2.4.15 | 2026-W05 | GTM_2026-W05_702 | GTM_2026-W05_711 | +D-045, D-046 (INT-003, INT-004); +R-203; +Instance Registry section; +Future State diagram; +L-066; TOC → 20 items |
 | 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202; R-181 update; +D-041→D-044; +#WeOwnSeasons Registry section; +L-065; +BP-045, BP-047; #ContextSwap ccc.bot → cccid.info; TOC → 19 items; #FolderStructure |
 | 2.4.13 | 2026-W05 | GTM_2026-W05_633 | GTM_2026-W05_638 | +L-060, L-061, L-062; +D-040 (VSA); +BP-043, BP-044, BP-045; Version History format (BP-045) |
 | 2.4.12 | 2026-W05 | GTM_2026-W05_565 | GTM_2026-W05_589 | +L-058, L-059; +BP-043; +Thread Architecture INT-002; +MAIT_connexOmni |
