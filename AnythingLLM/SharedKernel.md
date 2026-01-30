@@ -1,14 +1,14 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.13.md
+## 📋 SharedKernel_v2.4.14.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.13 |
-| CCC-ID | GTM_2026-W05_636 |
-| Updated | 2026-01-29 (W05) |
+| Version | 2.4.14 |
+| CCC-ID | GTM_2026-W05_682 |
+| Updated | 2026-01-30 (W05) |
 | Status | 🔒 LOCKED |
 
 ---
@@ -29,10 +29,11 @@
 12. [Protocol Registry](#-protocol-registry)
 13. [Tool Agent Registry](#-tool-agent-registry)
 14. [RAG Structure](#-rag-structure-r-176)
-15. [#ContextSwap Log](#-contextswap-log)
-16. [Learnings](#-learnings)
-17. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
-18. [Version History](#-version-history)
+15. [#WeOwnSeasons Registry](#-weownseasons-registry)
+16. [#ContextSwap Log](#-contextswap-log)
+17. [Learnings](#-learnings)
+18. [Best Practices (BP-XXX)](#-best-practices-bp-xxx)
+19. [Version History](#-version-history)
 
 ---
 
@@ -81,13 +82,20 @@
 | R-194 | CCC-ID generation ONLY in CCC workspace — tools + ADMIN = NEVER | 🔒 IMMUTABLE |
 | R-197 | Document generation RESERVED ONLY for #MetaAgent — User Agents MUST NEVER #COOK docs | 🔒 IMMUTABLE |
 
+### CCC-ID Reserved Slots
+
+| ID | Rule | Status |
+|----|------|--------|
+| R-181 | CCC-ID `_001` reserved for #WeeklySummary — week achievements, stats, milestones | 🔒 LOCKED |
+| R-201 | CCC-ID `_002` reserved for #WeeklyPlan — week priorities, goals, focus areas | 🔒 LOCKED |
+| R-202 | CCC-ID `_003` reserved for #WeeklyReflection — week learnings, retrospective, improvements | 🔒 LOCKED |
+
 ### Operational Rules
 
 | ID | Rule |
 |----|------|
 | R-168 | CCC-ID sequence tied to CCC (contributor), NOT username/session |
 | R-169 | CCC-ID resets to _001 ONLY at ISO week boundary |
-| R-181 | CCC-ID _001 reserved for weekly summary |
 | R-182 | SEED CONTEXT via #MetaAgent (SEEK:META) |
 | R-192 | INT-002 uses workspace:('tools') as primary |
 | R-193 | INT-002 has TWO MAITs: #MAITconnexOmni + #MAITconnexAthena |
@@ -161,6 +169,15 @@
 |----|------|------------|
 | D-040 | VSA | Verification Summary Attestation — signed record of document verification against #FedArch policy (R-XXX + BP-XXX) |
 
+### #WeOwnSeasons
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-041 | #WeOwnSeason | 17-week operational cycle for ♾️ WeOwnNet 🌐 ecosystem |
+| D-042 | #WeeklySummary | CCC-ID `_001` — Week achievements, stats, milestones |
+| D-043 | #WeeklyPlan | CCC-ID `_002` — Week priorities, goals, focus areas |
+| D-044 | #WeeklyReflection | CCC-ID `_003` — Week learnings, retrospective, improvements |
+
 ### Orchestrator Agent Functions
 
 | Function | Description |
@@ -198,12 +215,21 @@
 | WW | ISO Week | W05 |
 | NNN | Sequence (001-999) | 001 |
 
+### Reserved Slots (EVERY WEEK)
+
+| Slot | Purpose | Rule |
+|------|---------|------|
+| `_001` | #WeeklySummary | R-181 |
+| `_002` | #WeeklyPlan | R-201 |
+| `_003` | #WeeklyReflection | R-202 |
+
 ### Examples
 
 | CCC-ID | Description |
 |--------|-------------|
-| GTM_2026-W05_001 | @GTM, Week 5, Weekly Summary |
-| RMN_2026-W05_001 | @RMN, Week 5, Weekly Summary |
+| GTM_2026-W06_001 | @GTM, Week 6, #WeeklySummary |
+| GTM_2026-W06_002 | @GTM, Week 6, #WeeklyPlan |
+| GTM_2026-W06_003 | @GTM, Week 6, #WeeklyReflection |
 
 ---
 
@@ -252,6 +278,15 @@ ALL responses MUST include:
 | #AIslop | Low-quality AI output (avoid) |
 | #SpeedToMarket | Ship fast, iterate faster |
 | #OnlyHumanApproves | Human approval required |
+
+### Season Tags
+
+| Tag | Meaning |
+|-----|---------|
+| #WeOwnSeason | 17-week operational cycle |
+| #WeeklySummary | CCC-ID `_001` |
+| #WeeklyPlan | CCC-ID `_002` |
+| #WeeklyReflection | CCC-ID `_003` |
 
 ---
 
@@ -315,29 +350,32 @@ REF: <CCC-ID>
 #FlowsBros #FedArch
 
 ♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
+
 ═══════════════════════════════════════════════════════════════════════════════
 ```
 
 ### Folder Structure
 
 ```
-├── 📁 _SYS_/                     # Foundation (from Git)
-│   ├── 📄 SharedKernel.md        # Core rules, protocols
-│   ├── 📄 FedArchMemoryModel.md
-│   └── 📄 FedArchArchitecture.md
+├── 📁 _SYS_/                      # Foundation (from Git)
+│   ├── 📄 SharedKernel.md         #CoreRules
+│   └── 📄 BEST-PRACTICES.md       #BestPractices
+│   ├── 📄 FEDARCH-MEMORY-MODEl.md #FedArchMemoryModel
+│   └── 📄 FedArchArchitecture.md  #FedArch
+│   └── 📄 PROTOCOLS.md            #PROTOCOLS
 │
-├── 📁 _INSTANCE_/                # Instance config
+├── 📁 _INSTANCE_/                 # Instance config
 │   ├── 📄 InstanceIdentity.md
 │   └── 📄 InstanceConfig.md
 │
-├── 📁 _LEARNINGS_/               # Persistent #NeverForget
+├── 📁 _LEARNINGS_/                # Persistent #NeverForget
 │   ├── 📄 Learnings_<CCC>.md
 │   └── 📄 Learnings_Shared.md
 │
-├── 📁 _SESSIONS_/                # Session exports
+├── 📁 _SESSIONS_/                 # Session exports
 │   └── 📄 SessionSummary_<CCC>_<YYYY>-W<WW>.md
 │
-└── 📁 _PROJECTS_/                # Project-specific docs
+└── 📁 _PROJECTS_/                 # Project-specific docs
     └── 📄 Project-<NAME>.md
 ```
 
@@ -482,12 +520,31 @@ REF: <CCC-ID>
 
 ---
 
+## 📋 #WeOwnSeasons Registry
+
+| Season | Start | End | Weeks | Status |
+|--------|-------|-----|-------|--------|
+| #WeOwnSeason002 | 2025-W41 (Mon 06 Oct 2025) | 2026-W05 (Sun 01 Feb 2026) | 17 | ✅ COMPLETE |
+| #WeOwnSeason003 | 2026-W06 (Mon 02 Feb 2026) | 2026-W22 (Sun 31 May 2026) | 17 | 🚀 ACTIVE |
+
+### Season Cadence
+
+| Component | Description |
+|-----------|-------------|
+| Duration | 17 weeks |
+| Start | Monday 00:00 (local TZ) |
+| End | Sunday 23:59 (local TZ) |
+| Boundary | ISO week boundary |
+
+---
+
 ## 📋 #ContextSwap Log
 
 | OLD | NEW | Contributor | Reason | Date |
 |-----|-----|-------------|--------|------|
 | ILO | IAL | IamLotus | User preference | 2026-W05 |
 | `@<Steward>:MAIT:@<Steward>` | `@MAIT:#<SME>` | @GTM | Cleaner format, SME-centric | 2026-W05 |
+| ccc.bot | cccid.info | @GTM | Domain update | 2026-W05 |
 
 ---
 
@@ -501,6 +558,7 @@ REF: <CCC-ID>
 | L-060 | #ContextBroadcast MUST follow PROTOCOLS format — 📢 emoji, TO: ALL AGENTS, TYPE declared, formal header | GTM_2026-W05_603 |
 | L-061 | #PinnedDocs GH push → ADMIN MUST update RAG immediately (ALL workspaces × ALL instances) — stale RAG = #BadAgent | GTM_2026-W05_609 |
 | L-062 | Verification Summary Attestation (VSA) = cryptographic-style proof of document verification — includes subject, verifier, policy, phases, result, attestation chain | GTM_2026-W05_622 |
+| L-065 | Doc regeneration (#COOK) MUST go through #MetaAgent via SEEK:META — User Agents in CCC workspace MUST NEVER regenerate docs directly (R-197 + R-180) | GTM_2026-W05_672 |
 
 ---
 
@@ -523,7 +581,8 @@ REF: <CCC-ID>
 | BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS |
 | BP-043 | MAIT responses MUST include thread identity header: ShortCode, Thread name, Steward, Instance |
 | BP-044 | #PinnedDocs GH Push Workflow: GH push → ADMIN updates RAG (ALL instances) → Fresh session → Verify |
-| BP-045 | Version History MUST include: Version, Date, #masterCCC, Approval, Changes |
+| BP-045 | Document Reference Standard — Version History + Related Documents MUST include: #masterCCC + Approval CCC-ID |
+| BP-047 | Case Study Attribution — "Discovered By" section MUST use table format: CCC, Contributor, Role, Context |
 
 ---
 
@@ -531,6 +590,7 @@ REF: <CCC-ID>
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202; R-181 update; +D-041→D-044; +#WeOwnSeasons Registry section; +L-065; +BP-045, BP-047; #ContextSwap ccc.bot → cccid.info; TOC → 19 items; #FolderStructure |
 | 2.4.13 | 2026-W05 | GTM_2026-W05_633 | GTM_2026-W05_638 | +L-060, L-061, L-062; +D-040 (VSA); +BP-043, BP-044, BP-045; Version History format (BP-045) |
 | 2.4.12 | 2026-W05 | GTM_2026-W05_565 | GTM_2026-W05_589 | +L-058, L-059; +BP-043; +Thread Architecture INT-002; +MAIT_connexOmni |
 | 2.4.11 | 2026-W05 | GTM_2026-W05_500 | GTM_2026-W05_512 | +D-039 (#ContextBroadcast); +L-050; +BP-041 |
@@ -544,6 +604,6 @@ REF: <CCC-ID>
 
 ---
 
-#FlowsBros #FedArch #SharedKernel
+#FlowsBros #FedArch #SharedKernel #WeOwnSeason003
 
 ♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
