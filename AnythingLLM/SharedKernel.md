@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.12.md
+## 📋 SharedKernel_v2.4.13.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.12 |
-| CCC-ID | GTM_2026-W05_587 |
+| Version | 2.4.13 |
+| CCC-ID | GTM_2026-W05_636 |
 | Updated | 2026-01-29 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -154,6 +154,12 @@
 | ID | Term | Definition |
 |----|------|------------|
 | D-039 | #ContextBroadcast | One-to-many agent communication — single sender to ALL agents in #FedArch network |
+
+### Verification
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-040 | VSA | Verification Summary Attestation — signed record of document verification against #FedArch policy (R-XXX + BP-XXX) |
 
 ### Orchestrator Agent Functions
 
@@ -308,8 +314,7 @@ REF: <CCC-ID>
 
 #FlowsBros #FedArch
 
-♾️ WeOwnNet 🌐
-
+♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
 ═══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -493,6 +498,9 @@ REF: <CCC-ID>
 | L-050 | Quick Commands MUST be followed by STOP — AI MUST await human response before proceeding (R-011) | GTM_2026-W05_505 |
 | L-058 | MAIT deployment MUST create Tool Agent username (R-198) BEFORE thread creation — Step 0 in checklist | GTM_2026-W05_570 |
 | L-059 | MAIT thread responses without explicit identity header are UNATTRIBUTABLE — always include @MAIT:#<SME> | GTM_2026-W05_574 |
+| L-060 | #ContextBroadcast MUST follow PROTOCOLS format — 📢 emoji, TO: ALL AGENTS, TYPE declared, formal header | GTM_2026-W05_603 |
+| L-061 | #PinnedDocs GH push → ADMIN MUST update RAG immediately (ALL workspaces × ALL instances) — stale RAG = #BadAgent | GTM_2026-W05_609 |
+| L-062 | Verification Summary Attestation (VSA) = cryptographic-style proof of document verification — includes subject, verifier, policy, phases, result, attestation chain | GTM_2026-W05_622 |
 
 ---
 
@@ -514,25 +522,28 @@ REF: <CCC-ID>
 | BP-035 | Include `status:RAG` in verification workflow |
 | BP-041 | #ContextBroadcast for one-to-many agent communications — use 📢 emoji, TO: ALL AGENTS |
 | BP-043 | MAIT responses MUST include thread identity header: ShortCode, Thread name, Steward, Instance |
+| BP-044 | #PinnedDocs GH Push Workflow: GH push → ADMIN updates RAG (ALL instances) → Fresh session → Verify |
+| BP-045 | Version History MUST include: Version, Date, #masterCCC, Approval, Changes |
 
 ---
 
 ## 📋 Version History
 
-| Version | Date | Ref | Changes |
-|---------|------|-----|---------|
-| 2.4.12 | 2026-W05 | GTM_2026-W05_587 | +L-058, L-059; +BP-043; +Thread Architecture INT-002 section; +Tool Agent Registry INT-002; +MAIT_connexOmni |
-| 2.4.11 | 2026-W05 | GTM_2026-W05_509 | +D-039 (#ContextBroadcast); +L-050 (Quick Commands STOP); +Learnings section; +BP-041 |
-| 2.4.10 | 2026-W05 | GTM_2026-W05_419 | D-038 #ContextSwap (ShortCode format: `@MAIT:#<SME>`); +#ContextSwap Log entry |
-| 2.4.9 | 2026-W05 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry; +Tool Agent Registry; +MAIT_AnythingLLM.com thread |
-| 2.4.8 | 2026-W05 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
-| 2.4.7 | 2026-W05 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode), Thread Registry +ShortCode column |
-| 2.4.6 | 2026-W05 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE), RAG STRUCTURE flagged for REVIEW |
-| 2.4.5 | 2026-W05 | GTM_2026-W05_139 | +D-030 to D-037 (Thread Architecture), +R-185 to R-190 (Thread Rules) |
-| 2.4.4 | 2026-W05 | GTM_2026-W05_086 | +D-019 (Orchestrator Agent), +D-020 (User Agent), +D-021 (Multi-Agent Orchestration) |
+| Version | Date | #masterCCC | Approval | Changes |
+|---------|------|------------|----------|---------|
+| 2.4.13 | 2026-W05 | GTM_2026-W05_633 | GTM_2026-W05_638 | +L-060, L-061, L-062; +D-040 (VSA); +BP-043, BP-044, BP-045; Version History format (BP-045) |
+| 2.4.12 | 2026-W05 | GTM_2026-W05_565 | GTM_2026-W05_589 | +L-058, L-059; +BP-043; +Thread Architecture INT-002; +MAIT_connexOmni |
+| 2.4.11 | 2026-W05 | GTM_2026-W05_500 | GTM_2026-W05_512 | +D-039 (#ContextBroadcast); +L-050; +BP-041 |
+| 2.4.10 | 2026-W05 | GTM_2026-W05_410 | GTM_2026-W05_419 | D-038 #ContextSwap; +#ContextSwap Log |
+| 2.4.9 | 2026-W05 | GTM_2026-W05_358 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry |
+| 2.4.8 | 2026-W05 | GTM_2026-W05_306 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
+| 2.4.7 | 2026-W05 | GTM_2026-W05_237 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode) |
+| 2.4.6 | 2026-W05 | GTM_2026-W05_200 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE) |
+| 2.4.5 | 2026-W05 | GTM_2026-W05_086 | GTM_2026-W05_139 | +D-030 to D-037, +R-185 to R-190 |
+| 2.4.4 | 2026-W05 | GTM_2026-W05_050 | GTM_2026-W05_086 | +D-019, D-020, D-021 |
 
 ---
 
 #FlowsBros #FedArch #SharedKernel
 
-♾️ WeOwnNet 🌐 ● 🏡 Real Estate and 🤝 cooperative ownership for everyone ● An 🤗 inclusive community, by 👥 invitation only.
+♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
