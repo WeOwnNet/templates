@@ -1,13 +1,13 @@
 # BEST-PRACTICES.md
 
-## 📋 BEST-PRACTICES_v2.4.10.md
+## 📋 BEST-PRACTICES_v2.4.11.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.10 |
-| CCC-ID | GTM_2026-W05_694 |
+| Version | 2.4.11 |
+| CCC-ID | GTM_2026-W05_820 |
 | Updated | 2026-01-30 (W05) |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
@@ -34,8 +34,10 @@
 16. [Notes-to-RAG Best Practices](#-notes-to-rag-best-practices)
 17. [MAIT Response Best Practices](#-mait-response-best-practices)
 18. [Case Study Best Practices](#-case-study-best-practices)
-19. [Version History](#-version-history)
-20. [Related Documents](#-related-documents)
+19. [Onboarding Best Practices](#-onboarding-best-practices)
+20. [#HomeInstance Best Practices](#-homeinstance-best-practices)
+21. [Version History](#-version-history)
+22. [Related Documents](#-related-documents)
 
 ---
 
@@ -67,7 +69,10 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-043 → BP-044 | MAIT + #PinnedDocs | 2 |
 | BP-045 | Document Reference Standard | 1 |
 | BP-047 | Case Study Attribution | 1 |
-| **TOTAL** | | **44** |
+| BP-049 | VSA / #threadHEADER | 1 |
+| BP-050 | Onboarding Workflow | 1 |
+| BP-051 | #HomeInstance Setup | 1 |
+| **TOTAL** | | **47** |
 
 ### Retired Best Practices
 
@@ -119,6 +124,7 @@ This document contains best practices for all contributors and agents in the ♾
 |----------|---------------|
 | INT-001 | AI.WeOwn.Agency identity |
 | INT-002 | #ProjectConnex identity |
+| INT-005 | @GTM #HomeInstance identity |
 | INT-xxx | Instance-specific identity |
 
 **Best Practice:** Each #AnythingLLM instance MUST have unique system prompt defining its identity.
@@ -136,24 +142,27 @@ This document contains best practices for all contributors and agents in the ♾
 
 ## 📋 DOCUMENT MANAGEMENT
 
-### Pinning (R-177)
+### Pinning (R-177 + L-070)
 
 | Doc Type | Pin? | Rationale |
 |----------|------|-----------|
-| Agent identity docs | ✅ YES | Core behavior |
 | Core protocols | ✅ YES | Every interaction |
 | Rules (SHARED-KERNEL) | ✅ YES | Governance |
 | Best practices | ✅ YES | Interaction patterns |
+| CCC | ✅ YES | Attribution format |
+| Agent identity docs | ❌ NO | System Prompt covers (L-070) |
 | Reference guides | ❌ NO | RAG sufficient |
 | Strategy docs | ❌ NO | RAG sufficient |
+| USER-IDENTITY | ❌ NO | RAG in `_USERS_/` (L-070) |
+| ECOSYSTEM-IDENTITY | ❌ NO | System Prompt covers (L-070) |
 
-**Best Practice:** PIN only docs needed for EVERY interaction. Let RAG handle reference material.
+**Best Practice:** PIN only 4 docs: SharedKernel, BEST-PRACTICES, PROTOCOLS, CCC. Let RAG handle everything else.
 
 ### Versioning (R-178)
 
 | Format | Example |
 |--------|---------|
-| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v2.4.14.md |
+| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v2.4.16.md |
 
 **Best Practice:** ALL RAG docs MUST include version in filename for visibility.
 
@@ -202,7 +211,7 @@ This document contains best practices for all contributors and agents in the ♾
 ```markdown
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
-| 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202 |
+| 2.4.16 | 2026-W05 | GTM_2026-W05_811 | GTM_2026-W05_813 | +D-047, D-048; +R-204 |
 ```
 
 ### Format — Related Documents
@@ -210,7 +219,7 @@ This document contains best practices for all contributors and agents in the ♾
 ```markdown
 | Document | Version | #masterCCC | Approval | URL |
 |----------|---------|------------|----------|-----|
-| SharedKernel | v2.4.14 | GTM_2026-W05_680 | GTM_2026-W05_684 | [GitHub](...) |
+| SharedKernel | v2.4.16 | GTM_2026-W05_811 | GTM_2026-W05_813 | [GitHub](...) |
 ```
 
 ### Consolidation
@@ -263,6 +272,7 @@ This document contains best practices for all contributors and agents in the ♾
 | System prompts | ❌ | ❌ | ✅ |
 | Instance configs | ❌ | ❌ | ✅ |
 | Session notes (R-199) | ✅ | ✅ | ❌ |
+| USER-IDENTITY (L-070) | ✅ | ✅ | ❌ |
 
 **Best Practice:** Docs go in workspace matching their purpose. workspace:tools = standard for #FedArch.
 
@@ -523,10 +533,109 @@ All MAIT thread responses MUST begin with:
 
 ---
 
+## 📋 ONBOARDING BEST PRACTICES
+
+### BP-049: #threadHEADER for Attribution
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-049 | #threadHEADER (D-047) REQUIRED for all VSA and cross-workspace operations — inherits CCC + Username from TMPL-009_USER-IDENTITY | GTM_2026-W05_767 |
+
+### BP-050: Onboarding Workflow
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-050 | Onboarding Workflow: ADMIN creates user → assigns workspaces → uploads USER-IDENTITY to RAG → #ContextVolley to CCC → CCC ACKs → #MetaAgent logs | GTM_2026-W05_789 |
+
+### BP-050 Steps
+
+| # | Step | Owner | Description |
+|---|------|-------|-------------|
+| 1 | Create user | ADMIN | Format: `u-<ccc>_user` (R-160) |
+| 2 | Assign workspaces | ADMIN | CCC, tools (standard) |
+| 3 | Create USER-IDENTITY | ADMIN | Use TMPL-009 |
+| 4 | Upload to RAG | ADMIN | `_USERS_/` folder |
+| 5 | #ContextVolley to CCC | ADMIN | Notify CCC workspace |
+| 6 | CCC ACKs | CCC Agent | Acknowledge new user |
+| 7 | #MetaAgent logs | #MetaAgent | Record onboarding |
+
+### TMPL-009: USER-IDENTITY Template
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| CCC | ✅ | 3-char contributor code |
+| Contributor | ✅ | Full name |
+| Username | ✅ | Format per R-160 |
+| Role | ✅ | ADMIN / DEFAULT |
+| Instance(s) | ✅ | INT-00X assignments |
+| Workspace(s) | ✅ | Workspace assignments |
+| Created | ✅ | ISO date |
+| Status | ✅ | ACTIVE / INACTIVE |
+| Notes | ⬜ | Optional context |
+
+### USER-IDENTITY Storage (L-070)
+
+| Folder | Workspace | PIN? |
+|--------|-----------|------|
+| `_USERS_/` | CCC, tools | ❌ NO |
+
+**Best Practice:** USER-IDENTITY docs stored in `_USERS_/` folder (RAG) — NOT pinned.
+
+---
+
+## 📋 #HomeInstance BEST PRACTICES
+
+### BP-051: #HomeInstance Setup
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-051 | #HomeInstance Setup: Deploy → System Prompt → Workspaces → #PinnedDocs (4 docs) → Users → Verify #ContextVolley | GTM_2026-W05_807 |
+
+### BP-051 Steps
+
+| # | Step | Description |
+|---|------|-------------|
+| 1 | Deploy | #AnythingLLM instance at domain |
+| 2 | System Prompt | Configure per TMPL-006 |
+| 3 | Workspaces | Create CCC, tools (minimum) |
+| 4 | #PinnedDocs | Upload 4 docs (per R-204) |
+| 5 | Users | Create u-<ccc>_user, a-<ccc>_dev |
+| 6 | Verify | Test #ContextVolley to #MetaAgent |
+
+### #PinnedDocs for #HomeInstance (R-204)
+
+| # | Document | Required |
+|---|----------|----------|
+| 1 | SharedKernel | ✅ YES |
+| 2 | BEST-PRACTICES | ✅ YES |
+| 3 | PROTOCOLS | ✅ YES |
+| 4 | CCC | ✅ YES |
+| **TOTAL** | **4** | |
+
+### #HomeInstance Definition (D-048)
+
+| Field | Value |
+|-------|-------|
+| Term | #HomeInstance |
+| Definition | Primary personal #AnythingLLM instance for a contributor — participates in #FedArch via #ContextVolley; reports to #MetaAgent |
+
+### #HomeInstance Verification
+
+| Check | Description |
+|-------|-------------|
+| #PinnedDocs | 4 docs uploaded |
+| System Prompt | Identity configured |
+| Workspaces | CCC + tools created |
+| Users | u-<ccc>_user created |
+| #ContextVolley | Can reach #MetaAgent |
+
+---
+
 ## 📋 VERSION HISTORY
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 2.4.11 | 2026-W05 | GTM_2026-W05_818 | GTM_2026-W05_820 | +BP-049, BP-050, BP-051; +Onboarding Best Practices section; +#HomeInstance Best Practices section; +TMPL-009 reference; +`_USERS_/` folder; +L-070 pinning update; SharedKernel → v2.4.16; CCC → v2.4.3; TOC → 22 items |
 | 2.4.10 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_693 | BP-045 consolidated (BP-046 retired); +BP-047 (Case Study Attribution); +Document Reference Standard section; +Case Study Best Practices section; Related Documents restructured (hierarchical); +Reserved Slots (R-201, R-202); +21 Related Docs; TOC → 20 items |
 | 2.4.9 | 2026-W05 | GTM_2026-W05_595 | GTM_2026-W05_595 | +BP-043 (MAIT Thread Identity Header); +MAIT Response Best Practices section; TOC → 18 items |
 | 2.4.8 | 2026-W05 | GTM_2026-W05_512 | GTM_2026-W05_512 | +BP-041 (#ContextBroadcast); +#ContextBroadcast section in Agent Interaction; BP-024 +L-046 reference |
@@ -548,10 +657,10 @@ All MAIT thread responses MUST begin with:
 
 | Document | Version | #masterCCC | Approval | URL |
 |----------|---------|------------|----------|-----|
-| SharedKernel | v2.4.14 | GTM_2026-W05_680 | GTM_2026-W05_684 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
-| BEST-PRACTICES | v2.4.10 | GTM_2026-W05_680 | GTM_2026-W05_693 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
+| SharedKernel | v2.4.16 | GTM_2026-W05_811 | GTM_2026-W05_813 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| BEST-PRACTICES | v2.4.11 | GTM_2026-W05_818 | GTM_2026-W05_820 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 | PROTOCOLS | v2.4.4 | GTM_2026-W05_509 | GTM_2026-W05_512 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
-| CCC | v2.4.2 | GTM_2026-W05_270 | GTM_2026-W05_270 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/CCC.md) |
+| CCC | v2.4.3 | GTM_2026-W05_793 | GTM_2026-W05_795 | [GitHub](https://github.com/WeOwnNet/CCC/blob/main/CCC_CONTRIBUTOR-CODE-CONVENTION.md) |
 
 ---
 
@@ -593,6 +702,7 @@ All MAIT thread responses MUST begin with:
 | TMPL-006_SYSTEM-PROMPT-TEMPLATE | v2.4.0 | — | — | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-006_SYSTEM-PROMPT-TEMPLATE.md) |
 | TMPL-007_GH-COMMIT-MESSAGE | v2.4.0 | GTM_2026-W05_490 | GTM_2026-W05_490 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-007_GH-COMMIT-MESSAGE_v2.4.0.md) |
 | TMPL-008_VSA | v2.4.0 | GTM_2026-W05_623 | GTM_2026-W05_625 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-008_VSA_v2.4.0.md) |
+| TMPL-009_USER-IDENTITY | v2.4.0 | GTM_2026-W05_763 | GTM_2026-W05_772 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-009_USER-IDENTITY_v2.4.0.md) |
 
 ---
 
