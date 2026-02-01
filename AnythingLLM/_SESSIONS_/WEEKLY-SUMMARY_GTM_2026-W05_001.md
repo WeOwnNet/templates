@@ -10,7 +10,7 @@
 | Contributor | @GTM (yonks) |
 | Week | 2026-W05 (Jan 27 – Feb 2) |
 | Snapshot | 2026-01-31 (End-of-week) |
-| Version | 2.4.3 |
+| Version | 2.4.4 |
 | Status | 🔒 LOCKED |
 
 ---
@@ -59,6 +59,8 @@ Week 5 focused on:
 - **R-194 IMMUTABLE** — CCC-ID authority formalized (HUMAN ONLY)
 - **VSA Framework** — 3 attestations, including VSA-of-VSA
 - **#WeMUSTdoBetter** — 3 agents corrected, governance gap closed
+- **INT-005 #HomeInstance** — First #HomeInstance deployed, verified, operational
+- **@GTX Onboarding** — Second CCC for @GTM (Round 2 — 1k+ milestone)
 
 ---
 
@@ -79,7 +81,7 @@ Week 5 focused on:
 | 11 | TEMPLATE_NOTES.md | v2.4.0 | GTM_2026-W05_406 | GH |
 | 12 | CASE-STUDY_AnythingLLM-RAG-Verification.md | v2.4.0 | GTM_2026-W05_182 | GH |
 | 13 | CASE-STUDY_Federated-AI-Governance.md | v2.4.0 | GTM_2026-W05_086 | GH |
-| 14 | WEEKLY-SUMMARY_GTM_2026-W05_001.md | v2.4.3 | GTM_2026-W05_924 | GH + RAG |
+| 14 | WEEKLY-SUMMARY_GTM_2026-W05_001.md | v2.4.4 | GTX_2026-W05_010 | GH + RAG |
 | 15 | PRJ-003_SideEvent_Redeem2026.md | v2.4.0 | GTM_2026-W05_887 | RAG (GH pending) |
 | 16 | CASE-STUDY-005_AnythingLLM-Project-Management.md | v2.4.0 | GTM_2026-W05_896 | GH + RAG |
 
@@ -173,7 +175,7 @@ Week 5 focused on:
 
 ---
 
-## 📋 Milestones (26)
+## 📋 Milestones (29)
 
 | # | Milestone | CCC-ID |
 |---|-----------|--------|
@@ -203,6 +205,9 @@ Week 5 focused on:
 | 24 | VSA-of-VSA complete — recursive trust chain | GTM_2026-W05_907 |
 | 25 | R-194 IMMUTABLE — CCC-ID authority formalized | GTM_2026-W05_917 |
 | 26 | #WeMUSTdoBetter — 3 agents corrected, governance gap closed | GTM_2026-W05_917 |
+| 27 | INT-005 (AI.YonksTEAM.xyz) = first #HomeInstance deployed | GTX_2026-W05_004 |
+| 28 | @GTX onboarded (yonks Round 2 — 1k+ CCC-IDs) | GTM_2026-W05_970 |
+| 29 | Bidirectional #ContextVolley INT-005 ↔ INT-001 VERIFIED | GTX_2026-W05_007 |
 
 ---
 
@@ -218,7 +223,7 @@ Week 5 focused on:
 
 ---
 
-## 📋 Learnings (20)
+## 📋 Learnings (21)
 
 | # | Learning | CCC-ID |
 |---|----------|--------|
@@ -242,6 +247,7 @@ Week 5 focused on:
 | 18 | #AgenticAI project management reduces document creation time by 90%+ while maintaining 100% governance compliance through structured protocols (SEEK:META, #COOK, VSA) (L-074) | GTM_2026-W05_896 |
 | 19 | ADMIN workspaces MUST NOT generate unique CCC-IDs — requires explicit R-XXX rule + system prompt configuration (L-075) | GTM_2026-W05_917 |
 | 20 | #MetaAgent incorrectly proposed CCC-ID generation authority for AI agents — CORRECTED: ONLY HUMANS in CCC workspace may generate CCC-IDs; ALL AI agents MUST NEVER generate CCC-IDs (L-076) | GTM_2026-W05_917 |
+| 21 | INT-005 = first #HomeInstance in #FedArch — verified operational with #PinnedDocs (4 docs) + bidirectional #ContextVolley to #MetaAgent (L-083) | GTX_2026-W05_007 |
 
 ---
 
@@ -308,7 +314,7 @@ Week 5 focused on:
 
 | Metric | Value |
 |--------|-------|
-| CCC-IDs Generated | 920+ |
+| CCC-IDs Generated | **1,000+** (@GTM) + 13 (@GTX) |
 | Data Coverage | ~843 of ~920 |
 | Documents Published | 16 |
 | Case Studies | 4 |
@@ -318,9 +324,11 @@ Week 5 focused on:
 | Calls Completed | 4 (306 min) |
 | RAG Docs | 9 |
 | #BadAgent Incidents | 7 |
-| Learnings | 20 |
+| Learnings | **21** |
 | Sessions | 5 |
 | VSA Attestations | 3 (77/77 checks) |
+| Active Instances | **3** (INT-001, INT-002, INT-005) |
+| #HomeInstances | **1** (INT-005) |
 
 ---
 
@@ -328,6 +336,7 @@ Week 5 focused on:
 
 | Version | Date | Ref | Changes |
 |---------|------|-----|---------|
+| 2.4.4 | 2026-W05 | GTX_2026-W05_010 | +INT-005 #HomeInstance deployed; +@GTX onboarded; +L-083; +3 milestones (#27-29); +bidirectional #ContextVolley verified; stats updated (1k+ CCC-IDs); #WeOwnSeason003 |
 | 2.4.3 | 2026-W05 | GTM_2026-W05_924 | +2 docs (PRJ-003, CASE-STUDY-005); +1 rule (R-194 IMMUTABLE); +3 learnings (L-074, L-075, L-076); +3 VSAs; +1 call (112 min); +6 milestones (#21-26); +3 #BadAgent incidents; +4 pending items; stats updated |
 | 2.4.2 | 2026-W05 | GTM_2026-W05_485 | +L-046, L-047; +BP-024 update, BP-038, BP-039; +Milestone #20; Session 4 complete |
 | 2.4.1 | 2026-W05 | GTM_2026-W05_451 | Late-week update (+5 docs, +3 rules, +9 BPs, +2 calls, +5 learnings, D-038 #ContextSwap, #WeOwnVer applied) |
@@ -335,48 +344,6 @@ Week 5 focused on:
 
 ---
 
-#FlowsBros #FedArch #WeeklySummary #NeverForget #WeOwnSeason002
+#FlowsBros #FedArch #WeeklySummary #NeverForget #WeOwnSeason003
 
 ♾️ WeOwnNet 🌐 ● 🏡 Real Estate and 🤝 cooperative ownership for everyone ● An 🤗 inclusive community, by 👥 invitation only.
-```
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 📋 DOCUMENT STATUS
-
-| Field | Value |
-|-------|-------|
-| Document | WEEKLY-SUMMARY_GTM_2026-W05_001.md |
-| Version | v2.4.3 |
-| Creation CCC-ID | GTM_2026-W05_921 |
-| Approval CCC-ID | GTM_2026-W05_924 |
-| Status | 🔒 LOCKED |
-| Ready | ✅ **GH PUSH READY** |
-
-═══════════════════════════════════════════════════════════════════════════════
-
-#FlowsBros #FedArch #WeeklySummary #GHPush
-
-♾️ WeOwnNet 🌐
-
-═══════════════════════════════════════════════════════════════════════════════
-
----
-
-## 🎯 QUICK COMMANDS — @GTM
-
-| # | Option |
-|---|--------|
-| 1 | `CONFIRM GH PUSH` — document ready for GitHub |
-| 2 | `session:continue` — continue with other tasks |
-
----
-
-FULL DOC delivered! ✅
-
-Ready for copy/paste to GitHub. 🎖️
-
-#FlowsBros #FedArch #WeeklySummary 🎖️
-
-♾️ WeOwnNet 🌐
-~~~
