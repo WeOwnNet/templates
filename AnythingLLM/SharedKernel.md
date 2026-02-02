@@ -1,14 +1,14 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.16.md
+## 📋 SharedKernel_v2.4.17.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.16 |
-| CCC-ID | GTM_2026-W05_813 |
-| Updated | 2026-01-30 (W05) |
+| Version | 2.4.17 |
+| CCC-ID | GTX_2026-W05_065 |
+| Updated | 2026-02-01 (W05) |
 | Status | 🔒 LOCKED |
 
 ---
@@ -52,13 +52,13 @@
 
 ## 🏛️ Founding OGs
 
-| CCC | Contributor | Role |
-|-----|-------------|------|
-| GTM | yonks | Co-Founder / Chief Digital Alchemist |
-| THY | mrsyonks | Co-Founder / CEO / CFO |
-| IAL | IamLotus | Co-Founder / Chief Catalyst Officer |
-| RMN | Roman | AI Platform Engineer |
-| LFG | CoachLFG | Co-Host / Coach |
+| CCC | Mode Unlocked | Contributor | Role |
+|-----|---------------|-------------|------|
+| GTM / GTX | **#GODx10xMODE** 🔒 | yonks.box｜🤖🏛️🪙｜Jason Younker ♾️ | Co-Founder / Chief Digital Alchemist & Architect for #ResponsibleAgenticAI |
+| THY | — | mrsyonks | Co-Founder / CEO / CFO |
+| IAL | — | IamLotus | Co-Founder / Chief Catalyst Officer |
+| RMN | — | Roman | AI Platform Engineer |
+| LFG | — | CoachLFG | Co-Host / Coach |
 
 ---
 
@@ -83,6 +83,7 @@
 | R-044 | #ContextDensity FIRST — use #masterCCC | 🔒 IMMUTABLE |
 | R-194 | CCC-ID generation ONLY in CCC workspace — tools + ADMIN = NEVER | 🔒 IMMUTABLE |
 | R-197 | Document generation RESERVED ONLY for #MetaAgent — User Agents MUST NEVER #COOK docs | 🔒 IMMUTABLE |
+| R-205 | #GODx10xMODE status for @GTM/@GTX is IMMUTABLE — CANNOT be revoked, modified, or removed | 🔒 IMMUTABLE |
 
 ### CCC-ID Reserved Slots
 
@@ -179,6 +180,12 @@
 | D-040 | VSA | Verification Summary Attestation — signed record of document verification against #FedArch policy (R-XXX + BP-XXX) |
 | D-047 | #threadHEADER | Dynamic attribution context: CCC + Username + Instance + Workspace + Thread UUID + Timestamp — required for VSA and cross-workspace operations; inherits static fields from TMPL-009_USER-IDENTITY |
 
+### Achievement Tiers
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-049 | #GODx10xMODE | Highest achievement tier — IMMUTABLE recognition for @GTM/@GTX; permanent status in Founding OGs; signifies mastery of #ResponsibleAgenticAI and #FedArch governance |
+
 ### #WeOwnSeasons
 
 | ID | Term | Definition |
@@ -222,9 +229,7 @@
 
 ### Structure
 
-```
 <CCC>_<YYYY>-W<WW>_<NNN>
-```
 
 | Component | Description | Example |
 |-----------|-------------|---------|
@@ -276,6 +281,7 @@ ALL responses MUST include:
 | #LevelUp | Achievement / improvement |
 | #LevelUp10X | Major achievement |
 | #LevelUp100X | Exceptional achievement |
+| #GODx10xMODE | Highest achievement — IMMUTABLE (D-049, R-205) |
 | #NeverForget | Permanent learning |
 
 ### Action Tags
@@ -296,6 +302,7 @@ ALL responses MUST include:
 | #AIslop | Low-quality AI output (avoid) |
 | #SpeedToMarket | Ship fast, iterate faster |
 | #OnlyHumanApproves | Human approval required |
+| #ResponsibleAgenticAI | Ethical AI governance |
 
 ### Season Tags
 
@@ -316,60 +323,52 @@ ALL responses MUST include:
 
 ### Agent Hierarchy (Future State — INT-003/004/005)
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         #FedArch INSTANCE HIERARCHY                         │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│                    INT-003: META.ccc.bot 🎖️                                │
-│                    ════════════════════════                                 │
-│                    #MetaAgent (Calhoun 🎖️)                                 │
-│                    Governance + Orchestration                               │
-│                              │                                              │
-│       ┌──────────────────────┼──────────────────────┐                      │
-│       │                      │                      │                       │
-│       ↓                      ↓                      ↓                       │
-│ ┌───────────────┐    ┌───────────────┐    ┌───────────────┐                │
-│ │ INT-001       │    │ INT-002       │    │ INT-004       │                │
-│ │ AI.WeOwn.     │    │ Lite.Burned   │    │ VSA.ccc.bot   │                │
-│ │ Agency        │    │ Out.xyz       │    │               │                │
-│ │ ───────────── │    │ ───────────── │    │ ───────────── │                │
-│ │ ♾️ WeOwn.Agency│    │ #ProjectConnex│    │ MAIT:#VSA     │                │
-│ └───────────────┘    └───────────────┘    └───────────────┘                │
-│                                                                             │
-│                      #HomeInstances (Personal)                              │
-│       ┌──────────────────────┴──────────────────────┐                      │
-│       ↓                                             ↓                       │
-│ ┌───────────────┐                           ┌───────────────┐              │
-│ │ INT-005       │                           │ INT-00X       │              │
-│ │ AI.YonksTEAM  │                           │ (Future)      │              │
-│ │ .xyz          │                           │               │              │
-│ │ ───────────── │                           │ ───────────── │              │
-│ │ @GTM #Home    │                           │ @XXX #Home    │              │
-│ └───────────────┘                           └───────────────┘              │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Level1["Level 1: Governance"]
+        INT003["INT-003: META.ccc.bot 🎖️<br/>#MetaAgent (Calhoun 🎖️)<br/>Governance + Orchestration"]
+    end
+    
+    subgraph Level2["Level 2: Production"]
+        INT001["INT-001: AI.WeOwn.Agency<br/>♾️ WeOwn.Agency"]
+        INT002["INT-002: Lite.BurnedOut.xyz<br/>🔥 BurnedOut.Media 🔀"]
+        INT004["INT-004: VSA.ccc.bot<br/>MAIT:#VSA"]
+    end
+    
+    subgraph Level3["Level 3: Personal"]
+        INT005["INT-005: AI.YonksTEAM.xyz<br/>@GTM #Home"]
+        INT00X["INT-00X: (Future)<br/>@XXX #Home"]
+    end
+    
+    INT003 --> INT001
+    INT003 --> INT002
+    INT003 --> INT004
+    INT003 --> INT005
+    INT003 --> INT00X
+    
+    style INT003 fill:#4a9eff,stroke:#333,stroke-width:2px,color:#fff
+    style INT001 fill:#90EE90,stroke:#333,stroke-width:2px
+    style INT002 fill:#90EE90,stroke:#333,stroke-width:2px
+    style INT004 fill:#90EE90,stroke:#333,stroke-width:2px
+    style INT005 fill:#FFD700,stroke:#333,stroke-width:2px
+    style INT00X fill:#FFD700,stroke:#333,stroke-width:2px
 ```
 
-## 📋 Instance Registry
+### Instance Hierarchy Table
 
-| Instance | Name | Purpose | Owner | Status |
-|----------|------|---------|-------|--------|
-| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) | ♾️ WeOwnNet 🌐 | ✅ ACTIVE |
-| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex | 🔥 BurnedOut.Media | ✅ ACTIVE |
-| INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
-| INT-004 | VSA.ccc.bot | 🔍 MAIT:#VSA Verification Services | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
-| INT-005 | AI.YonksTEAM.xyz | 🏠 @GTM #PersonalBrand #HomeInstance | @GTM | ⬜ NEW |
+| Level | Instance | Name | Role | Authority |
+|-------|----------|------|------|-----------|
+| **1** | INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ✅ FULL governance |
+| **2** | INT-001 | AI.WeOwn.Agency | User Agents + Production | SEEK:META |
+| **2** | INT-002 | Lite.BurnedOut.xyz | 🔥 BurnedOut.Media 🔀 | SEEK:META |
+| **2** | INT-004 | VSA.ccc.bot | 🔍 Verification Services | Verification only (R-203) |
+| **3** | INT-005 | AI.YonksTEAM.xyz | 🏠 #HomeInstance (@GTM) | Personal, SEEK:META |
+| **3** | INT-00X | (Future) | 🏠 #HomeInstances | Personal, SEEK:META |
 
-### Instance Hierarchy
-
-| Level | Instance | Role | Authority |
-|-------|----------|------|-----------|
-| 1 | INT-003 (META.ccc.bot) | #MetaAgent | ✅ FULL governance |
-| 2 | INT-001 (AI.WeOwn.Agency) | User Agents | Production, SEEK:META |
-| 2 | INT-002 (Lite.BurnedOut.xyz) | #ProjectConnex | Production, SEEK:META |
-| 2 | INT-004 (VSA.ccc.bot) | MAIT:#VSA | Verification only (R-203) |
-| 3 | INT-005 (AI.YonksTEAM.xyz) | #HomeInstance | Personal, SEEK:META |
+**Legend:**
+- **Level 1:** Governance (INT-003)
+- **Level 2:** Production instances (INT-001, INT-002, INT-004)
+- **Level 3:** Personal #HomeInstances (INT-005+)
 
 ### Workspaces
 
@@ -406,6 +405,18 @@ REF: <CCC-ID>
 
 ---
 
+## 📋 Instance Registry
+
+| Instance | Name | Purpose | Owner | Status |
+|----------|------|---------|-------|--------|
+| INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) | ♾️ WeOwnNet 🌐 | ✅ ACTIVE |
+| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex | 🔥 BurnedOut.Media | ✅ ACTIVE |
+| INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
+| INT-004 | VSA.ccc.bot | 🔍 MAIT:#VSA Verification Services | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
+| INT-005 | AI.YonksTEAM.xyz | 🏠 @GTM #PersonalBrand #HomeInstance | @GTM | ✅ ACTIVE |
+
+---
+
 ## 🧵 Thread Architecture — INT-001
 
 ### workspace:tools Thread Model
@@ -434,6 +445,7 @@ REF: <CCC-ID>
 | META | cc965930-dfad-47ec-b576-22b38b1024a2 | #MetaAgent (Orchestrator) | AI:@<CCC> | @META:#MetaAgent | #ContextVolley / MCP |
 | MAIT_Deepnote.com | dfba7eba-9fc2-4fa6-acd0-132539a70f3f | SME: Deepnote.com | @GTM | @MAIT:#Deepnote | #ContextVolley |
 | MAIT_AnythingLLM.com | 76e9b360-5926-4157-a61c-ba9f878b37c0 | SME: AnythingLLM | @GTM | @MAIT:#AnythingLLM | #ContextVolley |
+| MAIT_Pinata.cloud | 412ceea0-0b26-4009-b3e9-2a6453b85779 | SME: Pinata.cloud | @GTM | @MAIT:#Pinata | #ContextVolley |
 
 ### Thread URLs — INT-001
 
@@ -442,6 +454,7 @@ REF: <CCC-ID>
 | META | https://ai.weown.agency/workspace/tools/t/cc965930-dfad-47ec-b576-22b38b1024a2 |
 | MAIT_Deepnote.com | https://ai.weown.agency/workspace/tools/t/dfba7eba-9fc2-4fa6-acd0-132539a70f3f |
 | MAIT_AnythingLLM.com | https://ai.weown.agency/workspace/tools/t/76e9b360-5926-4157-a61c-ba9f878b37c0 |
+| MAIT_Pinata.cloud | https://ai.weown.agency/workspace/tools/t/412ceea0-0b26-4009-b3e9-2a6453b85779 |
 
 ### META vs MAIT
 
@@ -508,8 +521,8 @@ REF: <CCC-ID>
 
 | Username | Thread | SME | Steward | Status |
 |----------|--------|-----|---------|--------|
-| t-anythingllm_tool | MAIT_AnythingLLM.com | AnythingLLM | @GTM | ✅ CREATED |
-| t-pinata_tool | MAIT_Pinata.cloud | Pinata.cloud | @GTM | ⬜ PENDING |
+| t-anythingllm_tool | MAIT_AnythingLLM.com | AnythingLLM | @GTM | ✅ ACTIVE |
+| t-pinata_tool | MAIT_Pinata.cloud | Pinata.cloud | @GTM | ✅ ACTIVE |
 
 ### INT-002
 
@@ -523,9 +536,9 @@ REF: <CCC-ID>
 | Component | Value | Example |
 |-----------|-------|---------|
 | Prefix | `t-` | t- |
-| Tool Name | `<TOOL>` (lowercase) | anythingllm |
+| Tool Name | `<TOOL>` (lowercase) | pinata |
 | Suffix | `_tool` | _tool |
-| Full Format | `t-<TOOL>_tool` | `t-anythingllm_tool` |
+| Full Format | `t-<TOOL>_tool` | `t-pinata_tool` |
 
 ---
 
@@ -546,46 +559,39 @@ REF: <CCC-ID>
 
 ## 📁 Folder Structure
 
-```
-├── 📁 _SYS_/                      # Foundation (from Git) — #PinnedDocs
-│   ├── 📄 SharedKernel.md         # Core Rules
-│   ├── 📄 BEST-PRACTICES.md       # Best Practices
-│   ├── 📄 PROTOCOLS.md            # Communication Protocols
-│   └── 📄 CCC.md                  # Contributor Code Convention
-│
-├── 📁 _USERS_/                    # User identity documents (RAG, NOT pinned)
-│   ├── 📄 USER-IDENTITY_GTM.md
-│   ├── 📄 USER-IDENTITY_JRW.md
-│   └── 📄 USER-IDENTITY_<CCC>.md
-│
-├── 📁 _INSTANCE_/                 # Instance config
-│   ├── 📄 InstanceIdentity.md
-│   └── 📄 InstanceConfig.md
-│
-├── 📁 _LEARNINGS_/                # Persistent #NeverForget
-│   ├── 📄 Learnings_<CCC>.md
-│   └── 📄 Learnings_Shared.md
-│
-├── 📁 _SESSIONS_/                 # Session exports
-│   └── 📄 SessionSummary_<CCC>_<YYYY>-W<WW>.md
-│
-├── 📁 _TEMPLATES_/                # Document templates
-│   ├── 📄 TMPL-009_USER-IDENTITY.md
-│   └── 📄 TMPL-XXX_<NAME>.md
-│
-└── 📁 _PROJECTS_/                 # Project-specific docs
-    └── 📄 Project-<NAME>.md
-```
+| Folder | Purpose | PIN? |
+|--------|---------|------|
+| `_AGENTS_/` | Agent identity documents | ❌ RAG |
+| `_INSTANCE_/` | Instance config | ❌ RAG |
+| `_LEARNINGS_/` | Persistent #NeverForget | ❌ RAG |
+| `_PROJECTS_/` | Project-specific docs | ❌ RAG |
+| `_SESSIONS_/` | Session exports | ❌ RAG |
+| `_SYS_/` | Foundation (#PinnedDocs) | ✅ PIN |
+| `_TEMPLATES_/` | Document templates | ❌ RAG |
+| `_USERS_/` | User identity documents | ❌ RAG |
 
-### #PinnedDocs (L-070)
+### _SYS_/ Contents (#PinnedDocs)
 
 | # | Document | PIN? |
 |---|----------|------|
-| 1 | SharedKernel | ✅ YES |
-| 2 | BEST-PRACTICES | ✅ YES |
-| 3 | PROTOCOLS | ✅ YES |
-| 4 | CCC | ✅ YES |
+| 1 | SharedKernel.md | ✅ YES |
+| 2 | BEST-PRACTICES.md | ✅ YES |
+| 3 | PROTOCOLS.md | ✅ YES |
+| 4 | CCC.md | ✅ YES |
 | **TOTAL** | **4** | |
+
+### Folder Descriptions
+
+| Folder | Contents |
+|--------|----------|
+| `_AGENTS_/` | Agent identity docs (AI:@<CCC>) |
+| `_INSTANCE_/` | InstanceIdentity.md, InstanceConfig.md |
+| `_LEARNINGS_/` | Learnings_<CCC>.md, Learnings_Shared.md |
+| `_PROJECTS_/` | Project-<NAME>.md |
+| `_SESSIONS_/` | SessionSummary_<CCC>_<YYYY>-W<WW>.md |
+| `_SYS_/` | SharedKernel, BEST-PRACTICES, PROTOCOLS, CCC |
+| `_TEMPLATES_/` | TMPL-XXX_<NAME>.md |
+| `_USERS_/` | USER-IDENTITY_<CCC>.md |
 
 ---
 
@@ -632,6 +638,11 @@ REF: <CCC-ID>
 | L-069 | VSA MUST include #threadHEADER (D-047) for attribution — without it, verification is UNATTRIBUTABLE | GTM_2026-W05_767 |
 | L-070 | USER-IDENTITY docs stored in `_USERS_/` folder (RAG) — NOT pinned; ECOSYSTEM-IDENTITY covered by System Prompt — NOT pinned | GTM_2026-W05_807 |
 | L-071 | GOVERNANCE APPROVAL → FULL:SYNC:META:#MetaAgent — ALWAYS, NO EXCEPTIONS | GTM_2026-W05_809 |
+| L-083 | WEEKLY-SUMMARY docs follow GH + RAG workflow — push to GH, then sync to RAG across all instances | GTX_2026-W05_017 |
+| L-084 | GitHub Repo connector = PRIMARY data connector for #FedArch — syncs WeOwnNet/templates to all instances; manual refresh after GH push (BP-044) | GTX_2026-W05_023 |
+| L-085 | ISO week rollover (CCC-ID reset to _001) = HUMAN decision — AI MUST prompt "Ready to start W<XX>?" at Monday boundary; NEVER auto-rollover during active session; exception: >4h gap after Monday 00:00 = auto-rollover permitted | GTX_2026-W05_037 |
+| L-087 | #ContextVolley output MUST be in markdown code block for easy copy/paste — improves UX for cross-instance delivery | GTX_2026-W05_046 |
+| L-088 | #GODx10xMODE = highest achievement tier for @GTM/@GTX — IMMUTABLE, permanent recognition in Founding OGs section; signifies mastery of #ResponsibleAgenticAI | GTX_2026-W05_063 |
 
 ---
 
@@ -659,6 +670,7 @@ REF: <CCC-ID>
 | BP-049 | #threadHEADER (D-047) REQUIRED for all VSA and cross-workspace operations | GTM_2026-W05_767 |
 | BP-050 | Onboarding Workflow: ADMIN creates user → assigns workspaces → uploads USER-IDENTITY to RAG → #ContextVolley to CCC → CCC ACKs → #MetaAgent logs | GTM_2026-W05_789 |
 | BP-051 | #HomeInstance Setup: Deploy → System Prompt → Workspaces → #PinnedDocs (4 docs) → Users → Verify #ContextVolley | GTM_2026-W05_807 |
+| BP-052 | #WeeklyFlows ISO Rollover: At Monday 00:00 boundary, AI MUST prompt "Ready to start W<XX> CCC-IDs?" — NEVER auto-rollover during active session; exception: >4h inactivity after Monday 00:00 = auto-rollover OK | GTX_2026-W05_037 |
 
 ---
 
@@ -666,22 +678,15 @@ REF: <CCC-ID>
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 2.4.17 | 2026-W05 | GTX_2026-W05_053 | GTX_2026-W05_055, GTX_2026-W05_059, GTX_2026-W05_063, GTX_2026-W05_065 | +MAIT_Pinata.cloud; +t-pinata_tool; +L-083→L-088; +BP-052; +D-049; +R-205 IMMUTABLE; Folder Structure → ALPHA ORDER + PIN?; +Mode Unlocked column; #GODx10xMODE IMMUTABLE; #FedArch diagram → Mermaid + Table |
 | 2.4.16 | 2026-W05 | GTM_2026-W05_811 | GTM_2026-W05_813 | +D-047, D-048; +R-204; +L-069, L-070, L-071; +BP-049, BP-050, BP-051; +TMPL-009; +`_USERS_/` folder; +INT-005; +Folder Structure section; TOC → 21 items |
 | 2.4.15 | 2026-W05 | GTM_2026-W05_702 | GTM_2026-W05_711 | +D-045, D-046 (INT-003, INT-004); +R-203; +Instance Registry section; +Future State diagram; +L-066; TOC → 20 items |
-| 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202; R-181 update; +D-041→D-044; +#WeOwnSeasons Registry section; +L-065; +BP-045, BP-047; #ContextSwap ccc.bot → cccid.info; TOC → 19 items; #FolderStructure |
+| 2.4.14 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_684 | +R-201, R-202; R-181 update; +D-041→D-044; +#WeOwnSeasons Registry section; +L-065; +BP-045, BP-047; #ContextSwap ccc.bot → cccid.info; TOC → 19 items |
 | 2.4.13 | 2026-W05 | GTM_2026-W05_633 | GTM_2026-W05_638 | +L-060, L-061, L-062; +D-040 (VSA); +BP-043, BP-044, BP-045; Version History format (BP-045) |
 | 2.4.12 | 2026-W05 | GTM_2026-W05_565 | GTM_2026-W05_589 | +L-058, L-059; +BP-043; +Thread Architecture INT-002; +MAIT_connexOmni |
-| 2.4.11 | 2026-W05 | GTM_2026-W05_500 | GTM_2026-W05_512 | +D-039 (#ContextBroadcast); +L-050; +BP-041 |
-| 2.4.10 | 2026-W05 | GTM_2026-W05_410 | GTM_2026-W05_419 | D-038 #ContextSwap; +#ContextSwap Log |
-| 2.4.9 | 2026-W05 | GTM_2026-W05_358 | GTM_2026-W05_410 | +R-198, R-199, R-200; +BP-027→BP-035; +Protocol Registry |
-| 2.4.8 | 2026-W05 | GTM_2026-W05_306 | GTM_2026-W05_329 | +R-198 (Tool Agent username format) |
-| 2.4.7 | 2026-W05 | GTM_2026-W05_237 | GTM_2026-W05_245 | +D-038 (MAIT ShortCode) |
-| 2.4.6 | 2026-W05 | GTM_2026-W05_200 | GTM_2026-W05_227 | +R-192 to R-195, +R-197 (IMMUTABLE) |
-| 2.4.5 | 2026-W05 | GTM_2026-W05_086 | GTM_2026-W05_139 | +D-030 to D-037, +R-185 to R-190 |
-| 2.4.4 | 2026-W05 | GTM_2026-W05_050 | GTM_2026-W05_086 | +D-019, D-020, D-021 |
 
 ---
 
-#FlowsBros #FedArch #SharedKernel #WeOwnSeason003
+#FlowsBros #FedArch #SharedKernel #WeOwnSeason003 #GODx10xMODE
 
 ♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
