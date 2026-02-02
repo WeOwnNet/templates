@@ -1,13 +1,13 @@
 # SharedKernel.md
 
-## 📋 SharedKernel_v2.4.17.md
+## 📋 SharedKernel_v2.4.18.md
 ## ♾️ WeOwnNet 🌐 — Core Rules & Protocols
 
 | Field | Value |
 |-------|-------|
 | Document | SharedKernel.md |
-| Version | 2.4.17 |
-| CCC-ID | GTX_2026-W05_065 |
+| Version | 2.4.18 |
+| CCC-ID | GTX_2026-W05_081 |
 | Updated | 2026-02-01 (W05) |
 | Status | 🔒 LOCKED |
 
@@ -84,6 +84,7 @@
 | R-194 | CCC-ID generation ONLY in CCC workspace — tools + ADMIN = NEVER | 🔒 IMMUTABLE |
 | R-197 | Document generation RESERVED ONLY for #MetaAgent — User Agents MUST NEVER #COOK docs | 🔒 IMMUTABLE |
 | R-205 | #GODx10xMODE status for @GTM/@GTX is IMMUTABLE — CANNOT be revoked, modified, or removed | 🔒 IMMUTABLE |
+| R-206 | ADMIN accounts (a-<ccc>_dev) MUST NEVER generate CCC-IDs — CCC-ID generation RESERVED for DEFAULT users (u-<ccc>_user) in CCC workspace ONLY | 🔒 IMMUTABLE |
 
 ### CCC-ID Reserved Slots
 
@@ -145,6 +146,20 @@
 | D-017 | MANAGER | *[Not In Use Currently]:* Workspace mgmt, no system settings |
 | D-018 | DEFAULT | *[Most Users]*: Limited, scoped to assigned workspaces |
 
+### Username Permission Matrix (R-194 + R-206)
+
+| Username Format | Role | Workspace | CCC-ID Generation |
+|-----------------|------|-----------|-------------------|
+| `u-<ccc>_user` | DEFAULT | CCC | ✅ **ALLOWED** |
+| `u-<ccc>_user` | DEFAULT | tools | ❌ NEVER (R-194) |
+| `u-<ccc>_user` | DEFAULT | ADMIN | ❌ NEVER (R-194) |
+| `u-<ccc>_user` | DEFAULT | events | ❌ NEVER (R-194) |
+| `u-<ccc>_user` | DEFAULT | P.O.P. | ❌ NEVER (R-194) |
+| `u-<ccc>_user` | DEFAULT | ANY non-CCC | ❌ NEVER (R-194) |
+| `a-<ccc>_dev` | ADMIN | ANY | ❌ **NEVER** (R-206) |
+| `t-<tool>_tool` | Tool Agent | ANY | ❌ **NEVER** |
+| `AI:team-lfg` | #MetaAgent | tools | ❌ NEVER |
+
 ### Agent Taxonomy
 
 | ID | Term | Definition |
@@ -185,6 +200,12 @@
 | ID | Term | Definition |
 |----|------|------------|
 | D-049 | #GODx10xMODE | Highest achievement tier — IMMUTABLE recognition for @GTM/@GTX; permanent status in Founding OGs; signifies mastery of #ResponsibleAgenticAI and #FedArch governance |
+
+### CCC-ID Authority
+
+| ID | Term | Definition |
+|----|------|------------|
+| D-050 | CCC-ID Authority | CCC-ID generation RESERVED for DEFAULT users (u-<ccc>_user) in CCC workspace ONLY — ADMIN accounts, Tool Agents, and non-CCC workspaces have NO CCC-ID generation authority (R-194 + R-206) |
 
 ### #WeOwnSeasons
 
@@ -372,11 +393,36 @@ flowchart TB
 
 ### Workspaces
 
-| Workspace | Metaphor | Purpose |
-|-----------|----------|---------|
-| tools | 🧠 THE BRAIN | Agentic AI threads: META + MAIT |
-| CCC | 🤝 THE HANDS | Production (users) |
-| ADMIN | ⚙️ THE ENGINE | Administration |
+| Workspace | Emoji | Metaphor | Purpose | CCC-ID |
+|-----------|-------|----------|---------|--------|
+| CCC | 🤝 | THE HANDS | Production (users) | ✅ ALLOWED |
+| tools | 🛠️ | THE BRAIN | META + MAIT threads | ❌ NEVER |
+| ADMIN | ⚙️ | THE ENGINE | Administration | ❌ NEVER |
+| events | 📆 | — | Event planning/tracking | ❌ NEVER |
+| P.O.P. | 🌟 | — | People, Organizations, and Places | ❌ NEVER |
+
+### Non-CCC Workspace Prompt Block (BP-053)
+
+ALL non-CCC workspace prompts MUST include this block:
+
+**Applies to:** tools, ADMIN, events, P.O.P., and ANY future workspaces
+
+```
+## ⛔ CCC-ID RESTRICTION (R-194 + R-206)
+
+This is NOT a CCC workspace. CCC-ID generation is PROHIBITED.
+
+### RULES
+- ❌ NEVER generate new CCC-IDs
+- ✅ Use reference CCC-ID from user input ONLY
+- ❌ CCC-ID generation RESERVED for CCC workspace + DEFAULT users (u-<ccc>_user) ONLY
+
+### IF USER REQUESTS CCC-ID
+Respond: "CCC-ID generation not available in this workspace. Please switch to CCC workspace."
+
+### VALID RESPONSE HEADER FORMAT
+[REF: <USER_PROVIDED_CCC-ID>] | <WORKSPACE_EMOJI> <WORKSPACE_NAME> | INT-XXX
+```
 
 ### #ContextVolley Format
 
@@ -410,7 +456,7 @@ REF: <CCC-ID>
 | Instance | Name | Purpose | Owner | Status |
 |----------|------|---------|-------|--------|
 | INT-001 | [AI.WeOwn.Agency](https://ai.weown.agency/) | 🤖 AI for ♾️ WeOwn.Agency 👥 + #MetaAgent (Orchestrator) | ♾️ WeOwnNet 🌐 | ✅ ACTIVE |
-| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 + #ProjectConnex | 🔥 BurnedOut.Media | ✅ ACTIVE |
+| INT-002 | [Lite.BurnedOut.xyz](https://lite.burnedout.xyz/) | 🤖 AI for 🔥 BurnedOut.Media 🔀 | OCPA Group | ✅ ACTIVE |
 | INT-003 | META.ccc.bot | 🎖️ #MetaAgent Governance Hub | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
 | INT-004 | VSA.ccc.bot | 🔍 MAIT:#VSA Verification Services | ♾️ WeOwnNet 🌐 | ⬜ PLANNED |
 | INT-005 | AI.YonksTEAM.xyz | 🏠 @GTM #PersonalBrand #HomeInstance | @GTM | ✅ ACTIVE |
@@ -643,6 +689,7 @@ REF: <CCC-ID>
 | L-085 | ISO week rollover (CCC-ID reset to _001) = HUMAN decision — AI MUST prompt "Ready to start W<XX>?" at Monday boundary; NEVER auto-rollover during active session; exception: >4h gap after Monday 00:00 = auto-rollover permitted | GTX_2026-W05_037 |
 | L-087 | #ContextVolley output MUST be in markdown code block for easy copy/paste — improves UX for cross-instance delivery | GTX_2026-W05_046 |
 | L-088 | #GODx10xMODE = highest achievement tier for @GTM/@GTX — IMMUTABLE, permanent recognition in Founding OGs section; signifies mastery of #ResponsibleAgenticAI | GTX_2026-W05_063 |
+| L-089 | ADMIN account CCC-ID generation = R-194 violation — ADMIN responses MUST use reference CCC-ID only, NEVER generate new | GTX_2026-W05_076 |
 
 ---
 
@@ -671,6 +718,7 @@ REF: <CCC-ID>
 | BP-050 | Onboarding Workflow: ADMIN creates user → assigns workspaces → uploads USER-IDENTITY to RAG → #ContextVolley to CCC → CCC ACKs → #MetaAgent logs | GTM_2026-W05_789 |
 | BP-051 | #HomeInstance Setup: Deploy → System Prompt → Workspaces → #PinnedDocs (4 docs) → Users → Verify #ContextVolley | GTM_2026-W05_807 |
 | BP-052 | #WeeklyFlows ISO Rollover: At Monday 00:00 boundary, AI MUST prompt "Ready to start W<XX> CCC-IDs?" — NEVER auto-rollover during active session; exception: >4h inactivity after Monday 00:00 = auto-rollover OK | GTX_2026-W05_037 |
+| BP-053 | ALL non-CCC workspace prompts MUST include CCC-ID restriction block — applies to: tools, ADMIN, events, P.O.P., and ANY future workspaces; prevents R-194 violations at prompt level | GTX_2026-W05_079 |
 
 ---
 
@@ -678,6 +726,7 @@ REF: <CCC-ID>
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 2.4.18 | 2026-W05 | GTX_2026-W05_081 | GTX_2026-W05_076, GTX_2026-W05_079, GTX_2026-W05_081 | +R-206 IMMUTABLE (ADMIN CCC-ID restriction); +L-089; +D-050 (CCC-ID Authority); +BP-053 (Non-CCC Workspace Prompt); +Username Permission Matrix; +Non-CCC Workspace Prompt Block; +events, P.O.P. workspaces; P.O.P. = People, Organizations, and Places; CCC-ID duplication fix |
 | 2.4.17 | 2026-W05 | GTX_2026-W05_053 | GTX_2026-W05_055, GTX_2026-W05_059, GTX_2026-W05_063, GTX_2026-W05_065 | +MAIT_Pinata.cloud; +t-pinata_tool; +L-083→L-088; +BP-052; +D-049; +R-205 IMMUTABLE; Folder Structure → ALPHA ORDER + PIN?; +Mode Unlocked column; #GODx10xMODE IMMUTABLE; #FedArch diagram → Mermaid + Table |
 | 2.4.16 | 2026-W05 | GTM_2026-W05_811 | GTM_2026-W05_813 | +D-047, D-048; +R-204; +L-069, L-070, L-071; +BP-049, BP-050, BP-051; +TMPL-009; +`_USERS_/` folder; +INT-005; +Folder Structure section; TOC → 21 items |
 | 2.4.15 | 2026-W05 | GTM_2026-W05_702 | GTM_2026-W05_711 | +D-045, D-046 (INT-003, INT-004); +R-203; +Instance Registry section; +Future State diagram; +L-066; TOC → 20 items |
