@@ -1,14 +1,15 @@
 # BEST-PRACTICES.md
 
-## 📋 BEST-PRACTICES_v2.4.11.md
+## 📋 BEST-PRACTICES_v3.1.1.1.md
 ## ♾️ WeOwnNet 🌐 — #BestPractices
 
 | Field | Value |
 |-------|-------|
 | Document | BEST-PRACTICES.md |
-| Version | 2.4.11 |
-| CCC-ID | GTM_2026-W05_820 |
-| Updated | 2026-01-30 (W05) |
+| Version | 3.1.1.1 |
+| CCC-ID | GTM_2026-W06_080 |
+| Updated | 2026-02-03 (W06) |
+| Season | #WeOwnSeason003 🚀 |
 | Status | 🔒 LOCKED |
 | Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 
@@ -36,8 +37,10 @@
 18. [Case Study Best Practices](#-case-study-best-practices)
 19. [Onboarding Best Practices](#-onboarding-best-practices)
 20. [#HomeInstance Best Practices](#-homeinstance-best-practices)
-21. [Version History](#-version-history)
-22. [Related Documents](#-related-documents)
+21. [System Prompt Best Practices](#-system-prompt-best-practices)
+22. [CCC Workspace ACK Best Practices](#-ccc-workspace-ack-best-practices)
+23. [Version History](#-version-history)
+24. [Related Documents](#-related-documents)
 
 ---
 
@@ -72,7 +75,11 @@ This document contains best practices for all contributors and agents in the ♾
 | BP-049 | VSA / #threadHEADER | 1 |
 | BP-050 | Onboarding Workflow | 1 |
 | BP-051 | #HomeInstance Setup | 1 |
-| **TOTAL** | | **47** |
+| BP-052 → BP-053 | Weekly Ops + Workspace Prompts | 2 |
+| BP-054 | System Prompt CCC-ID Logic | 1 |
+| BP-055 | Pinata.cloud Architecture | 1 |
+| BP-056 | CCC Workspace ACK Header | 1 |
+| **TOTAL** | | **50** |
 
 ### Retired Best Practices
 
@@ -124,7 +131,8 @@ This document contains best practices for all contributors and agents in the ♾
 |----------|---------------|
 | INT-001 | AI.WeOwn.Agency identity |
 | INT-002 | #ProjectConnex identity |
-| INT-005 | @GTM #HomeInstance identity |
+| INT-005 | @GTM + @THY #HomeInstance identity |
+| INT-008 | @RMN #HomeInstance identity |
 | INT-xxx | Instance-specific identity |
 
 **Best Practice:** Each #AnythingLLM instance MUST have unique system prompt defining its identity.
@@ -137,6 +145,18 @@ This document contains best practices for all contributors and agents in the ♾
 | 2 | CCC | 🤝 THE HANDS — Production (users) |
 
 **Best Practice:** Initial #FedArch deployment = 2 workspaces (tools + CCC).
+
+### BP-052: #WeeklyFlows ISO Rollover
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-052 | #WeeklyFlows ISO Rollover: At Monday 00:00 boundary, AI MUST prompt "Ready to start W<XX> CCC-IDs?" — NEVER auto-rollover during active session; exception: >4h inactivity after Monday 00:00 = auto-rollover OK | GTX_2026-W05_037 |
+
+### BP-053: Non-CCC Workspace Prompts
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-053 | ALL non-CCC workspace prompts MUST include CCC-ID restriction block — applies to: tools, ADMIN, events, P.O.P., and ANY future workspaces; prevents R-194 violations at prompt level | GTX_2026-W05_079 |
 
 ---
 
@@ -162,7 +182,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | Format | Example |
 |--------|---------|
-| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v2.4.16.md |
+| `<NAME>_v<VERSION>.md` | SHARED-KERNEL_v3.1.1.2.md |
 
 **Best Practice:** ALL RAG docs MUST include version in filename for visibility.
 
@@ -211,7 +231,7 @@ This document contains best practices for all contributors and agents in the ♾
 ```markdown
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
-| 2.4.16 | 2026-W05 | GTM_2026-W05_811 | GTM_2026-W05_813 | +D-047, D-048; +R-204 |
+| 3.1.1.2 | 2026-W06 | GTM_2026-W06_080 | GTM_2026-W06_099 | FULL RESTORE; +L-090→L-097 |
 ```
 
 ### Format — Related Documents
@@ -219,7 +239,7 @@ This document contains best practices for all contributors and agents in the ♾
 ```markdown
 | Document | Version | #masterCCC | Approval | URL |
 |----------|---------|------------|----------|-----|
-| SharedKernel | v2.4.16 | GTM_2026-W05_811 | GTM_2026-W05_813 | [GitHub](...) |
+| SharedKernel | v3.1.1.2 | GTM_2026-W06_080 | GTM_2026-W06_099 | [GitHub](...) |
 ```
 
 ### Consolidation
@@ -328,7 +348,7 @@ This document contains best practices for all contributors and agents in the ♾
 
 | ID | Best Practice | Source |
 |----|---------------|--------|
-| BP-010 | Follow #WeOwnVer versioning (v2.4.X) | — |
+| BP-010 | Follow #WeOwnVer versioning (v3.X.X.X for Season 3) | L-094 |
 | BP-011 | Include Version History in all documents | — |
 | BP-012 | Use markdown tables for structured data | — |
 | BP-013 | Include Table of Contents for documents > 3 sections | — |
@@ -396,6 +416,23 @@ This document contains best practices for all contributors and agents in the ♾
 | ID | Best Practice | Source |
 |----|---------------|--------|
 | BP-038 | Tool Agent RAG Setup: Identify docs URL → Scrape depth 2 → workspace:tools → Verify retrieval → Update Thread Registry | GTM_2026-W05_466 |
+
+### BP-055: Pinata.cloud Tool Agent Architecture
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-055 | Pinata.cloud Tool Agent Architecture (Hybrid): MAIT = @MAIT:#Pinata (centralized INT-001:tools); Accounts = per-org (weownnet-ipfs, burnedout-ipfs, yonksteam-ipfs) | GTM_2026-W06_020 |
+
+### BP-055 Details
+
+| Component | Scope | Location |
+|-----------|-------|----------|
+| MAIT Thread | Centralized | INT-001:tools |
+| ShortCode | @MAIT:#Pinata | INT-001 |
+| Steward | @GTM | — |
+| Accounts | Per-org | weownnet-ipfs, burnedout-ipfs, yonksteam-ipfs |
+
+**Best Practice:** Hybrid architecture — centralized MAIT for knowledge, per-org accounts for isolation.
 
 ---
 
@@ -631,10 +668,101 @@ All MAIT thread responses MUST begin with:
 
 ---
 
+## 📋 SYSTEM PROMPT BEST PRACTICES
+
+### BP-054: Workspace-Conditional CCC-ID Logic
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-054 | System Prompt MUST include workspace-conditional CCC-ID logic table — prevents R-194 violations at instance level | GTM_2026-W06_046 |
+
+### BP-054 Details
+
+System Prompt MUST include logic that:
+
+| Workspace | CCC-ID Behavior |
+|-----------|-----------------|
+| CCC | ✅ GENERATE new CCC-IDs |
+| tools | ❌ REFERENCE only (R-194) |
+| ADMIN | ❌ REFERENCE only (R-194) |
+| events | ❌ REFERENCE only (R-194) |
+| P.O.P. | ❌ REFERENCE only (R-194) |
+| ANY other | ❌ REFERENCE only (R-194) |
+
+### System Prompt Template Block
+
+```markdown
+## 📋 CCC-ID GENERATION LOGIC
+
+| Workspace | CCC-ID |
+|-----------|--------|
+| CCC | ✅ GENERATE |
+| ALL OTHERS | ❌ REFERENCE ONLY |
+
+### IF workspace = CCC
+Generate CCC-IDs per R-168, R-169
+
+### IF workspace ≠ CCC
+Use `[REF: <USER_PROVIDED_CCC-ID>]` format
+```
+
+**Best Practice:** Prevents R-194 violations at the instance level by embedding logic in System Prompt.
+
+---
+
+## 📋 CCC WORKSPACE ACK BEST PRACTICES
+
+### BP-056: CCC Workspace ACK Header
+
+| ID | Best Practice | Approval |
+|----|---------------|----------|
+| BP-056 | CCC workspace ACK responses MUST include sender identity header: `FROM: AI:@<CCC> @ INT-00X:CCC` — prevents UNATTRIBUTABLE responses | GTM_2026-W06_078 |
+
+### BP-056 Details
+
+All ACK responses in CCC workspace MUST include:
+
+```markdown
+🏐 #ContextVolley | AI:@<CCC> → AI:@<TARGET> | <DATE> | <TIME> EST
+
+FROM: AI:@<CCC> @ INT-00X:CCC
+TO: AI:@<TARGET>
+TYPE: ACK — <TYPE>
+REF: <CCC-ID>
+```
+
+### Example — Proper ACK
+
+```markdown
+🏐 #ContextVolley | AI:@LFG → AI:@GTM | Mon 2026-02-03 | 14:30 EST
+
+FROM: AI:@LFG @ INT-001:CCC
+TO: AI:@GTM
+TYPE: ACK — ANNOUNCEMENT
+REF: GTM_2026-W06_062
+```
+
+### Why BP-056 Matters
+
+| Issue | Without BP-056 | With BP-056 |
+|-------|----------------|-------------|
+| Attribution | ❌ UNATTRIBUTABLE | ✅ Clear sender |
+| Debugging | ❌ Who sent this? | ✅ Explicit source |
+| Audit trail | ❌ Ambiguous | ✅ Traceable |
+
+### Related Items (BP-056)
+
+| ID | Type | Description |
+|----|------|-------------|
+| L-096 | Learning | ACK responses without sender identity are UNATTRIBUTABLE |
+
+---
+
 ## 📋 VERSION HISTORY
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 3.1.1.1 | 2026-W06 | GTM_2026-W06_080 | GTM_2026-W06_104 | 🚀 #WeOwnSeason003 RELEASE — +BP-054, BP-055, BP-056; +System Prompt Best Practices section; +CCC Workspace ACK Best Practices section; version format v2.4.X → v3.X.X.X (L-094); FULL PRESERVE from v2.4.11 base (L-097); TOC → 24 items |
 | 2.4.11 | 2026-W05 | GTM_2026-W05_818 | GTM_2026-W05_820 | +BP-049, BP-050, BP-051; +Onboarding Best Practices section; +#HomeInstance Best Practices section; +TMPL-009 reference; +`_USERS_/` folder; +L-070 pinning update; SharedKernel → v2.4.16; CCC → v2.4.3; TOC → 22 items |
 | 2.4.10 | 2026-W05 | GTM_2026-W05_680 | GTM_2026-W05_693 | BP-045 consolidated (BP-046 retired); +BP-047 (Case Study Attribution); +Document Reference Standard section; +Case Study Best Practices section; Related Documents restructured (hierarchical); +Reserved Slots (R-201, R-202); +21 Related Docs; TOC → 20 items |
 | 2.4.9 | 2026-W05 | GTM_2026-W05_595 | GTM_2026-W05_595 | +BP-043 (MAIT Thread Identity Header); +MAIT Response Best Practices section; TOC → 18 items |
@@ -657,8 +785,8 @@ All MAIT thread responses MUST begin with:
 
 | Document | Version | #masterCCC | Approval | URL |
 |----------|---------|------------|----------|-----|
-| SharedKernel | v2.4.16 | GTM_2026-W05_811 | GTM_2026-W05_813 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
-| BEST-PRACTICES | v2.4.11 | GTM_2026-W05_818 | GTM_2026-W05_820 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
+| SharedKernel | v3.1.1.2 | GTM_2026-W06_080 | GTM_2026-W06_099 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/SharedKernel.md) |
+| BEST-PRACTICES | v3.1.1.1 | GTM_2026-W06_080 | GTM_2026-W06_104 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/BEST-PRACTICES.md) |
 | PROTOCOLS | v2.4.4 | GTM_2026-W05_509 | GTM_2026-W05_512 | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/PROTOCOLS.md) |
 | CCC | v2.4.3 | GTM_2026-W05_793 | GTM_2026-W05_795 | [GitHub](https://github.com/WeOwnNet/CCC/blob/main/CCC_CONTRIBUTOR-CODE-CONVENTION.md) |
 
