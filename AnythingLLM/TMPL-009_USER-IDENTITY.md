@@ -1,16 +1,18 @@
 # TMPL-009_USER-IDENTITY.md
 
-## 📋 TMPL-009_USER-IDENTITY_v2.4.0.md
+## 📋 TMPL-009_USER-IDENTITY_v3.1.1.1.md
 ## ♾️ WeOwnNet 🌐 — User Identity Template
 
 | Field | Value |
 |-------|-------|
 | Template | TMPL-009_USER-IDENTITY |
-| Version | 2.4.0 |
-| CCC-ID | GTM_2026-W05_773 |
-| Updated | 2026-01-30 (W05) |
+| Version | 3.1.1.1 |
+| CCC-ID | GTM_2026-W06_241 |
+| Created | 2026-01-30 (W05) |
+| Updated | 2026-02-05 (W06) |
+| Season | #WeOwnSeason003 🚀 |
 | Status | 🔒 LOCKED |
-| Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-009_USER-IDENTITY_v2.4.0.md) |
+| Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-009_USER-IDENTITY_v3.1.1.1.md) |
 
 ---
 
@@ -36,6 +38,7 @@
 | Permissions | Document user role and access |
 | Attribution | Static identity for #threadHEADER inheritance |
 | Audit | Traceability of user assignments |
+| Season Compliance | BP-058 requires Season field |
 
 ### Lifecycle
 
@@ -43,6 +46,7 @@
 |--------|-------|
 | Created | Once per user |
 | Updated | Rarely (role change, instance assignment) |
+| Refreshed | Each #WeOwnSeason (BP-058) |
 | Storage | RAG (persistent) |
 | Type | Static |
 
@@ -51,8 +55,12 @@
 | Type | ID | Description |
 |------|-----|-------------|
 | Definition | D-047 | #threadHEADER (dynamic attribution) |
+| Definition | D-048 | #HomeInstance |
 | Learning | L-069 | VSA MUST include #threadHEADER |
+| Learning | L-070 | USER-IDENTITY storage in `_USERS_/` |
 | Best Practice | BP-049 | #threadHEADER required for attribution |
+| Best Practice | BP-050 | Onboarding Workflow |
+| Best Practice | BP-058 | USER-IDENTITY Season refresh |
 | Rule | R-160 | Username format standard |
 
 ---
@@ -64,20 +72,30 @@
 | Field | Type | Description | Example |
 |-------|------|-------------|---------|
 | CCC | String (3 chars) | Contributor Code Convention | `GTM` |
-| Contributor | String | Full name | `yonks` |
-| Username | String | #AnythingLLM username (per R-160) | `a-gtm_dev` |
-| Role | Enum | ADMIN / DEFAULT | `ADMIN` |
-| Instance(s) | Array | Assigned instances | `INT-001, INT-002` |
-| Workspace(s) | Array | Assigned workspaces | `CCC, tools, ADMIN` |
+| Contributor | String | Full name | `yonks (Jason Younker)` |
+| Username | String | #AnythingLLM username (per R-160) | `u-gtm_user` |
+| Role | Enum | ADMIN / DEFAULT | `DEFAULT` |
+| Instance(s) | Array | Assigned instances | `INT-001, INT-005` |
+| Workspace(s) | Array | Assigned workspaces | `CCC` |
 | Created | Date | Creation date (ISO) | `2026-01-30` |
+| **Season** | String | Current #WeOwnSeason | `#WeOwnSeason003 🚀` |
 
 ### Optional Fields
 
 | Field | Type | Description | Example |
 |-------|------|-------------|---------|
-| Updated | Date | Last update date (ISO) | `2026-01-30` |
+| #HomeInstance | String | Primary personal instance (D-048) | `INT-005` |
+| Updated | Date | Last update date (ISO) | `2026-02-05` |
 | Notes | String | Additional context | `Founding OG` |
 | Status | Enum | ACTIVE / INACTIVE | `ACTIVE` |
+| Mode Unlocked | String | Achievement tier | `#GODx10xMODE 🔒` |
+
+### Schema Change Log
+
+| Version | Change |
+|---------|--------|
+| v2.4.0 | Initial schema |
+| v3.1.1.1 | +Season field (REQUIRED) — BP-058 compliance |
 
 ---
 
@@ -114,27 +132,102 @@
 ```markdown
 # User Identity: <CCC>
 
+## 📋 USER-IDENTITY_<CCC>_v3.1.1.1.md
+## ♾️ WeOwnNet 🌐 — User Identity Document
+
+| Field | Value |
+|-------|-------|
+| Document | USER-IDENTITY_<CCC>.md |
+| Version | 3.1.1.1 |
+| CCC-ID | <CCC-ID> |
+| Created | <YYYY-MM-DD> (W<WW>) |
+| Updated | <YYYY-MM-DD> (W<WW>) |
+| Season | #WeOwnSeason00X 🚀 |
+| Status | 🔒 LOCKED |
+
+---
+
 ## 📋 User Identity
 
 | Field | Value |
 |-------|-------|
 | CCC | <CCC> |
 | Contributor | <Full Name> |
-| Username | <username> |
-| Role | <ADMIN / DEFAULT> |
-| Instance(s) | <INT-00X, ...> |
-| Workspace(s) | <workspace, ...> |
+| Username | u-<ccc>_user |
+| Role | DEFAULT |
+| Instance(s) | INT-00X |
+| #HomeInstance | INT-00X |
+| Workspace(s) | CCC |
 | Created | <YYYY-MM-DD> |
 | Updated | <YYYY-MM-DD> |
-| Status | <ACTIVE / INACTIVE> |
-
-## 📋 Notes
-
-<Optional notes about user>
+| Season | #WeOwnSeason00X 🚀 |
+| Status | ACTIVE |
 
 ---
 
-#FlowsBros #FedArch #UserIdentity
+## 📋 Admin Identity
+
+| Field | Value |
+|-------|-------|
+| Username | a-<ccc>_dev |
+| Role | ADMIN |
+| Instance(s) | INT-00X |
+| Workspace(s) | CCC, tools, ADMIN |
+
+---
+
+## 📋 Profile
+
+| Field | Value |
+|-------|-------|
+| Handle | <Display Name> |
+| GitHub | [<username>](https://GitHub.com/<username>) |
+| Role | <Organizational Role> |
+| Status | <Status> |
+| Mode Unlocked | <Achievement> |
+
+---
+
+## 📋 #HomeInstance
+
+| Field | Value |
+|-------|-------|
+| Instance | INT-00X |
+| Name | <Instance Name> |
+| Type | #HomeInstance |
+| Owner(s) | @<CCC> |
+| Status | ✅ ACTIVE |
+
+---
+
+## 📋 Instance Access
+
+| Instance | Name | Role | Status |
+|----------|------|------|--------|
+| INT-00X | <Instance Name> | User | ✅ ACTIVE |
+
+---
+
+## 📋 #FedArch Participation
+
+| Field | Value |
+|-------|-------|
+| Reports To | #MetaAgent (INT-001) |
+| Protocol | #ContextVolley |
+| Authority | <Role / Achievement> |
+| #HomeInstance | INT-00X |
+
+---
+
+## 📋 Version History
+
+| Version | Date | #masterCCC | Approval | Changes |
+|---------|------|------------|----------|---------|
+| 3.1.1.1 | 2026-W06 | <CCC-ID> | <CCC-ID> | Initial creation |
+
+---
+
+#FlowsBros #FedArch #UserIdentity #WeOwnSeason00X
 
 ♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
 ```
@@ -155,6 +248,7 @@
 | Instance(s) | ___ |
 | Workspace(s) | ___ |
 | Created | ___ |
+| Season | #WeOwnSeason00X 🚀 |
 | Updated | ___ |
 | Status | ACTIVE |
 
@@ -180,7 +274,7 @@ ___
 | Purpose | WHO is the user | WHERE is the action |
 | Lifecycle | Long-lived | Per-operation |
 | Storage | RAG | Inline |
-| Changes | Rarely | Every thread |
+| Changes | Rarely (+ each Season) | Every thread |
 
 ### Inheritance Diagram
 
@@ -190,10 +284,11 @@ ___
 │                    (Static — WHO)                               │
 │                                                                 │
 │   CCC: GTM ─────────────────────────────────┐                  │
-│   Username: a-gtm_dev ──────────────────────┤                  │
-│   Role: ADMIN                               │                  │
-│   Instances: INT-001, INT-002               │ inherits         │
-│   Workspaces: CCC, tools, ADMIN             │                  │
+│   Username: u-gtm_user ─────────────────────┤                  │
+│   Role: DEFAULT                             │                  │
+│   Instances: INT-001, INT-005               │ inherits         │
+│   Workspaces: CCC                           │                  │
+│   Season: #WeOwnSeason003 🚀                │                  │
 │                                             ↓                  │
 └─────────────────────────────────────────────────────────────────┘
                               │
@@ -203,9 +298,9 @@ ___
 │                    (Dynamic — WHERE)                            │
 │                                                                 │
 │   CCC: GTM ←────────────────── inherited                       │
-│   Username: a-gtm_dev ←─────── inherited                       │
+│   Username: u-gtm_user ←────── inherited                       │
 │   Instance: INT-001 ←───────── current session                 │
-│   Workspace: tools ←────────── current session                 │
+│   Workspace: CCC ←──────────── current session                 │
 │   Thread UUID: 62b10159-... ←─ current thread                  │
 │   Timestamp: Th 14:56 EST ←─── now                             │
 │                                                                 │
@@ -238,34 +333,82 @@ ___
 
 ## 📋 Usage Examples
 
-### Example 1: Founding OG (ADMIN)
+### Example 1: Founding OG (with #HomeInstance)
 
 ```markdown
 # User Identity: GTM
+
+## 📋 USER-IDENTITY_GTM_v3.1.1.1.md
+## ♾️ WeOwnNet 🌐 — User Identity Document
+
+| Field | Value |
+|-------|-------|
+| Document | USER-IDENTITY_GTM.md |
+| Version | 3.1.1.1 |
+| CCC-ID | GTM_2026-W06_165 |
+| Created | 2026-01-30 (W05) |
+| Updated | 2026-02-04 (W06) |
+| Season | #WeOwnSeason003 🚀 |
+| Status | 🔒 LOCKED |
+
+---
 
 ## 📋 User Identity
 
 | Field | Value |
 |-------|-------|
 | CCC | GTM |
-| Contributor | yonks |
-| Username | a-gtm_dev |
-| Role | ADMIN |
-| Instance(s) | INT-001, INT-002 |
-| Workspace(s) | CCC, tools, ADMIN |
-| Created | 2026-01-15 |
-| Updated | 2026-01-30 |
+| Contributor | yonks (Jason Younker) |
+| Username | u-gtm_user |
+| Role | DEFAULT |
+| Instance(s) | INT-001, INT-005 |
+| #HomeInstance | INT-005 |
+| Workspace(s) | CCC |
+| Created | 2026-01-30 |
+| Updated | 2026-02-04 |
+| Season | #WeOwnSeason003 🚀 |
 | Status | ACTIVE |
-
-## 📋 Notes
-
-Founding OG. Co-Founder / Chief Digital Alchemist.
 
 ---
 
-#FlowsBros #FedArch #UserIdentity
+## 📋 Admin Identity
 
-♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
+| Field | Value |
+|-------|-------|
+| Username | a-gtm_dev |
+| Role | ADMIN |
+| Instance(s) | INT-001, INT-005 |
+| Workspace(s) | CCC, tools, ADMIN |
+
+---
+
+## 📋 Profile
+
+| Field | Value |
+|-------|-------|
+| Handle | yonks.box｜🤖🏛️🪙｜Jason Younker ♾️ |
+| GitHub | [YonksTEAM](https://GitHub.com/YonksTEAM) |
+| Role | Co-Founder / Chief Digital Alchemist & Architect for #ResponsibleAgenticAI |
+| Status | 🏛️ Founding OG |
+| Mode Unlocked | **#GODx10xMODE** 🔒 |
+
+---
+
+## 📋 #HomeInstance
+
+| Field | Value |
+|-------|-------|
+| Instance | INT-005 |
+| Name | AI.YonksTEAM.xyz |
+| Type | #HomeInstance |
+| Owners | @GTM + @THY |
+| Status | ✅ ACTIVE |
+
+---
+
+#FlowsBros #FedArch #UserIdentity #HomeInstance #GODx10xMODE #WeOwnSeason003
+
+♾️ WeOwnNet 🌐
 ```
 
 ### Example 2: Contributor (DEFAULT)
@@ -278,30 +421,31 @@ Founding OG. Co-Founder / Chief Digital Alchemist.
 | Field | Value |
 |-------|-------|
 | CCC | LDC |
-| Contributor | Dhruv |
+| Contributor | Dhruv Malik |
 | Username | u-ldc_user |
 | Role | DEFAULT |
-| Instance(s) | INT-002 |
-| Workspace(s) | CCC, tools |
-| Created | 2026-01-20 |
-| Updated | — |
+| Instance(s) | INT-001, INT-002 |
+| #HomeInstance | INT-001 |
+| Workspace(s) | CCC |
+| Created | 2026-02-04 |
+| Season | #WeOwnSeason003 🚀 |
 | Status | ACTIVE |
 
 ## 📋 Notes
 
-Agentic AI Engineer / Project Lead. #ProjectConnex.
+Agentic AI Platform Engineer. #ProjectConnex.
 
 ---
 
 #FlowsBros #FedArch #UserIdentity
 
-♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
+♾️ WeOwnNet 🌐
 ```
 
 ### Example 3: Tool Agent
 
 ```markdown
-# User Identity: t-vsa_tool
+# User Identity: t-pinata_tool
 
 ## 📋 User Identity
 
@@ -309,23 +453,23 @@ Agentic AI Engineer / Project Lead. #ProjectConnex.
 |-------|-------|
 | CCC | — |
 | Contributor | Tool Agent |
-| Username | t-vsa_tool |
+| Username | t-pinata_tool |
 | Role | DEFAULT |
 | Instance(s) | INT-001 |
 | Workspace(s) | tools |
-| Created | 2026-01-30 |
-| Updated | — |
+| Created | 2026-02-03 |
+| Season | #WeOwnSeason003 🚀 |
 | Status | ACTIVE |
 
 ## 📋 Notes
 
-VSA Framework Tool Agent. Steward: @GTM.
+Pinata.cloud Tool Agent. Steward: @GTM. ShortCode: @MAIT:#Pinata.
 
 ---
 
 #FlowsBros #FedArch #UserIdentity
 
-♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
+♾️ WeOwnNet 🌐
 ```
 
 ---
@@ -334,10 +478,11 @@ VSA Framework Tool Agent. Steward: @GTM.
 
 | Version | Date | #masterCCC | Approval | Changes |
 |---------|------|------------|----------|---------|
+| 3.1.1.1 | 2026-W06 | GTM_2026-W06_241 | GTM_2026-W06_247 | +Season field (REQUIRED); +#HomeInstance; +Profile section; +Admin Identity section; BP-058 compliance; #WeOwnVer L-094; FULL PRESERVE from v2.4.0 (L-097) |
 | 2.4.0 | 2026-W05 | GTM_2026-W05_763 | GTM_2026-W05_772 | Initial release; +R-160 username format; +D-047 relationship; +inheritance diagram |
 
 ---
 
-#FlowsBros #FedArch #UserIdentity #TMPL009
+#FlowsBros #FedArch #UserIdentity #TMPL009 #WeOwnSeason003
 
 ♾️ WeOwnNet 🌐 | 🏡 Real Estate and 🤝 cooperative ownership for everyone. An 🤗 inclusive community, by 👥 invitation only.
