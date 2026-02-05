@@ -12,7 +12,7 @@
 | Updated | 2026-02-05 (W06) |
 | Season | #WeOwnSeason003 🚀 |
 | Status | 🔒 LOCKED |
-| Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-009_USER-IDENTITY) |
+| Source of Truth | [GitHub](https://github.com/WeOwnNet/templates/blob/main/AnythingLLM/TMPL-009_USER-IDENTITY.md) |
 
 ---
 
